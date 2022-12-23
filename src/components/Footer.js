@@ -36,7 +36,7 @@ function Fotter() {
 					</a>
 				</div>
 
-				<div className="footerObject">
+				{/* <div className="footerObject">
 					<a
 						href={require("../assets/resume.pdf")}
 						download="Labesh-Baral Resume"
@@ -44,7 +44,7 @@ function Fotter() {
 						<BsNewspaper className="footerObject-icon" />
 					</a>
 
-				</div>
+				</div> */}
 
 			</div>
         <p> &#169;Labesh Baral 2022</p>

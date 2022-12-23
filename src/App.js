@@ -6,7 +6,8 @@ import LinkAccount from './components/LinkAccount';
 import Transactions from './components/Transactions';
 import Budget from "./components/Budget"
 import History from './components/History';
-import Footer from "./components/Footer"
+import Sidebar from "./components/Sidebar"
+import SidebarRight from "./components/SidebarRight"
 import Help from "./components/Help" 
 import Error from "./components/Error.js"
 function App() {
@@ -16,7 +17,8 @@ function App() {
       
       <Router>
         <Header/>
-
+        <Sidebar/>
+        <SidebarRight/>
         <Routes>
         <Route exact path='' element={<LinkAccount/>}/>
           <Route exact path='overview' element={<Overview/>}/>
@@ -25,7 +27,7 @@ function App() {
           <Route exact path='history' element={<History/>}/>
           <Route exact path='error' element={<Error/>}/>
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </Router> 
       
 

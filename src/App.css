@@ -37,6 +37,47 @@
   }
 }
 body{
-  background-color: #635BFF;
+  background-color: #eff3f8;
   
+}
+
+.sidebarRight{
+  position:fixed;
+  right:0;
+  bottom: 0;
+  top: 65px;
+  background-color: white;
+  width: 300px;
+  z-index: 400;
+
+}
+
+.sidebar-icons{
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar-icons img{
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.sidebar-icons:hover{
+background-color: rgb(234, 234, 234);
+}
+
+.sidebar-icons div{
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.logout{
+  font-size: 10px;
+  font-weight: 300;
+  position: absolute;
+  bottom: 30px;
+  margin-left: 20px;
 }

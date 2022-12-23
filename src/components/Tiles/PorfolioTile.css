@@ -1,12 +1,11 @@
 .porfolioTile{
     background-color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     height: 250px;
     width: 300px;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 1, 1) 0px 0px 16px -3px;
 
 
 
@@ -19,7 +18,6 @@
 }
 
 .porfolioTile > h1{
-
     text-align: start;
     font-weight: 300;
     font-size: 15px;

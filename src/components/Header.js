@@ -9,31 +9,31 @@ function Header() {
       <div className="container">
 
         <Link to="">
-          <h1 className="logo">expex</h1>
+        <div className='cust-logo'>
+          <div className='double-e'>ƎE</div>
+          <div className='name'>EXPEX</div>
+        </div>
         </Link>
 
         <div className="navigation">
 
           <Link to="overview">
-            <div className="nav-item" >Overview</div>
+            <div className="nav-item-dash">Dashboard</div>
           </Link>
-          <Link to="transactions">
-          <div className="nav-item">Transactions</div>
-          </Link>
-
           <Link to="budget">
-          <div className="nav-item">Budget</div>
+          <div className="nav-item">Financial Planner</div>
           </Link>
 
           <Link to="history">
-          <div className="nav-item">History</div>
+          <div className="nav-item">Invest</div>
           </Link>
 
           <Link to="error">
           <div className="nav-item">Help</div>
           </Link>
 
-          
+
+
         </div>
       </div>
     </nav>
