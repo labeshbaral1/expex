@@ -1,0 +1,29 @@
+.expenseTile{
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    height: 250px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 1, 1) 0px 0px 16px -3px;
+
+
+}
+
+.expenseTile:hover{
+    cursor: pointer;
+    transform: scale(1.05)
+    
+}
+
+.expenseTile > h1{
+
+    text-align: start;
+    font-weight: 300;
+    font-size: 20px;
+
+
+}
+
+.chart-snapshot > img{
+    width: 100px}
+

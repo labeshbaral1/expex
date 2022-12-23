@@ -1,0 +1,38 @@
+
+
+.contact-menu{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.footer{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #3e0cf3;
+    height: 150px;
+    gap: 8px;
+
+}
+.footerObject-icon{
+    height: 20px;
+    width: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.footerObject-icon:hover{
+    transform: scale(1.3);
+    transition: .05s;
+
+}
+
+
+
+.footer > p{
+    color: #FFFFFF;
+    font-size: 12px;
+}

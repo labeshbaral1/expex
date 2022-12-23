@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from "./components/Header.js"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import Overview from './components/Overview';
+import LinkAccount from './components/LinkAccount';
+import Transactions from './components/Transactions';
+import Budget from "./components/Budget"
+import History from './components/History';
+import Footer from "./components/Footer"
+import Help from "./components/Help" 
+import Error from "./components/Error.js"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      
+      <Router>
+        <Header/>
+
+        <Routes>
+        <Route exact path='' element={<LinkAccount/>}/>
+          <Route exact path='overview' element={<Overview/>}/>
+          <Route exact path='transactions' element={<Transactions/>}/>
+          <Route exact path='budget' element={<Budget/>}/>
+          <Route exact path='history' element={<History/>}/>
+          <Route exact path='error' element={<Error/>}/>
+        </Routes>
+        <Footer/>
+      </Router> 
+      
+
     </div>
   );
 }

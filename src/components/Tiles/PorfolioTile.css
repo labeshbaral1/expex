@@ -1,0 +1,41 @@
+.porfolioTile{
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    height: 250px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 1, 1) 0px 0px 16px -3px;
+
+
+
+}
+
+.porfolioTile:hover{
+    cursor: pointer;
+    transform: scale(1.05)
+    
+}
+
+.porfolioTile > h1{
+
+    text-align: start;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 10px;
+
+
+}
+
+.change{
+    font-weight: 900;
+    color: green;
+    font-size: 25px
+    ;
+}
+
+.value{
+    font-size: 30px;
+}
+

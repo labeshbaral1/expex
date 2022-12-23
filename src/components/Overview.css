@@ -1,0 +1,45 @@
+.overview{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+
+}
+
+.container{
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.left-container{
+width: 45%;
+}
+
+.porfolio{
+
+
+}
+
+.right-container{
+    width: 45%;
+
+}
+.expenses{
+
+
+}
+
+
+.tile{    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 16px -3px;
+	background-color: #ffffff;
+}
+
+.span-container{
+    
+}

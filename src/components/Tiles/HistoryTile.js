@@ -1,0 +1,18 @@
+import React from 'react'
+import History from "../../assets/historysnapshot.png"
+import "./HistoryTile.css"
+
+function HistoryTile() {
+  return (
+    <div className='historyTile'>
+    <h1>History</h1>
+    
+    <div className='chart-snapshot'>
+        <img src={History} alt="" />
+    </div>
+</div>  
+
+)
+}
+
+export default HistoryTile
