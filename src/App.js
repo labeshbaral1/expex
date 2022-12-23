@@ -25,7 +25,7 @@ function App() {
           <div className='content-container'>
             <Sidebar/>
             <div className="content">
-              <Overview/>
+               <Overview/>
             </div>
             <SidebarRight/>
           </div>
