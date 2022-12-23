@@ -17,17 +17,28 @@ function App() {
       
       <Router>
         <Header/>
-        <Sidebar/>
-        <SidebarRight/>
         <Routes>
         <Route exact path='' element={<LinkAccount/>}/>
-          <Route exact path='overview' element={<Overview/>}/>
+
+          <Route exact path='overview' element= {
+          
+          <div className='content-container'>
+            <Sidebar/>
+            <div className="content">
+              <Overview/>
+            </div>
+            <SidebarRight/>
+          </div>
+
+        }/>
+
           <Route exact path='transactions' element={<Transactions/>}/>
           <Route exact path='budget' element={<Budget/>}/>
           <Route exact path='history' element={<History/>}/>
           <Route exact path='error' element={<Error/>}/>
         </Routes>
-        {/* <Footer/> */}
+        
+      
       </Router> 
       
 

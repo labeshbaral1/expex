@@ -8,7 +8,7 @@ function Overview() {
   return (
     <div className="overview">
 
-      <div className="container">
+      <div className="tile-container">
 
         <div className="left-container">
             <PorfolioTile/>

@@ -1,17 +1,21 @@
 .overview{
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 25px;
     max-width: 800px;
+    margin: 0 auto;
+    padding-top: 25px;
+
 
 }
 
-.container{
+.tile-container{
     max-width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border: 2px red solid;
+    padding: 10px;
 }
 
 
@@ -20,19 +24,13 @@
 width: 45%;
 }
 
-.porfolio{
 
-
-}
 
 .right-container{
     width: 45%;
 
 }
-.expenses{
 
-
-}
 
 
 .tile{    
@@ -40,6 +38,3 @@ width: 45%;
 	background-color: #ffffff;
 }
 
-.span-container{
-    
-}

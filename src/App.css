@@ -37,7 +37,8 @@
   }
 }
 body{
-  background-color: #eff3f8;
+  background-color: white;
+
   
 }
 
@@ -80,4 +81,16 @@ background-color: rgb(234, 234, 234);
   position: absolute;
   bottom: 30px;
   margin-left: 20px;
+}
+
+.content-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.content{
+    width: 100%;
+  border-radius: 15px;
+  background-color: #eff3f8;
+
 }
