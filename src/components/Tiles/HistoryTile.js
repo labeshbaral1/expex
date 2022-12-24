@@ -5,7 +5,7 @@ import "./HistoryTile.css"
 function HistoryTile() {
   return (
     <div className='historyTile'>
-    <h1>History</h1>
+    <h1 className='tile-title'>History</h1>
     
     <div className='chart-snapshot'>
         <img src={History} alt="" />

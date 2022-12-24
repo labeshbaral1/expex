@@ -1,17 +1,17 @@
 .historyTile{
     background-color: white;
-    margin: 0 auto;
     padding: 10px;
     border-radius: 15px;
-    max-width: 800px;
-    height:500px;
-
-
+    height: 300px;
+    width: 500px;
+    margin-right: 20px;
+    background: #fff;
+    float: left;
+    transition: box-shadow .4s;
 }
 
 .historyTile:hover{
-    cursor: pointer;
-    transform: scale(1.05);
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .historyTile > h1{
