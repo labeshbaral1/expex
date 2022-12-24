@@ -12,10 +12,12 @@ import Sidebar from "./components/Sidebar"
 import SidebarRight from "./components/SidebarRight"
 import Help from "./components/Help"
 import Error from "./components/Error.js"
-import { useState } from "react"
+import {useState} from "react"
+import {useSelector} from "react-redux"
 function App() {
 
-  const [loggedIn, toggleLoggedIn] = useState(true)
+  
+  const loggedIn = useSelector(state => state.loggedIn.isLogged)
 
   var tab = document.querySelector('.tab');
 
@@ -38,6 +40,16 @@ function App() {
         {loggedIn && <Header />}
 
         <Routes>
+          
+        <Route exact path="" element=
+
+        {loggedIn ? <LinkAccount/> : 
+          <Signin/> 
+        }
+        
+
+        />
+          <Route exact path='linkAccount' element= {<LinkAccount/>}/>
 
           <Route exact path='' element=
 
