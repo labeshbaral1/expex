@@ -1,12 +1,12 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import {db, auth} from "../../firebase/firebase"
-import {useDispatch} from "react-redux"
-import { toggleLoggedIn } from '../../redux/loggedInSlice';
 
-// import {loginUser} from "../../actions/signinAction"
+
+import {useDispatch} from "react-redux"
+
 
 import "./Signin.css"
+import { loginUser } from '../../actions/signinAction';
 
 
 function Signin() {
@@ -23,18 +23,11 @@ function Signin() {
 
         <h1> Expex Sign In</h1>
 
-        <form className='signin-form' onSubmit={event => {
-            event.preventDefault()
-            auth
-            .signInWithEmailAndPassword(email, password)
-            .then(auth => {
-                dispatch(toggleLoggedIn(true))
-                navigate("")
-            })
-            .catch(error => alert(error.message))
-
-            console.log("sucessfully signed in")
+        <form className='signin-form' onSubmit={event => 
         
+        {
+            event.preventDefault()
+            loginUser(email, password, dispatch, navigate)
       
         }}>
 

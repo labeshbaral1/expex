@@ -2,11 +2,14 @@ import { useState } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import { signupUser } from "../../actions/signupAction";
-import { db, auth } from "../../firebase/firebase";
 
 function Signup() {
-  const [email, updateEmail] = useState("");
+  const [name, updateName] = useState(
+    "user" + String(Math.floor(Math.random() * 1000 + 1))
+  );
+  const [email, updateEmail] = useState("@gmail.com");
   const [password, updatePassword] = useState("");
+
   const navigate = useNavigate();
 
   return (
@@ -17,26 +20,16 @@ function Signup() {
         className="signup-form "
         onSubmit={(event) => {
           event.preventDefault();
-          auth
-            .createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-              if (auth.additionalUserInfo.isNewUser) {
-                db.collection("users")
-                  .doc(email)
-                  .collection("user-info")
-                  .doc("register-settings")
-                  .set({
-                    email: email,
-                    created: new Date(),
-                  });
-
-                  navigate("/signin");
-              }
-            })
-            .catch((error) => alert(error.message));
-
+          signupUser(name, email, password, navigate);
         }}
       >
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => updateName(e.target.value)}
+        />
         <input
           type="text"
           id="email"
