@@ -14,6 +14,14 @@ import Help from "./components/Help"
 import Error from "./components/Error.js"
 import {useState} from "react"
 import {useSelector} from "react-redux"
+
+
+
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+
 function App() {
 
   
@@ -58,7 +66,8 @@ function App() {
           <Route exact path='overview' element={
 
             <div className='content-container'>
-              <Sidebar />
+
+              <Sidebar icons={[<DashboardOutlinedIcon />,<PersonAddAltOutlinedIcon />,<HelpCenterOutlinedIcon />,<SettingsOutlinedIcon />]}/>
               <div className="content">
                 <Overview />
               </div>
@@ -84,3 +93,7 @@ function App() {
 
 
 export default App;
+
+
+
+
