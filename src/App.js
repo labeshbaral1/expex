@@ -13,10 +13,10 @@ import SidebarRight from "./components/SidebarRight"
 import Help from "./components/Help" 
 import Error from "./components/Error.js"
 import {useState} from "react"
+import {useSelector} from "react-redux"
 function App() {
 
-  const [loggedIn, toggleLoggedIn] = useState(false)
-
+    const loggedIn = useSelector(state => state.loggedIn.isLogged)
 
   
   return (
@@ -29,13 +29,15 @@ function App() {
 
         <Routes>
           
-        <Route exact path='' element=
+        <Route exact path="" element=
 
         {loggedIn ? <LinkAccount/> : 
           <Signin/> 
         }
+        
 
         />
+          <Route exact path='linkAccount' element= {<LinkAccount/>}/>
 
           <Route exact path='signin' element= {<Signin/>}/>
 
