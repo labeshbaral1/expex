@@ -3,7 +3,7 @@ import "./Budget.css"
 
 function Budget() {
   return (
-    <div>Budget</div>
+    <div>Budget rag</div>
   )
 }
 

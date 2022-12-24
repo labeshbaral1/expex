@@ -1,10 +1,6 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-
-
 import {useDispatch} from "react-redux"
-
-
 import "./Signin.css"
 import { loginUser } from '../../actions/signinAction';
 
@@ -27,9 +23,8 @@ function Signin() {
         
         {
             event.preventDefault()
-            loginUser(email, password, dispatch, navigate)
+            loginUser(email, password, dispatch, navigate) }
       
-        }}>
 
 
             <input type="text" id="email" placeholder="Enter email" value={email} onChange={(e)=> updateEmail(e.target.value)}/>
