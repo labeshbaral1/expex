@@ -18,18 +18,18 @@ function Header() {
         <div className="navigation">
 
           <Link to="overview">
-            <div className="nav-item-dash">Dashboard</div>
+            <div className="tab">Dashboard</div>
           </Link>
           <Link to="budget">
-          <div className="nav-item">Financial Planner</div>
+          <div className="tab">Financial Planner</div>
           </Link>
 
           <Link to="history">
-          <div className="nav-item">Invest</div>
+          <div className="tab">Invest</div>
           </Link>
 
           <Link to="error">
-          <div className="nav-item">Help</div>
+          <div className="tab">Help</div>
           </Link>
 
 

@@ -1,10 +1,10 @@
 .sidebarRight{
     position:sticky;
     background-color: white;
-    width: 300px;
+    width: 350px;
     z-index: 400;
     display: flex;
-
+    bottom: 0;
 }
 
 .sidebarRight-icons{

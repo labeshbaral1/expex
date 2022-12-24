@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import {signinAction} from "../../actions/signinAction"
+// import {loginUser} from "../../actions/signinAction"
 
 import "./Signin.css"
 
@@ -20,7 +20,7 @@ function Signin() {
 
         <form className='signin-form ' onSubmit={event => {
             event.preventDefault() 
-            signinAction(email, password)
+            // loginUser(email, password)
         }}>
 
 

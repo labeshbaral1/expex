@@ -1,20 +1,21 @@
-.expenseTile{
+.incomeTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
-    margin-right: 20px;
     height: 300px;
     width: 350px;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     float: left;
     transition: box-shadow .4s;
 }
 
-.expenseTile:hover{
-        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+.incomeTile:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-.expenseTile > h1{
+.incomeTile > h1{
 
     text-align: start;
     font-weight: 300;
@@ -22,7 +23,3 @@
 
 
 }
-
-.chart-snapshot > img{
-    width: 100px}
-

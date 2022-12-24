@@ -10,8 +10,8 @@ function PorfolioTile() {
 
   return (
     <div className='porfolioTile'>
-        <h1>Total Asset Value</h1>
-        <div className='change'>{porfolioChange}%</div>
+        <h1 className='tile-title'>Total Asset Value</h1>
+
         <div className='chart-snapshot'>
             <img src={NetWorth} alt="" />
         </div>
