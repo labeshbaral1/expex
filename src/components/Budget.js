@@ -4,6 +4,8 @@ import "./Budget.css"
 function Budget() {
   return (
     <div>Budget rag</div>
+
+    
   )
 }
 

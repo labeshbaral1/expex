@@ -19,18 +19,8 @@ function App() {
   
   const loggedIn = useSelector(state => state.loggedIn.isLogged)
 
-  var tab = document.querySelector('.tab');
-
-  var currentURL = window.location.href;
-
-  if (currentURL.includes('overview')) {
-    tab.style.backgroundColor = 'blue';
-  } else if (currentURL.includes('budget')) {
-    tab.style.backgroundColor = 'green';
-  } else if (currentURL.includes('history')) {
-    tab.style.backgroundColor = 'blue';
-  }
-
+ 
+  
   return (
     <div className="App">
 

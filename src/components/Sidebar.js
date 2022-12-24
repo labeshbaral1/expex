@@ -6,8 +6,14 @@ import HelpCenterOutlinedIcon from '@mui/icons-material/HelpCenterOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import { Link  } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
+import {signoutUser} from '../actions/signoutAction'
+import { useDispatch } from "react-redux";
+
 function Sidebar() {
+        const dispatch = useDispatch()
+        const navigate = useNavigate()
+
 	return (
         <div class="sidebar">
                 <div class="dash-icons">
@@ -30,11 +36,14 @@ function Sidebar() {
                 <SettingsOutlinedIcon/>
                 </div>
                 </div>
-                <div class="logout">
-               <div className="dash-background">
-                <LogoutOutlinedIcon/>
-                </div>
-                </div>
+
+                <div class="logout" onClick={() => signoutUser(dispatch, navigate)}>
+                        <div className="dash-background" >
+                                <LogoutOutlinedIcon />
+
+
+                                </div>
+                        </div>
     </div>
 	);
 }
