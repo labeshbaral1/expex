@@ -2,7 +2,7 @@ import './App.css';
 import Header from "./components/Header.js"
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import Signin from "./components/Landing/Signin"
-import Singup from "./components/Landing/Signup" 
+import Signup from "./components/Landing/Signup" 
 import Overview from './components/Overview';
 import LinkAccount from './components/LinkAccount';
 import Transactions from './components/Transactions';
@@ -24,13 +24,24 @@ function App() {
 
       
       <Router>
+
         {loggedIn && <Header/>}
+
         <Routes>
+          
         <Route exact path='' element=
 
-        {loggedIn ? <LinkAccount/> : <Signin/>}
+        {loggedIn ? <LinkAccount/> : 
+          <Signin/> 
+        }
 
         />
+
+          <Route exact path='signin' element= {<Signin/>}/>
+
+        
+          <Route exact path='signup' element= {<Signup/>}/>
+
 
           <Route exact path='overview' element= {
           

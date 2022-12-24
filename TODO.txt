@@ -1,0 +1,4 @@
++ routing Landing Page > signin > signup > rest of website 
+
+
++ authentication in mongoDB! - right now 2 users with same name can sign up * find a proper authentication protocol with mongoDB
