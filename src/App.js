@@ -1,6 +1,8 @@
 import './App.css';
 import Header from "./components/Header.js"
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import Signin from "./components/Landing/Signin"
+import Singup from "./components/Landing/Signup" 
 import Overview from './components/Overview';
 import LinkAccount from './components/LinkAccount';
 import Transactions from './components/Transactions';
@@ -10,15 +12,25 @@ import Sidebar from "./components/Sidebar"
 import SidebarRight from "./components/SidebarRight"
 import Help from "./components/Help" 
 import Error from "./components/Error.js"
+import {useState} from "react"
 function App() {
+
+  const [loggedIn, toggleLoggedIn] = useState(false)
+
+
+  
   return (
     <div className="App">
 
       
       <Router>
-        <Header/>
+        {loggedIn && <Header/>}
         <Routes>
-        <Route exact path='' element={<LinkAccount/>}/>
+        <Route exact path='' element=
+
+        {loggedIn ? <LinkAccount/> : <Signin/>}
+
+        />
 
           <Route exact path='overview' element= {
           
