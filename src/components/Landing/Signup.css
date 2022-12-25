@@ -1,14 +1,148 @@
+.signup{
 
+}
+
+.top-logo2{
+    font-size: 25px;
+    font-weight: 900;
+    color: #635BFF;
+    margin-left: 2%;
+    margin-top: 1.58%;
+}
 
 .signup-form{
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 1.5s ease 0.5s forwards;
+    margin-top: 6.0%;
+    margin-bottom: 6.0%;
+    background-color: #d8c7ff;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
-    max-width: 200px;
+    margin-bottom: 50px;
+    width: 500px;
+    height: 600px;
     display: flex;
+    gap: 2px;
+    padding-left: 125px;
+    padding-right: 125px;
+    border-radius: 25px;
     flex-direction: column;
-    gap: 20px;
-    background-color: wheat;
-    padding: 20px;
+
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+@keyframes fadeInUp{
+    to{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.intro-text{
+    margin-left: 20%;
+    display: flex;
+    margin-top: 20%;
+    margin-bottom: 60%;
+    font-size: 35px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+.up{
+    background: transparent;
+    height: 30px;
+    margin-bottom: 1%;
+    padding-left: 3px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.signup-but{
+    height: 35px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    background-color:#635BFF;
+    border: 1px solid lightgrey;
+    color: white;
+    font-weight: 500;
+    font-size: 11px;
     
+}
+
+.goog2-reg{
+    height: 35px;
+    margin-top: 8%;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.signup-but:hover,
+.goog2-reg{
+    cursor: pointer;
+}
+
+.signup-cont{
+
+    padding-bottom: 30px;
+}
+
+.small-name{
+    margin-top: -35%;
+    margin-bottom: 0.5%;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+.small-email2{
+    margin-top: 8%;
+    margin-bottom: 0.5%;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+
+.small-pass2{
+    margin-top: 10%;
+    margin-bottom: 0.5%;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+.divider-tot{
+display: flex;
+flex-direction: row;
+}
+
+.divider1{
+    margin-left: 2%;
+    color: rgb(74, 74, 74);
+}
+
+.divider2{
+    margin-left: 10%;
+    color: rgb(74, 74, 74);
+}
+
+.or{
+    margin-left: 47.5%;
+    margin-top: -5%;
+    font-size: 10px;
+    color: rgb(74, 74, 74);
+    font-weight: 600;
 }

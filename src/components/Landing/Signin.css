@@ -77,7 +77,10 @@ justify-content: center;
   .login-items{
     display: flex;
     flex-direction: column;
-    width: 275px;
+    width: 295px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
   }
 
 .login-title{
@@ -111,6 +114,7 @@ justify-content: center;
     border: 1px solid lightgrey;
     font-weight: 400;
     font-size: 11px;
+    
 }
 
 .pass{
