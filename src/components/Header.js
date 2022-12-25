@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Header.css"
 import { Link  } from 'react-router-dom'
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 
 function Header() {
@@ -31,6 +32,10 @@ function Header() {
           <Link to="error">
           <div className="tab">Help</div>
           </Link>
+
+          <div className='notifs'>
+
+          </div>
 
 
 

@@ -42,3 +42,10 @@
 .sidebar-icons:hover{
 background-color: rgb(234, 234, 234);
 }
+
+.account-list{
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

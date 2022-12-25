@@ -8,7 +8,7 @@ function HistoryTile() {
     <h1 className='tile-title'>History</h1>
     
     <div className='chart-snapshot'>
-        <img src={History} alt="" />
+
     </div>
 </div>  
 

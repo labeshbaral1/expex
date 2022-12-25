@@ -13,9 +13,9 @@ function PorfolioTile() {
         <h1 className='tile-title'>Total Asset Value</h1>
 
         <div className='chart-snapshot'>
-            <img src={NetWorth} alt="" />
+
         </div>
-        <div className='value'>{porfolioValue}</div>
+
 
     </div>
   )
