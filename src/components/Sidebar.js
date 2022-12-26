@@ -12,6 +12,7 @@ function Sidebar({ icons }) {
 
   return (
     <div className="sidebar">
+        
       {icons.map((Ico) => {
         return (
           <div class="dash-icons">
