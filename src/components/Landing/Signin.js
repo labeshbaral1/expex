@@ -17,25 +17,63 @@ function Signin() {
   return (
     <div className="signin">
 
-        <h1> Expex Sign In</h1>
-
         <form className='signin-form' onSubmit={event => 
         
         {
             event.preventDefault()
             loginUser(email, password, dispatch, navigate) }
           }>
+
+
+
+
+<div className='bodyy'>
+
+    <div className='split left'>
+        <div className='top-logo'>Expex</div>
+        <div className='centered'>
+            <div className='login-items'>
+                <div className='login-title'>Welcome back</div>
+                <div className='login-desc'>Welcome back! Please enter your details.</div>
+                <div className='small-email'>Email</div>
+                <input type="text" id="email" className='em' placeholder=" Enter your email" value={email} onChange={(e)=> updateEmail(e.target.value)}/>
+                <div className='small-email'>Password</div>
+                <input type="text" id="password" className='pass' placeholder=" Enter password" value={password} onChange={(e)=> updatePassword(e.target.value)}/>
+                <div className='forgot'>Forgot password</div>
+                <button className='goog1-but'>Sign in</button>
+                <button className='goog2-but'>Sign in with Google</button>
+                <div className='new-acct'>
+                    <div className='new-acct1'>Don't have an account?</div>
+                    <div onClick={() => navigate('/signup') } className='new-acct2'>Sign Up</div>
+                </div>
+            </div>
+        </div>
+      </div>
       
+      <div className='split right'>
+        <div className='centered'>
+            <div className='custum'>
+                <div className='double-ee'>ƎE</div>
+                <div className='namee'>EXPEX</div>
+              </div>
+        </div>
+      </div>
 
+</div>
 
-            <input type="text" id="email" placeholder="Enter email" value={email} onChange={(e)=> updateEmail(e.target.value)}/>
-            <input type="text" id="password" placeholder="Enter password" value={password} onChange={(e)=> updatePassword(e.target.value)}/>
-            <button>Sign In</button>
 
             
+
+
+
+
+
+
+
+
         </form>
 
-        <p onClick={() => navigate('/signup') }>Havent Signed Up?</p>
+
 
       
 
