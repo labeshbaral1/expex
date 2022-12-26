@@ -3,9 +3,14 @@ const moment = require("moment");
 const app = express();
 const port = 3001;
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+
+const db = require("./firebase/firebase")
+
+
 const cors = require("cors");
 const plaid = require("plaid");
+
+
 const { PLAID_CLIENT_ID, PLAID_SECRET } = require("./key");
 
 const client = new plaid.Client({
@@ -18,71 +23,22 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-mongoose.connect(
-  `mongodb+srv://expex:labesh1234@expex.yqoxyvp.mongodb.net/?retryWrites=true&w=majority`,
-  {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  }
-);
 
-const db = mongoose.connection;
-
-let userSchema = mongoose.Schema({
-  email: String,
-  password: String,
-  transactions: Array,
-  items: Array,
-});
-
-let User = mongoose.model("User", userSchema);
-
-db.on("error", console.error.bind(console, "connection error:"));
-
-db.once("open", () => {
   app.get("/", (req, res) => {
     res.send("Server is Currently running...");
   });
 
-  app.post("/register", (req, res) => {                 //registers users to MongoDB
-    let { email, password } = req.body;
-
-    let newUser = new User({ email, password });
-
-    newUser.save((err, user) => {
-      res.send({ message: `User created with ID: ${user._id}` }); 
-    });
-
-  });
-
-  app.post("/login", (req, res) => {
-    let { email, password } = req.body;
-    User.findOne({ email, password }, (err, doc) => {
-      if (err) {
-        res.sendStatus(400);
-        return;
-      }
-      res.send({ id: doc._id });
-    });
-  });
 
   app.post("/create_link_token", (req, res) => {
     let { uid } = req.body;
     console.log(`Recieved: ${uid} as token!!!`);
-    User.findById(uid, (err, doc) => {
-      if (err) {
-        res.sendStatus(400);
-        return;
-      }
-      let userId = doc._id;
 
       client.createLinkToken(
         {
           user: {
-            client_user_id: userId,
+            client_user_id: uid,
           },
-          client_name: "Lint",
+          client_name: "Expex",
           products: ["transactions"],
           country_codes: ["US"],
           language: "en",
@@ -91,39 +47,36 @@ db.once("open", () => {
           res.json({ link_token: linkTokenResponse.link_token });
         }
       );
-    });
+    ;
   });
 
   app.post("/get_access_token", (req, res) => {
-    let { public_token, uid } = req.body;
 
+    let { public_token, uid, email} = req.body;
+
+    console.log(public_token)
+um
     client.exchangePublicToken(public_token, (err, response) => {
       if (err) return res.json({ error: "Oops" });
 
       let { access_token, item_id } = response;
 
-      User.findByIdAndUpdate(
-        uid,
-        {
-          $addToSet: {
-            items: { access_token: access_token, item_id: item_id },
-          },
-        },
-        (err, data) => {
-          console.log("Getting transactions");
-          let today = moment().format("YYYY-MM-DD");
-          let past = moment().subtract(30, "days").format("YYYY-MM-DD");
-          client.getTransactions(access_token, past, today, (err, response) => {
-            res.send({ transactions: response.transactions });
-            User.findByIdAndUpdate(
-              uid,
-              { $addToSet: { transactions: response.transactions } },
-              (err, data) => {}
-            );
-          });
-        }
-      );
+
+      console.log(access_token, item_id)
+
+      db.collection("users")
+      .doc(email)
+      .collection("user-info")
+      .doc("register-settings")
+      .set({
+        items: { access_token: access_token, item_id: item_id },
+      });
+     
+      
+    
     });
+
+
   });
 
   app.post("/transactions", (req, res) => {
@@ -153,4 +106,3 @@ db.once("open", () => {
   app.listen(port, () => {
     console.log(`Listending on port ${port}`);
   });
-});

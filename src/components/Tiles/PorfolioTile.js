@@ -9,6 +9,7 @@ function PorfolioTile() {
 
 
   return (
+
     <div className='porfolioTile'>
         <h1 className='tile-title'>Total Asset Value</h1>
 
