@@ -4,27 +4,28 @@ import { Link } from 'react-router-dom'
 function SidebarRight() {
     return (
         <div class="sidebarRight">
-            <div class="sidebarRight-icons">
-                <div className="account-examples">
-                    <div className="acc">
-                        Accounts
-                    </div>
-                    <div className="account-list">
-                        <div>
-                            HSBC Account: 1482
-                        </div>
-                        <div>
-                            Chase Account: 9214
-                        </div>
-                        <div>
-                            DCU Account: 2341
-                        </div>
-                        <div>
-                            CapCom Account: 2312
-                        </div>
-                    </div>
+            <div className="account">
+                <div className="account-list">
+                    <div className="title">Accounts</div>
+                    <p className="account">
+                        Account 1 : $100,000
+                    </p>
+                    <p className="account">
+                        Account 2 : $200,000
+
+                    </p>
+                    <p className="account">
+                        Account 3 : $300,000
+
+                    </p>
+
                 </div>
-                <div className="trans">Transactions</div>
+
+            </div>
+            <div className="transactions">
+            <div className="title">Transaactions</div>
+
+
             </div>
         </div>
     );

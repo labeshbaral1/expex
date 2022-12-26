@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { signupUser } from "../../actions/signupAction";
 
 function Signup() {
+
+  
   const [name, updateName] = useState(
     "user" + String(Math.floor(Math.random() * 1000 + 1))
   );

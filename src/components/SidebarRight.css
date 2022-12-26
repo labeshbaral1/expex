@@ -1,51 +1,14 @@
 .sidebarRight{
-    position:sticky;
     background-color: white;
-    width: 350px;
-    z-index: 400;
-    display: flex;
     bottom: 0;
-}
-
-.sidebarRight-icons{
-    position: relative;
-    margin-left: 15px;
+    position: sticky;
+    padding: 10px;
 
 }
 
-.acc{
-    padding-bottom: 10px;
-    font-size: 17px;
+.account{
+    margin-bottom: 20px;
+}
+.title {
     font-weight: 600;
-    margin-top: 15px    
-}
-
-.account-examples{
-    margin-left: 0;
-
-}
-
-.trans{
-    font-size: 17px;
-    font-weight: 600;
-    bottom: 600px;
-    position: absolute;
-    left: 0;
-
-}
-
-.sidebar-icons img{
-    height: 24px;
-    margin-bottom: 4px;
-}
-
-.sidebar-icons:hover{
-background-color: rgb(234, 234, 234);
-}
-
-.account-list{
-    margin-top: 7px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 }
