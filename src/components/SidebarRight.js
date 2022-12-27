@@ -1,31 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./SidebarRight.css";
 import { Link } from "react-router-dom";
-import { useSelect } from "@mui/base";
 import { useSelector, useDispatch } from "react-redux";
+import {updateBalance} from "../actions/balance"
+
 function SidebarRight() {
-  const [bal, setBal] = useState(0);
+
   const dispatch = useDispatch();
+  const [bal, setBal] = useState(0)
 
-  useEffect(() => {
-    const getBalance = async () => {
-      const balanceResponse = await fetch("http://localhost:8000/api/balance", {
-        method: "GET",
-      });
 
-      const balance = await balanceResponse.json();
+  useEffect(()=> {
 
-      let totalBalance = 0;
-      for (const account of balance.accounts) {
-        totalBalance += account.balances.current;
-      }
+    updateBalance(dispatch).then(b => setBal(b))
 
-    //   dispatch(setBalance({ balance: totalBalance }));
-      setBal(totalBalance)
-    };
+    
+}, [])
+ 
 
-    getBalance();
-  }, []);
+
 
   return (
     <div class="sidebarRight">

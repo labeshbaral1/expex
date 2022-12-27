@@ -5,10 +5,10 @@ import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
 import { setLinkToken, setAccToken } from "../redux/userSlice";
+import { updateBalance } from "../actions/balance";
 
 export default function AddAccount() {
   const [token, setToken] = useState(null);
-
   const uid = useSelector((state) => state.user.uid);
   const dispatch = useDispatch();
 
@@ -66,6 +66,8 @@ export default function AddAccount() {
     };
 
     setAccessToken();
+    updateBalance(dispatch);
+
   }, []);
 
   const onEvent = useCallback((eventName, metadata) => {
@@ -79,7 +81,7 @@ export default function AddAccount() {
     // https://plaid.com/docs/link/web/#onexit
     // console.log(error, metadata);
 
-    
+
   }, []);
 
   const config = {
