@@ -31,6 +31,7 @@ app.use(cors());
 
   app.post("/create_link_token", (req, res) => {
     let { uid } = req.body;
+    
     console.log(`Recieved: ${uid} as token!!!`);
 
       client.createLinkToken(

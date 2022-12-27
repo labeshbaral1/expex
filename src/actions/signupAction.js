@@ -1,4 +1,3 @@
-import axios from "axios";
 import { db, auth } from "../firebase/firebase";
 import { uid } from 'uid';
 

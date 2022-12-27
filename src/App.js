@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Signin from "./components/Landing/Signin"
 import Signup from "./components/Landing/Signup"
 import Overview from './components/Overview';
-import LinkAccount from './components/LinkAccount';
+import AddAccount from './components/AddAccount';
 import Transactions from './components/Transactions';
 import Budget from "./components/Budget"
 import History from './components/History';
@@ -41,17 +41,17 @@ function App() {
           
         <Route exact path="" element=
 
-        {loggedIn ? <LinkAccount/> : 
+        {loggedIn ? <AddAccount/> : 
           <Signin/> 
         }
         
 
         />
-          <Route exact path='linkAccount' element= {<LinkAccount/>}/>
+          <Route exact path='linkAccount' element= {<AddAccount/>}/>
 
           <Route exact path='' element=
 
-            {loggedIn ? <LinkAccount /> :
+            {loggedIn ? <AddAccount /> :
               <Signin />
             }
 

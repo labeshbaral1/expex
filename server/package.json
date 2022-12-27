@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "startDev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +13,14 @@
   "dependencies": {
     "@firebase/app-compat": "^0.2.0",
     "@firebase/firestore-compat": "^0.3.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "firebase": "^9.15.0",
-    "moment": "^2.29.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.10.7",
-    "plaid": "^7.1.0"
+    "nodemon": "^2.0.20",
+    "plaid": "^12.2.0"
   }
 }
