@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     accounts: [],
-    displayElements: []
+    displayElements: [],
+    balance: 0
  
   
 };
@@ -12,11 +13,13 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     setAccounts: (state, action) => {
-        state.accounts = [action.payload]
-
+        state.accounts = action.payload
     },
     addAccount: (state, action) => {
         state.accounts.push(action.payload)
+    },
+    setBalance: (state, action) => {
+      state.accounts.balance = action.payload.balance
     },
     setDisplayElements: (state, action) => {
       state.displayElements = action.payload.displayElements
@@ -26,4 +29,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { setAccounts, addAccount, setDisplayElements} = accountSlice.actions;
+export const { setAccounts, addAccount, setDisplayElements, setBalance} = accountSlice.actions;

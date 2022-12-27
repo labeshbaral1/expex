@@ -111,6 +111,7 @@ app.post("/api/create_link_token", function (request, response, next) {
 //Exchange a Link public_token(return if create_link_token) for an API access_token after the onSucess callback on the Link
 app.post('/api/set_access_token', function (request, response, next) {
 
+
     PUBLIC_TOKEN = request.body.public_token;
 
     Promise.resolve()

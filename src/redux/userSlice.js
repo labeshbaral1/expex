@@ -5,6 +5,7 @@ const initialState = {
   email: null,
   uid: null, 
   linkToken: null,
+  accessToken: null,
   transactions: []
   
 };
@@ -21,6 +22,9 @@ const userSlice = createSlice({
     setLinkToken: (state, action) => {
         state.linkToken = action.payload.linkToken
     },
+    setAccToken: (state, action) => {
+      state.accessToken = action.payload.accessToken
+  },
     setTransactions: (state, action) => {
         state.transactions = action.payload.transactions
     }
@@ -29,4 +33,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { setUser, setLinkToken, setTransactions} = userSlice.actions;
+export const { setUser, setLinkToken, setTransactions, setAccToken} = userSlice.actions;

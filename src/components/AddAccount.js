@@ -4,7 +4,7 @@ import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-import { setLinkToken } from "../redux/userSlice";
+import { setLinkToken, setAccToken } from "../redux/userSlice";
 
 export default function AddAccount() {
   const [token, setToken] = useState(null);
@@ -22,11 +22,15 @@ export default function AddAccount() {
 
       const { link_token } = await linkTokenResponse.json();
 
-      dispatch(setLinkToken(link_token));
+      dispatch(setLinkToken({linkToken: link_token}));
       setToken(link_token);
+      
     };
+    
 
     createLinkToken();
+    
+
   }, []);
 
   const isOAuthRedirect = window.location.href.includes("?oauth_state_id=");
@@ -45,30 +49,28 @@ export default function AddAccount() {
     // send public_token to your server
     // https://plaid.com/docs/api/tokens/#token-exchange-flow
 
-    console.log("This is the Public Token")
-    console.log(publicToken, metadata);
-
     const setAccessToken = async () => {
       const accessTokenResponse = await fetch(
         "http://localhost:8000/api/set_access_token/",
-        { method: "POST", body: JSON.stringify({ publicToken }) }
+        {
+          method: "POST",
+          body: JSON.stringify({ public_token: publicToken }),
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }
       );
 
-      const { access_token } = await accessTokenResponse.json();
-      console.log("This is the access Token")
-      console.log(access_token);
-
-      
+      const {access_token} = await accessTokenResponse.json();
+      dispatch(setAccToken({accessToken: access_token}));
     };
 
     setAccessToken();
-
   }, []);
 
   const onEvent = useCallback((eventName, metadata) => {
     // log onEvent callbacks from Link
     // https://plaid.com/docs/link/web/#onevent
-
     // console.log(eventName, metadata);
   }, []);
 
@@ -76,6 +78,8 @@ export default function AddAccount() {
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     // console.log(error, metadata);
+
+    
   }, []);
 
   const config = {
