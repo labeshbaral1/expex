@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 25px;
     margin: 0 auto;
-    padding-top: 25px;
+    padding-top: 3%;
     bottom: 0px;
 }
 
@@ -20,6 +20,7 @@
     padding: 10px;
     margin-bottom: 2%;
 }
+
 .bottom-container{
     display: flex;
     flex-direction: row;

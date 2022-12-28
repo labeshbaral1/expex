@@ -1,4 +1,4 @@
-.porfolioTile{
+.balanceTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
@@ -9,30 +9,19 @@
     background: #fff;
     float: left;
     transition: box-shadow .4s;
-    margin-right: 2%;
 }
 
-.porfolioTile:hover{
+.balanceTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-
-.porfolioTile > h1{
+.balanceTile > h1{
     text-align: start;
     font-weight: 300;
     font-size: 20px;
-    margin-bottom: 10px;
-
 }
 
-.change{
-    font-weight: 900;
-    color: green;
-    font-size: 25px
-    ;
+.tile-title{
+    margin-left: 5px;
+    margin-top: 3px;
 }
-
-.value{
-    font-size: 30px;
-}
-

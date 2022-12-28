@@ -2,7 +2,6 @@
     background-color: white;
     padding: 10px;
     border-radius: 15px;
-    margin-right: 2%;
     height: 300px;
     width: 350px;
     background: #fff;
@@ -26,3 +25,6 @@
 .chart-snapshot > img{
     width: 100px}
 
+.incomePie{
+margin-right: 30px;
+}

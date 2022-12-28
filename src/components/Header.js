@@ -21,6 +21,11 @@ function Header() {
           <Link to="overview">
             <div className="tab">Dashboard</div>
           </Link>
+
+          <Link to="error">
+          <div className="tab">Balances</div>
+          </Link>
+
           <Link to="budget">
           <div className="tab">Financial Planner</div>
           </Link>
@@ -29,9 +34,6 @@ function Header() {
           <div className="tab">Invest</div>
           </Link>
 
-          <Link to="error">
-          <div className="tab">Help</div>
-          </Link>
 
           <div className='notifs'>
 

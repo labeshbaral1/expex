@@ -1,38 +1,28 @@
-.porfolioTile{
+.distTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
     height: 300px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
+    width: 550px;
+    margin-right: 2%;
     background: #fff;
     float: left;
     transition: box-shadow .4s;
-    margin-right: 2%;
 }
 
-.porfolioTile:hover{
+.distTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+.distTile > h1{
 
-.porfolioTile > h1{
     text-align: start;
     font-weight: 300;
     font-size: 20px;
-    margin-bottom: 10px;
+
 
 }
 
-.change{
-    font-weight: 900;
-    color: green;
-    font-size: 25px
-    ;
+.chart-snapshot > img{
+    width: 80%;
 }
-
-.value{
-    font-size: 30px;
-}
-
