@@ -6,9 +6,12 @@ import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
 import { setLinkToken, setAccToken } from "../redux/userSlice";
 import { updateBalance } from "../actions/balance";
+import { db } from "../firebase/firebase";
+import axios from "axios";
 
 export default function AddAccount() {
   const [token, setToken] = useState(null);
+  const email = useSelector((state) => state.user.email);
   const uid = useSelector((state) => state.user.uid);
   const dispatch = useDispatch();
 
@@ -17,20 +20,22 @@ export default function AddAccount() {
     const createLinkToken = async () => {
       const linkTokenResponse = await fetch(
         "http://localhost:8000/api/create_link_token/",
-        { method: "POST", body: JSON.stringify({ uid }) }
+        {
+          method: "POST",
+          body: JSON.stringify({ uid }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       const { link_token } = await linkTokenResponse.json();
 
-      dispatch(setLinkToken({linkToken: link_token}));
+      dispatch(setLinkToken({ linkToken: link_token }));
       setToken(link_token);
-      
     };
-    
 
     createLinkToken();
-    
-
   }, []);
 
   const isOAuthRedirect = window.location.href.includes("?oauth_state_id=");
@@ -57,17 +62,54 @@ export default function AddAccount() {
           body: JSON.stringify({ public_token: publicToken }),
           headers: {
             "Content-Type": "application/json",
-          }
+          },
         }
       );
 
-      const {access_token} = await accessTokenResponse.json();
-      dispatch(setAccToken({accessToken: access_token}));
+      const { access_token } = await accessTokenResponse.json();
+
+      dispatch(setAccToken({ accessToken: access_token }));
+      console.log("ADD ACC btoa of " + email + "is:" + btoa(email));
+
+      db.collection("users")
+        .doc(btoa(email))
+        .collection("accounts")
+        .doc("accessTokens")
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            const data = doc.data();
+            let updatedTokens;
+
+            if (data.accessTokens) {
+              // accesTokens array is not empty
+
+              updatedTokens = [...data.accessTokens, access_token];
+            } else {
+              // accesTokens array is empty
+              updatedTokens = [access_token];
+            }
+
+            db.collection("users")
+              .doc(btoa(email))
+              .collection("accounts")
+              .doc("accessTokens")
+              .update({
+                accessTokens: updatedTokens,
+              });
+          } else {
+            db.collection("users")
+              .doc(btoa(email))
+              .collection("accounts")
+              .doc("accessTokens")
+              .set({ accessTokens: [access_token] });
+          }
+        });
     };
 
     setAccessToken();
-    updateBalance(dispatch);
 
+    // updateBalance(dispatch);
   }, []);
 
   const onEvent = useCallback((eventName, metadata) => {
@@ -80,8 +122,6 @@ export default function AddAccount() {
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     // console.log(error, metadata);
-
-
   }, []);
 
   const config = {

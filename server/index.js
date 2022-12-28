@@ -81,14 +81,15 @@ app.post("/api/info", function (request, response, next) {
 app.post("/api/create_link_token", function (request, response, next) {
 
   let { uid } = request.body;
-  console.log(uid)
+
+    console.log("This is the UID:" +  uid)
 
   Promise.resolve()
     .then(async function () {
       const configs = {
         user: {
           // This should correspond to a unique id for the current user.
-          client_user_id: 'userID',
+          client_user_id: uid,
         },
         client_name: "Plaid Quickstart",
         products: PLAID_PRODUCTS,
@@ -220,11 +221,17 @@ app.get('/api/identity', function (request, response, next) {
 
 // Retrieve real-time Balances for each of an Item's accounts
 // https://plaid.com/docs/#balance
-app.get('/api/balance', function (request, response, next) {
+app.post('/api/balance', function (request, response, next) {
+  const {accessToken} = request.body
+
+  console.log("This is the AccessTOKEN body:" +  accessToken)
+
+  
+  console.log(accessToken)
     Promise.resolve()
       .then(async function () {
         const balanceResponse = await client.accountsBalanceGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(balanceResponse);
         response.json(balanceResponse.data);
