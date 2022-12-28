@@ -1,11 +1,11 @@
 import React from 'react'
 import History from "../../assets/historysnapshot.png"
-import "./HistoryTile.css"
+import "./TotValTile.css"
 
-function HistoryTile() {
+function TotValTile() {
   return (
-    <div className='historyTile'>
-    <h1 className='tile-title'>History</h1>
+    <div className='totvalTile'>
+    <h1 className='tile-title'>Total Asset Value</h1>
     
     <div className='chart-snapshot'>
 
@@ -15,4 +15,4 @@ function HistoryTile() {
 )
 }
 
-export default HistoryTile
+export default TotValTile

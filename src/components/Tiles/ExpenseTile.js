@@ -72,7 +72,7 @@ useEffect(() => {
 
   return (
     <div className='expenseTile'>
-    <h1 className='tile-title'>Spending</h1>
+    <h1 className='tile-title'>Outcome</h1>
     {data ? <Doughnut data={data} height="100px" width="100px" options={{ maintainAspectRatio: false }}/> : "Working"}
     
 

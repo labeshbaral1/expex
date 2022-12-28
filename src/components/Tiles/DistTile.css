@@ -1,28 +1,28 @@
-.spendingTile{
+.distTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
     height: 300px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 3%;
+    width: 550px;
+    margin-right: 2%;
     background: #fff;
     float: left;
     transition: box-shadow .4s;
 }
 
-.spendingTile:hover{
+.distTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-.spendingTile > h1{
+.distTile > h1{
+
     text-align: start;
     font-weight: 300;
     font-size: 20px;
+
+
 }
 
-.tile-title{
-    margin-left: 5px;
-    margin-top: 3px;
+.chart-snapshot > img{
+    width: 80%;
 }

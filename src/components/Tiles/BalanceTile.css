@@ -1,28 +1,27 @@
-.blankTile{
+.balanceTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
     height: 300px;
-    width: 550px;
-    margin-left: 3%;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     float: left;
     transition: box-shadow .4s;
 }
 
-.blankTile:hover{
+.balanceTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-.blankTile > h1{
-
+.balanceTile > h1{
     text-align: start;
     font-weight: 300;
     font-size: 20px;
-
-
 }
 
-.chart-snapshot > img{
-    width: 80%;
+.tile-title{
+    margin-left: 5px;
+    margin-top: 3px;
 }

@@ -11,7 +11,7 @@ function PorfolioTile() {
   return (
 
     <div className='porfolioTile'>
-        <h1 className='tile-title'>Total Asset Value</h1>
+        <h1 className='tile-title'>Blank</h1>
 
         <div className='chart-snapshot'>
 
