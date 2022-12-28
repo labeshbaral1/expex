@@ -4,6 +4,8 @@ import "./TotValTile.css"
 
 function TotValTile() {
   return (
+
+    
     <div className='totvalTile'>
     <h1 className='tile-title'>Total Asset Value</h1>
     
