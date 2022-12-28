@@ -17,7 +17,7 @@
 }
 
 .incomeTile > h1{
-    text-align: start;
+    align-self: flex-start;
     font-weight: 300;
     font-size: 20px;
 

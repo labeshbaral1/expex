@@ -470,7 +470,7 @@ export default class Example extends PureComponent {
           <h1 className='tile-title'>Income</h1>
           <ResponsiveContainer width="140%" height="105%" >
           {/* <div className="chart-container"> */}
-            <PieChart margin={{top: 0, left: 40, right: 40, bottom: 0}} className='jim' width="160%" height="120%">
+            <PieChart margin={{top: 0, left: 120, right: 120, bottom: 0}} className='jim' width="160%" height="120%">
               <Pie
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape}
