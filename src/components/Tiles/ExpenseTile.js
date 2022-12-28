@@ -464,7 +464,7 @@ export default class Example extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <div className='incomeTile'>
+        <div className='expenseTile'>
           <h1 className='tile-title'>Expenses</h1>
           <ResponsiveContainer className={"jole"} width={330} height={250}>
             <PieChart className='jim' width={160} height={160}>

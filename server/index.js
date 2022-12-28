@@ -223,11 +223,6 @@ app.get('/api/identity', function (request, response, next) {
 // https://plaid.com/docs/#balance
 app.post('/api/balance', function (request, response, next) {
   const {accessToken} = request.body
-
-  console.log("This is the AccessTOKEN body:" +  accessToken)
-
-  
-  console.log(accessToken)
     Promise.resolve()
       .then(async function () {
         const balanceResponse = await client.accountsBalanceGet({
@@ -299,11 +294,13 @@ app.get('/api/holdings', function (request, response, next) {
   
   // Retrieve an Item's accounts
   // https://plaid.com/docs/#accounts
-  app.get('/api/accounts', function (request, response, next) {
+  app.post('/api/accounts', function (request, response, next) {
+    const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         const accountsResponse = await client.accountsGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(accountsResponse);
         response.json(accountsResponse.data);

@@ -28,12 +28,11 @@ export const updateBalance = async (email, dispatch) => {
             },
           }
         );
-        const accounts = balanceResponse.data.accounts;
-
+        const accounts = balanceResponse.data.accounts
         // Calculate the total balance for this access token
         let totalBalance = 0;
         for (const account of accounts) {
-          totalBalance += account.balances.current;
+          totalBalance += account.balances.available;
         }
 
         // Add the total balance to the balances array
