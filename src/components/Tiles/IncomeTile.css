@@ -1,5 +1,4 @@
 .incomeTile{
-    background-color: white;
     padding: 10px;
     border-radius: 15px;
     height: 300px;
@@ -17,10 +16,19 @@
 }
 
 .incomeTile > h1{
-
     text-align: start;
     font-weight: 300;
     font-size: 20px;
 
 
+}
+
+.bob{
+    font-size: 10px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+.jole{
+padding-right: 10px;
 }
