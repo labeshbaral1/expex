@@ -2,37 +2,31 @@ import React, { useEffect, useState } from "react";
 import "./SidebarRight.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {updateBalance} from "../actions/balance"
+import { updateBalance } from "../actions/balance";
+import { db } from "../firebase/firebase";
 
 function SidebarRight() {
-
   const dispatch = useDispatch();
-  const [bal, setBal] = useState(0)
+  const email = useSelector((state) => state.user.email);
+  let balances = useSelector((state) => state.accounts.balances);
+  let i = 1;
 
-
-  useEffect(()=> {
-
-    updateBalance(dispatch).then(b => setBal(b))
-
-    
-}, [])
- 
-
-
+  useEffect(() => {
+    updateBalance(email, dispatch);
+  }, []);
 
   return (
     <div class="sidebarRight">
-      <div className="account">
-        <div className="account-list">
-          <div className="title">Accounts</div>
-          <p className="account">Account 1 : $100,000</p>
-          <p className="account">Account 2 : $200,000</p>
-          <p className="account">Account 3 : $300,000</p>
-        </div>
-      </div>
-      <div className="transactions">
-        <div className="title">Balance</div>
-        <div className="balance">{bal}</div>
+      Right SideBar
+
+      <div className="list">
+        {balances.length == 0 ? (
+          <>BALANCES IS EMPTY</>
+        ) : (
+          balances.map((element) => {
+            return <div>Account Balance: {element}</div>;
+          })
+        )}
       </div>
     </div>
   );

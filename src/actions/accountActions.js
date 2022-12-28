@@ -1,33 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { setAccounts, setDisplayElements } from "../redux/accountSlice";
 
-export const getAccounts = (uid, dispatch, callback) => {
-  axios
-    .post("http://localhost:8000/accounts", {
-      method: "POST",
-      body: JSON.stringify({ uid }),
-    })
+export const getAccounts = async () => {
+  const accessTokensDoc = await db
+    .collection("users")
+    .doc(btoa(email))
+    .collection("accounts")
+    .doc("accessTokens")
+    .get();
 
-    .then((res) => {
-      console.log(res.data.accounts);
-
-      if (res.status === 200) {
-        dispatch(setAccounts(res.data.accounts));
-
-        if (callback) {
-          callback(res.data.accounts);
-        }
-      }
-    });
-};
-
-export const parseAccounts = (rawAccounts, dispatch) => {
-  let elements = rawAccounts.map((rawAccount) => (
-    <tr>
-      <td>{rawAccount.item_id}</td>
-    </tr>
-  ));
-
-  dispatch(setDisplayElements(elements));
+  if (accessTokensDoc.exists) {
+    const accessTokens = accessTokensDoc.data().accessTokens;
+  }
 };

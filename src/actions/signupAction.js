@@ -4,12 +4,15 @@ import { uid } from 'uid';
 
 
 export const signupUser = (name, email, password, navigate) => {
+
+
+console.log("SUA btoa of "+ email + "is:"  + btoa(email))
   auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
               if (auth.additionalUserInfo.isNewUser) {
                 db.collection("users")
-                  .doc(email)
+                  .doc(btoa(email))
                   .collection("user-info")
                   .doc("register-settings")
                   .set({
