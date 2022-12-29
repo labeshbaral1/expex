@@ -36,10 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+
 body{
   background-color: white;
+
   
 }
+
+
 
 .sidebarRight{
   position:fixed;

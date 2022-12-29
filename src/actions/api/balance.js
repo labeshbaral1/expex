@@ -1,8 +1,8 @@
-import { db } from "../firebase/firebase";
-import { setBalances } from "../redux/accountSlice";
+import { db } from "../../firebase/firebase";
+import { setAccounts } from "../../redux/accountSlice";
 import axios from "axios";
 
-export const updateBalance = async (email, dispatch) => {
+export const updateBalances = async (email, dispatch) => {
   const accessTokensDoc = await db
     .collection("users")
     .doc(btoa(email))
@@ -14,9 +14,11 @@ export const updateBalance = async (email, dispatch) => {
     const accessTokens = accessTokensDoc.data().accessTokens;
 
     if (accessTokens.length > 0) {
-      const balances = [];
+      const res = [];
 
       // Loop through the access tokens
+      console.log("POST Call to updateBalances")
+
       for (const accessToken of accessTokens) {
         // Make the API request to get the balance
         const balanceResponse = await axios.post(
@@ -29,18 +31,33 @@ export const updateBalance = async (email, dispatch) => {
           }
         );
         const accounts = balanceResponse.data.accounts
-        // Calculate the total balance for this access token
+
+        const itemResponse = await axios.post(
+          "http://localhost:8000/api/item",
+          { accessToken },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+         const institution = await itemResponse.data.institution.name;
+
         let totalBalance = 0;
         for (const account of accounts) {
           totalBalance += account.balances.available;
         }
 
         // Add the total balance to the balances array
-        balances.push(totalBalance);
+        res.push({
+          name: institution, 
+          balance: totalBalance
+        })
       }
 
       // Store the balances array in the database
-      dispatch(setBalances({balances: balances}))
+      dispatch(setAccounts(res))
     }
   }
 };

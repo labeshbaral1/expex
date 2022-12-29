@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    balances: [],
     accounts:[]
    
 
@@ -13,8 +12,8 @@ const accountSlice = createSlice({
   name: "accounts",
   initialState,
   reducers: {
-    setBalances: (state, action) => {
-      state.balances = action.payload.balances
+    setAccounts: (state, action) => {
+      state.accounts = action.payload
 
     }
   }
@@ -23,4 +22,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { setBalances} = accountSlice.actions;
+export const { setAccounts} = accountSlice.actions;
