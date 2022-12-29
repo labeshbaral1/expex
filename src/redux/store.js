@@ -9,8 +9,7 @@ export const store = configureStore({
     reducer : {
         loggedIn: loggedInReducer,
         user: userReducer,
-        accounts: accountsReducer
-    
+        accounts: accountsReducer    
     }
 
 })

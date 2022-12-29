@@ -4,8 +4,8 @@ import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-import { setLinkToken, setAccToken } from "../redux/userSlice";
-import { updateBalance } from "../actions/balance";
+import { setAccToken } from "../redux/userSlice";
+import { updateBalance } from "../actions/api/balance";
 import { db } from "../firebase/firebase";
 import axios from "axios";
 
@@ -30,8 +30,6 @@ export default function AddAccount() {
       );
 
       const { link_token } = await linkTokenResponse.json();
-
-      dispatch(setLinkToken({ linkToken: link_token }));
       setToken(link_token);
     };
 
@@ -67,9 +65,6 @@ export default function AddAccount() {
       );
 
       const { access_token } = await accessTokenResponse.json();
-
-      dispatch(setAccToken({ accessToken: access_token }));
-      console.log("ADD ACC btoa of " + email + "is:" + btoa(email));
 
       db.collection("users")
         .doc(btoa(email))

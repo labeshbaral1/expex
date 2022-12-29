@@ -140,7 +140,10 @@ app.post('/api/set_access_token', function (request, response, next) {
 
 // Retrieve Transactions for an Item
 // https://plaid.com/docs/#transactions
-app.get('/api/transactions', function (request, response, next) {
+app.post ('/api/transactions', function (request, response, next) {
+
+  const {accessToken, numbeOfTransactions} = request.body
+
     Promise.resolve()
       .then(async function () {
         // Set cursor to empty to receive all historical updates
@@ -154,7 +157,7 @@ app.get('/api/transactions', function (request, response, next) {
         // Iterate through each page of new transaction updates for item
         while (hasMore) {
           const request = {
-            access_token: ACCESS_TOKEN,
+            access_token: accessToken,
             cursor: cursor,
           };
           const response = await client.transactionsSync(request)
@@ -171,7 +174,7 @@ app.get('/api/transactions', function (request, response, next) {
   
         const compareTxnsByDateAscending = (a, b) => (a.date > b.date) - (a.date < b.date);
         // Return the 8 most recent transactions
-        const recently_added = [...added].sort(compareTxnsByDateAscending).slice(-8);
+        const recently_added = [...added].sort(compareTxnsByDateAscending).slice(-5);
         response.json({latest_transactions: recently_added});
       })
       .catch(next);
@@ -205,11 +208,12 @@ app.get('/api/investments_transactions', function (request, response, next) {
   
 // Retrieve Identity for an Item
 // https://plaid.com/docs/#identity
-app.get('/api/identity', function (request, response, next) {
+app.post('/api/identity', function (request, response, next) {
+  const {accessToken} = request.body
     Promise.resolve()
       .then(async function () {
         const identityResponse = await client.identityGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(identityResponse);
         response.json({ identity: identityResponse.data.accounts });
@@ -223,11 +227,6 @@ app.get('/api/identity', function (request, response, next) {
 // https://plaid.com/docs/#balance
 app.post('/api/balance', function (request, response, next) {
   const {accessToken} = request.body
-
-  console.log("This is the AccessTOKEN body:" +  accessToken)
-
-  
-  console.log(accessToken)
     Promise.resolve()
       .then(async function () {
         const balanceResponse = await client.accountsBalanceGet({
@@ -274,13 +273,16 @@ app.get('/api/holdings', function (request, response, next) {
   
   // Retrieve information about an Item
   // https://plaid.com/docs/#retrieve-item
-  app.get('/api/item', function (request, response, next) {
+  app.post('/api/item', function (request, response, next) {
+
+    const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         // Pull the Item - this includes information about available products,
         // billed products, webhook information, and more.
         const itemResponse = await client.itemGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         // Also pull information about the institution
         const configs = {
@@ -299,11 +301,13 @@ app.get('/api/holdings', function (request, response, next) {
   
   // Retrieve an Item's accounts
   // https://plaid.com/docs/#accounts
-  app.get('/api/accounts', function (request, response, next) {
+  app.post('/api/accounts', function (request, response, next) {
+    const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         const accountsResponse = await client.accountsGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(accountsResponse);
         response.json(accountsResponse.data);

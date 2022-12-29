@@ -3,7 +3,7 @@ import "./Sidebar.css";
 
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Link, useNavigate } from "react-router-dom";
-import { signoutUser } from "../actions/signoutAction";
+import { signoutUser } from "../actions/auth/signoutAction";
 import { useDispatch } from "react-redux";
 
 function Sidebar({ icons }) {
