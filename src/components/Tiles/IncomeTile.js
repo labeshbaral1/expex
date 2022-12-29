@@ -413,7 +413,7 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+      <text className='center-text' x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
         {payload.name}
       </text>
       <Sector
@@ -470,15 +470,17 @@ export default class Example extends PureComponent {
           <h1 className='tile-title'>Income</h1>
           <ResponsiveContainer width="140%" height="105%" >
           {/* <div className="chart-container"> */}
-            <PieChart margin={{top: 0, left: 120, right: 120, bottom: 0}} className='jim' width="160%" height="120%">
+
+            <PieChart margin={{top: 10, left: 90, right: 90, bottom: 10}} className='jim' width="160%" height="120%">
+
               <Pie
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape}
                 data={dataForPieChart}
                 cx="50%"
                 cy="50%"
-                innerRadius="55%"
-                outerRadius="75%"
+                innerRadius="45%"
+                outerRadius="70%"
                 fill="#635BFF"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}

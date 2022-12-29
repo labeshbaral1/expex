@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding-top: 3%;
     bottom: 0px;
+    min-width: 1000px;
 }
 
 .tile-container{

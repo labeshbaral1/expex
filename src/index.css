@@ -8,6 +8,8 @@
   overflow: hidden;
 
 
+
+  
 }
 
 a{
@@ -15,6 +17,14 @@ a{
   
 }
 
+
+
+@media only screen and (min-width: 1200px)  {
+ body{
+  width: 1200px;
+  background-color: red;
+ }
+}
 
 
 /* purple: 635BFF */
