@@ -1,3 +1,5 @@
+
+
 .expenseTile{
     padding: 10px;
     border-radius: 15px;
@@ -11,21 +13,22 @@
     transition: box-shadow .4s;
 }
 
-.expenseTile:hover{
-        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+.expenseTile:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
-.expenseTile > h1{
+.expenseTile>h1 {
     align-self: flex-start;
-    font-weight: 300;
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
 
 
+.chart-snapshot>img {
+    width: 100px
 }
 
-.chart-snapshot > img{
-    width: 100px}
-
-.incomePie{
-margin-right: 30px;
+.incomePie {
+    margin-right: 30px;
 }

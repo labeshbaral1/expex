@@ -468,9 +468,8 @@ export default class Example extends PureComponent {
       <React.Fragment>
         <div className='incomeTile'>
           <h1 className='tile-title'>Income</h1>
-          <ResponsiveContainer width="140%" height="105%" >
+          <ResponsiveContainer width="140%" height="88%" >
           {/* <div className="chart-container"> */}
-
             <PieChart margin={{top: 10, left: 90, right: 90, bottom: 10}} className='jim' width="160%" height="120%">
 
               <Pie
@@ -479,8 +478,10 @@ export default class Example extends PureComponent {
                 data={dataForPieChart}
                 cx="50%"
                 cy="50%"
-                innerRadius="45%"
-                outerRadius="70%"
+                // innerRadius="48%"
+                // outerRadius="70%"
+                innerRadius="60%"
+                outerRadius="80%"
                 fill="#635BFF"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}

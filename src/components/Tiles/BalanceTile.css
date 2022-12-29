@@ -16,13 +16,14 @@
 }
 
 .balanceTile > h1{
-    text-align: start;
-    font-weight: 300;
-    font-size: 20px;
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .tile-title{
-    margin-left: 5px;
     margin-top: 3px;
 }
 
@@ -57,4 +58,5 @@
     cursor: pointer;
     background-color: gray;
     color: white;
+
 }

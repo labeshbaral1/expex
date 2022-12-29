@@ -18,11 +18,11 @@
 
 
 .porfolioTile > h1{
-    text-align: start;
-    font-weight: 300;
-    font-size: 20px;
-    margin-bottom: 10px;
-
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .change{

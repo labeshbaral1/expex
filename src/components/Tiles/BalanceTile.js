@@ -57,6 +57,7 @@ function BalanceTile() {
   });
 
   return (
+
     <div className="balanceTile">
       <h1 className="tile-title">Account Balances</h1>
 
