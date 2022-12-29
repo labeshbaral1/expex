@@ -12,5 +12,9 @@
 }
 .title {
     font-weight: 600;
-    margin-bottom: 10px;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
 }

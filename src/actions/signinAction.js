@@ -3,14 +3,14 @@ import { toggleLoggedIn } from "../redux/loggedInSlice";
 import { setUser } from "../redux/userSlice";
 
 export const loginUser = (email, password, dispatch, navigate) => {
-  
+
   auth
     .signInWithEmailAndPassword(email, password)
-    .then((auth) => {
-      dispatch(toggleLoggedIn(true));
 
+    
+    .then((auth) => {
       db.collection("users")
-        .doc(email)
+        .doc(btoa(email))
         .collection("user-info")
         .doc("register-settings")
         .onSnapshot((snap) => {
@@ -26,9 +26,13 @@ export const loginUser = (email, password, dispatch, navigate) => {
 
         });
 
+
+
+
       navigate("/");
     })
     .catch((error) => alert(error.message));
+    dispatch(toggleLoggedIn(true));
 
 };
 

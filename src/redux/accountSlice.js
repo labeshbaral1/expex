@@ -1,32 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    accounts: [],
-    displayElements: [],
-    balance: 0
+    balances: []
+
  
   
 };
 
 const accountSlice = createSlice({
-  name: "user",
+  name: "accounts",
   initialState,
   reducers: {
-    setAccounts: (state, action) => {
-        state.accounts = action.payload
-    },
-    addAccount: (state, action) => {
-        state.accounts.push(action.payload)
-    },
-    setBalance: (state, action) => {
-      state.accounts.balance = action.payload.balance
-    },
-    setDisplayElements: (state, action) => {
-      state.displayElements = action.payload.displayElements
+    setBalances: (state, action) => {
+      state.balances = action.payload.balances
+
     }
-  },
+  }
+   
 });
 
 export default accountSlice.reducer;
 
-export const { setAccounts, addAccount, setDisplayElements, setBalance} = accountSlice.actions;
+export const { setBalances} = accountSlice.actions;
