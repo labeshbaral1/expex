@@ -15,11 +15,7 @@
 }
 
 .totvalTile > h1{
-
     text-align: start;
-    font-weight: 300;
-    font-size: 20px;
-
 
 }
 
@@ -29,4 +25,49 @@
 
 .jim{
     z-index: 100;
+}
+
+.tot-amount{
+    margin-top: 3%;
+    font-size: 42px;
+    font-weight: 900;
+    padding-left: 15px;
+}
+.tile-title{
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.tot-chart{
+margin-top: 30px;
+padding-left: 15px;
+}
+
+.gain-loss{
+    margin-left: 15px;
+    margin-top: 9px;
+    font-size: 14px;
+
+    max-width: 200px;
+    /* color: #635BFF; */
+    background-color: #d8c7ff;
+    border-radius: 5px;
+    padding: 8px;
+    padding-top: 7px;
+    padding-bottom: 6px;
+    display: flex;
+flex-direction: row;
+}
+
+.gain-loss-cont{
+    display: flex;
+flex-direction: row;
+}
+
+.up-arrow{
+    font-size: 9px;
+    margin-top: 2.5px;
+    margin-right: 2.5px;
 }

@@ -18,9 +18,10 @@
 
 .incomeTile > h1{
     align-self: flex-start;
-    font-weight: 300;
-    font-size: 20px;
-
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .bob{

@@ -16,12 +16,51 @@
 }
 
 .balanceTile > h1{
-    text-align: start;
-    font-weight: 300;
-    font-size: 20px;
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .tile-title{
-    margin-left: 5px;
     margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.bank{
+    margin-top: 4%;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+    color: #635BFF;
+
+}
+
+.bank-amount{
+    color: rgb(75, 75, 75);
+    /* color: black; */
+    font-weight: 600;
+    margin-left: 48%;
+}
+
+.account-number{
+    margin-top: 0.5%;
+    margin-left: 15px;
+    font-size: 11px;
+    font-weight: 500;
+    color: gray;
+}
+
+.bank-name2{
+    margin-right: 53px;
+}
+
+.bank-name3{
+    margin-right: 30px;
+}
+
+.bank-name4{
+    margin-right: -83.5px;
 }
