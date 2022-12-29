@@ -475,8 +475,10 @@ export default class Example extends PureComponent {
                 data={dataForPieChart}
                 cx="50%"
                 cy="50%"
-                innerRadius="48%"
-                outerRadius="70%"
+                // innerRadius="48%"
+                // outerRadius="70%"
+                innerRadius="60%"
+                outerRadius="80%"
                 fill="#635BFF"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}
