@@ -23,40 +23,33 @@
     padding-left: 15px;
 }
 
-.tile-title{
-    margin-top: 3px;
-}
 
-
-.institution{
-    font-size: 12px;
-    font-weight: 300px;
-    
-}
-.accounts > p{
-    font-size: 12;
-}
-
-.account {
-    display: flex;
-    flex-direction: column;
-}
-
-.account-container{
+.bank{
+    margin-top: 4%;
+    margin-left: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-weight: 600;
+    color: #635BFF;
+
 }
 
-.unLink-button{
-    border: 1px solid gray;
-    padding: 5px;
-    font-size: 10px;
+.bank-container{
+    display: flex;
+    flex-direction: column;
+
+
 }
 
-.unLink-button:hover{
-    cursor: pointer;
-    background-color: gray;
-    color: white;
+.bank-amount{
+    color: rgb(75, 75, 75);
+    font-weight: 600px;
+}
 
+.account-number{
+    margin-top: 0.5%;
+    font-size: 11px;
+    font-weight: 500;
+    color: gray;
 }

@@ -5,9 +5,10 @@
     margin: 0 auto;
     padding-top: 3%;
     bottom: 0px;
-    min-width: 1100px;
+    min-width: 900px;
 
 }
+
 
 .tile-container{
     display: flex;

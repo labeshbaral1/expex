@@ -17,47 +17,17 @@ function BalanceTile() {
 
   const mappedDictionary = Object.entries(accounts).map(([key, value]) => {
     return (
-      <div key={value.id} className="account">
-        <div className="account-container">
-          <div className="intitution">{value.name}:</div>
-          <div
-            className="unLink-button"
-            onClick={() => {
-              unLinkAccount(value.access_token, key,  dispatch);
-
-              async function removeAccessToken(email, access_token) {
-                try {
-                  const userDocRef = db
-                    .collection("users")
-                    .doc(btoa(email))
-                    .collection("accounts")
-                    .doc("accessTokens");
-                  const userDoc = await userDocRef.get();
-                  const accessTokens = userDoc.data().accessTokens;
-                  const updatedAccessTokens = accessTokens.filter(
-                    (token) => token !== access_token
-                  );
-                  await userDocRef.update({
-                    accessTokens: updatedAccessTokens,
-                  });
-                  updateBalances(dispatch)
-                } catch (error) {
-                  console.error(error);
-                }
-              }
-              removeAccessToken(email, value.access_token)
-            }}
-          >
-            UNLINK
-          </div>
+      <div key={value.id} className="bank">
+        <div className="bank-container">
+          <div className="bank-name">{value.name}:</div>
+          <div className="account-number">**9022</div>
         </div>
-        <p className="balance">${value.balance}</p>
+        <p className="bank-amount">${value.balance}</p>
       </div>
     );
   });
 
   return (
-
     <div className="balanceTile">
       <h1 className="tile-title">Account Balances</h1>
 
