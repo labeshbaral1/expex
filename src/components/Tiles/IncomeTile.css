@@ -1,3 +1,5 @@
+
+
 .incomeTile{
     padding: 10px;
     border-radius: 15px;
@@ -6,6 +8,7 @@
     margin-left: 2%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: #fff;
     float: left;
     transition: box-shadow .4s;
@@ -16,11 +19,10 @@
 }
 
 .incomeTile > h1{
-    text-align: start;
+    align-self: flex-start;
     font-weight: 300;
     font-size: 20px;
-
-
+    overflow-wrap: break-word;
 }
 
 .bob{
@@ -29,6 +31,25 @@
     color: rgb(74, 74, 74);
 }
 
-.jole{
-padding-right: 10px;
+.chart-container{
+    display: flex;
+    flex-direction: column;
+
 }
+
+@media (max-width: 1500px) {
+    .chart-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .jim{
+    width: 330;
+    height: 250;
+  }
+
+  .center-text{
+    /* font-size: 14px; */
+    font-size: 0.9vw;
+  }
