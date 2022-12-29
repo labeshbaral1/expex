@@ -43,6 +43,7 @@ export const updateBalances = async (email, dispatch) => {
         );
 
          const institution = await itemResponse.data.institution.name;
+        const item_id = await itemResponse.data.item.item_id;
 
         let totalBalance = 0;
         for (const account of accounts) {
@@ -51,8 +52,10 @@ export const updateBalances = async (email, dispatch) => {
 
         // Add the total balance to the balances array
         res.push({
+          item_id: item_id,
           name: institution, 
-          balance: totalBalance
+          balance: totalBalance,
+          access_token: accessToken
         })
       }
 

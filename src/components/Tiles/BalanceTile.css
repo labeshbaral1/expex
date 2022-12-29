@@ -35,3 +35,26 @@
 .accounts > p{
     font-size: 12;
 }
+
+.account {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.unLink-button{
+    border: 1px solid gray;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.unLink-button:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}

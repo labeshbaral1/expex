@@ -6,21 +6,51 @@ import { updateBalance } from "../actions/api/balance";
 import { updateTransaction } from "../actions/api/transactions";
 
 function SidebarRight() {
-  const dispatch = useDispatch()
-  const email = useSelector(state => state.user.email)
+  const dispatch = useDispatch();
+  const email = useSelector((state) => state.user.email);
+  const accounts = useSelector((state) => state.accounts.accounts);
 
+  useEffect(() => {
+    updateTransaction(email, dispatch);
+  }, []);
 
+  function getTop5Transactions() {
+    const res = [];
 
-  useEffect(()=>{
-    updateTransaction(email, dispatch)
-  }, [])
-  
+    // Iterate over the accounts in the accounts object
+    Object.entries(accounts).forEach(([key, value]) => {
+      // Get the first 5 transactions for the current account
+      const transactions = value.transactions.slice(0, 5);
+      // Add the transactions to the res array
+      res.push(...transactions);
+    });
+
+    // Sort the transactions by date in descending order
+    res.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Return the first 5 transactions
+    return res.slice(0, 5);
+  }
+
+  const mappedDictionary = Object.entries(getTop5Transactions()).map(
+    ([key, value]) => {
+      return (
+        <div key={value.id} className="transaction">
+          <div className="merchant-name">{value.merchant_name}</div>
+          <div className="transaction-container">
+            <div className="date">{value.date}</div>
+            <div className="price">{value.amount}</div>
+          </div>
+        </div>
+      );
+    }
+  );
 
   return (
-    <div class="sidebarRight">
-      Right SideBar
-
-      
+    <div className="sidebarRight">
+      <h1 className="sideBarRight-title">  Right SideBar
+</h1>
+      {mappedDictionary}
     </div>
   );
 }
