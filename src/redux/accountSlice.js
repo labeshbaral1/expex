@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    accounts:[]
-   
-
- 
-  
+  accounts: {},
 };
 
 const accountSlice = createSlice({
@@ -13,13 +9,40 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     setAccounts: (state, action) => {
-      state.accounts = action.payload
+      for (let i = 0; i < action.payload.length; i++) {
+        let element = action.payload[i];
+        if (state.accounts.hasOwnProperty(element.item_id)) {
+          state.accounts[element.item_id].name = element.name;
+          state.accounts[element.item_id].balance = element.balance;
+        } else {
+          state.accounts[element.item_id] = {
+            name: element.name,
+            balance: element.balance,
+            transactions: [],
+            access_token: element.access_token
+          };
+        }
+      }
+    },
+    setTransactions: (state, action) => {
+
+      for (let i = 0; i < action.payload.length; i++) {
+        let element = action.payload[i];
+        state.accounts[element.item_id].transactions = element.transactions;
+      }
+    },
+    removeAccount: (state, action) => {
+      if (state.accounts.hasOwnProperty(action.payload.item_id)){
+        delete state.accounts[action.payload.item_id]
+      }
+      else{
+        console.log("either account with that id doesnt exist anymore or invalid id")
+      }
 
     }
-  }
-   
+  },
 });
 
 export default accountSlice.reducer;
 
-export const { setAccounts} = accountSlice.actions;
+export const { setAccounts, setTransactions , removeAccount} = accountSlice.actions;

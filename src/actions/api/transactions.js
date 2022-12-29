@@ -1,11 +1,11 @@
 import { db } from "../../firebase/firebase";
-import axios from 'axios'
+import axios from "axios";
+import { setTransactions } from "../../redux/accountSlice";
 
 export const updateTransaction = async (email, dispatch) => {
+  console.log("POST call made to updateTransactions");
 
-  console.log("POST call made to updateTransactions")
-
-  const numberOfTransactions = 5
+  const numberOfTransactions = 5;
 
   const accessTokensDoc = await db
     .collection("users")
@@ -14,25 +14,46 @@ export const updateTransaction = async (email, dispatch) => {
     .doc("accessTokens")
     .get();
 
-    
   if (accessTokensDoc.exists) {
     const accessTokens = accessTokensDoc.data().accessTokens;
 
     if (accessTokens.length > 0) {
+      const res = [];
       for (const accessToken of accessTokens) {
         // Make the API request to get the item
         const transactionResponse = await axios.post(
           "http://localhost:8000/api/transactions",
-          { accessToken , numberOfTransactions},
+          {
+            accessToken: accessToken,
+            numberOfTransactions: numberOfTransactions,
+          },
           {
             headers: {
               "Content-Type": "application/json",
             },
           }
         );
-         const transactions = await transactionResponse.data;
-         console.log(transactions)
+        const transactions = await transactionResponse.data.latest_transactions;
+
+        const itemResponse = await axios.post(
+          "http://localhost:8000/api/item",
+          { accessToken },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const item_id = await itemResponse.data.item.item_id;
+        res.push({
+          item_id: item_id,
+          transactions: transactions
+        })
       }
+      dispatch(
+        setTransactions(res)
+      );
     }
   }
 };

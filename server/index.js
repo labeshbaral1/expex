@@ -11,6 +11,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const moment = require("moment");
 const cors = require("cors");
+// const functions = require('firebase-functions ')
 
 //initialize important constants for Plaid Api
 const {
@@ -20,17 +21,13 @@ const {
   PLAID_PRODUCTS,
   PLAID_COUNTRY_CODES,
   PLAID_REDIRECT_URI,
-  
 } = require("./key");
+
+let ACCESS_TOKEN = null
+let ITEM_ID = null
+
 const APP_PORT = 8000;
 
-//persistent data store
-let ACCESS_TOKEN = null;
-let PUBLIC_TOKEN = null;
-let ITEM_ID = null;
-let TRANSFER_ID = null;
-
-//Initialize Plaid Client
 const configuration = new Configuration({
   basePath: PlaidEnvironments[PLAID_ENV],
   baseOptions: {
@@ -61,20 +58,6 @@ app.get("/", (req, res) => {
   res.send("Server is currently running")
 })
 
-app.get("/getHello", (req, res) => {
-  res.send("Hello")
-
-}
-)
-
-//Returns info
-app.post("/api/info", function (request, response, next) {
-  response.json({
-    item_id: ITEM_ID,
-    access_token: ACCESS_TOKEN,
-    products: PLAID_PRODUCTS,
-  });
-});
 
 // Create a link token with configs which we can then use to initialize Plaid Link client-side.
 //Reqired when initalizing a link to the account (everytime the user signs in). A public token is returned when link is initized which can be used for an access_token
@@ -82,7 +65,6 @@ app.post("/api/create_link_token", function (request, response, next) {
 
   let { uid } = request.body;
 
-    console.log("This is the UID:" +  uid)
 
   Promise.resolve()
     .then(async function () {
@@ -112,20 +94,26 @@ app.post("/api/create_link_token", function (request, response, next) {
 //Exchange a Link public_token(return if create_link_token) for an API access_token after the onSucess callback on the Link
 app.post('/api/set_access_token', function (request, response, next) {
 
-
-    PUBLIC_TOKEN = request.body.public_token;
+    const {publicToken} = request.body
 
     Promise.resolve()
       .then(async function () {
         const tokenResponse = await client.itemPublicTokenExchange({
-          public_token: PUBLIC_TOKEN,
+          public_token: publicToken,
         });
+
+     
         prettyPrintResponse(tokenResponse);
+
         ACCESS_TOKEN = tokenResponse.data.access_token;
         ITEM_ID = tokenResponse.data.item_id;
-        if (PLAID_PRODUCTS.includes(Products.Transfer)) {
-          TRANSFER_ID = await authorizeAndCreateTransfer(ACCESS_TOKEN);
-        }
+
+        // if (PLAID_PRODUCTS.includes(Products.Transfer)) {
+        //   TRANSFER_ID = await authorizeAndCreateTransfer(ACCESS_TOKEN);
+        // }
+
+
+
         response.json({
           // the 'access_token' is a private token, DO NOT pass this token to the frontend in your production environment
           access_token: ACCESS_TOKEN,
@@ -142,7 +130,7 @@ app.post('/api/set_access_token', function (request, response, next) {
 // https://plaid.com/docs/#transactions
 app.post ('/api/transactions', function (request, response, next) {
 
-  const {accessToken, numbeOfTransactions} = request.body
+  const {accessToken, numberOfTransactions} = request.body
 
     Promise.resolve()
       .then(async function () {
@@ -174,7 +162,8 @@ app.post ('/api/transactions', function (request, response, next) {
   
         const compareTxnsByDateAscending = (a, b) => (a.date > b.date) - (a.date < b.date);
         // Return the 8 most recent transactions
-        const recently_added = [...added].sort(compareTxnsByDateAscending).slice(-5);
+
+        const recently_added = [...added].sort(compareTxnsByDateAscending).slice(numberOfTransactions*-1);
         response.json({latest_transactions: recently_added});
       })
       .catch(next);
@@ -185,12 +174,15 @@ app.post ('/api/transactions', function (request, response, next) {
 // Retrieve Investment Transactions for an Item
 // https://plaid.com/docs/#investments
 app.get('/api/investments_transactions', function (request, response, next) {
+
+    const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         const startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
         const endDate = moment().format('YYYY-MM-DD');
         const configs = {
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
           start_date: startDate,
           end_date: endDate,
         };
@@ -246,10 +238,12 @@ app.post('/api/balance', function (request, response, next) {
 // Retrieve Holdings for an Item
 // https://plaid.com/docs/#investments
 app.get('/api/holdings', function (request, response, next) {
+  const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         const holdingsResponse = await client.investmentsHoldingsGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(holdingsResponse);
         response.json({ error: null, holdings: holdingsResponse.data });
@@ -260,10 +254,12 @@ app.get('/api/holdings', function (request, response, next) {
   // Retrieve Liabilities for an Item
   // https://plaid.com/docs/#liabilities
   app.get('/api/liabilities', function (request, response, next) {
+    const {accessToken} = request.body
+
     Promise.resolve()
       .then(async function () {
         const liabilitiesResponse = await client.liabilitiesGet({
-          access_token: ACCESS_TOKEN,
+          access_token: accessToken,
         });
         prettyPrintResponse(liabilitiesResponse);
         response.json({ error: null, liabilities: liabilitiesResponse.data });
@@ -271,6 +267,29 @@ app.get('/api/holdings', function (request, response, next) {
       .catch(next);
   });
   
+
+   //Remove item
+   app.post('/api/remove_item', function (request, response, next) {
+    
+
+    const {accessToken} = request.body
+
+    Promise.resolve()
+      .then(async function () {
+        // Pull the Item - this includes information about available products,
+        // billed products, webhook information, and more.
+        const itemResponse = await client.itemRemove({
+          access_token: accessToken,
+        });
+
+        prettyPrintResponse(itemResponse);
+        response.json({
+          removed: itemResponse.removed
+                });
+      })
+      .catch(next);
+  });
+
   // Retrieve information about an Item
   // https://plaid.com/docs/#retrieve-item
   app.post('/api/item', function (request, response, next) {
@@ -298,6 +317,8 @@ app.get('/api/holdings', function (request, response, next) {
       })
       .catch(next);
   });
+
+ 
   
   // Retrieve an Item's accounts
   // https://plaid.com/docs/#accounts
@@ -320,6 +341,7 @@ app.get('/api/holdings', function (request, response, next) {
   // including one Item here.
   // https://plaid.com/docs/#assets
   app.get('/api/assets', function (request, response, next) {
+    
     Promise.resolve()
       .then(async function () {
         // You can specify up to two years of transaction history for an Asset
@@ -534,3 +556,6 @@ app.get('/api/holdings', function (request, response, next) {
 const server = app.listen(APP_PORT, function () {
   console.log("plaid-quickstart server listening on port " + APP_PORT);
 });
+
+
+// exports.api = functions.https.onRequest(api)

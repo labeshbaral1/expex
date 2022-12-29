@@ -12,10 +12,9 @@ function Sidebar({ icons }) {
 
   return (
     <div className="sidebar">
-        
-      {icons.map((Ico) => {
+      {icons.map((Ico, index) => {
         return (
-          <div className="dash-icons">
+          <div key={index} className="dash-icons">
             <div className="dash-background">{Ico}</div>
           </div>
         );

@@ -4,7 +4,6 @@ import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-import { setAccToken } from "../redux/userSlice";
 import { updateBalance } from "../actions/api/balance";
 import { db } from "../firebase/firebase";
 import axios from "axios";
@@ -52,19 +51,19 @@ export default function AddAccount() {
     // send public_token to your server
     // https://plaid.com/docs/api/tokens/#token-exchange-flow
 
+
     const setAccessToken = async () => {
-      const accessTokenResponse = await fetch(
-        "http://localhost:8000/api/set_access_token/",
+      const accessTokenResponse = await axios.post(
+        "http://localhost:8000/api/set_access_token",
+        { publicToken: publicToken },
         {
-          method: "POST",
-          body: JSON.stringify({ public_token: publicToken }),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      const { access_token } = await accessTokenResponse.json();
+      const access_token = accessTokenResponse.data.access_token;
 
       db.collection("users")
         .doc(btoa(email))
