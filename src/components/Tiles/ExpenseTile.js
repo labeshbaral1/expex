@@ -464,32 +464,32 @@ export default class Example extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <div className='incomeTile'>
+        <div className='expenseTile'>
           <h1 className='tile-title'>Expenses</h1>
-          <ResponsiveContainer className={"jole"} width={330} height={250}>
-            <PieChart className='jim' width={160} height={160}>
+          <ResponsiveContainer width="140%" height="105%" >
+          {/* <div className="chart-container"> */}
+            <PieChart margin={{top: 10, left: 90, right: 90, bottom: 10}} className='jim' width="160%" height="120%">
               <Pie
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape}
                 data={dataForPieChart}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius="48%"
+                outerRadius="70%"
                 fill="#635BFF"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}
               />
             </PieChart>
+            {/* </div> */}
           </ResponsiveContainer>
+
         </div>
       </React.Fragment>
     );
   }
 }
-
-
-
 
 
 
