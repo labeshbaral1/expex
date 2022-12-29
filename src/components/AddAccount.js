@@ -4,8 +4,7 @@ import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-import { setLinkToken, setAccToken } from "../redux/userSlice";
-import { updateBalance } from "../actions/balance";
+import { updateBalance } from "../actions/api/balance";
 import { db } from "../firebase/firebase";
 import axios from "axios";
 
@@ -30,8 +29,6 @@ export default function AddAccount() {
       );
 
       const { link_token } = await linkTokenResponse.json();
-
-      dispatch(setLinkToken({ linkToken: link_token }));
       setToken(link_token);
     };
 
@@ -54,22 +51,19 @@ export default function AddAccount() {
     // send public_token to your server
     // https://plaid.com/docs/api/tokens/#token-exchange-flow
 
+
     const setAccessToken = async () => {
-      const accessTokenResponse = await fetch(
-        "http://localhost:8000/api/set_access_token/",
+      const accessTokenResponse = await axios.post(
+        "http://localhost:8000/api/set_access_token",
+        { publicToken: publicToken },
         {
-          method: "POST",
-          body: JSON.stringify({ public_token: publicToken }),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      const { access_token } = await accessTokenResponse.json();
-
-      dispatch(setAccToken({ accessToken: access_token }));
-      console.log("ADD ACC btoa of " + email + "is:" + btoa(email));
+      const access_token = accessTokenResponse.data.access_token;
 
       db.collection("users")
         .doc(btoa(email))

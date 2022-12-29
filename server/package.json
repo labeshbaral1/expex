@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startDev": "nodemon index.js"
+    "startDev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api "
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,11 @@
     "moment": "^2.29.4",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.20",
-    "plaid": "^12.2.0"
+    "plaid": "^12.2.0",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "engines": {
+    "node": "16"
   }
 }

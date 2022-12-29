@@ -3,7 +3,7 @@ import "./Sidebar.css";
 
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Link, useNavigate } from "react-router-dom";
-import { signoutUser } from "../actions/signoutAction";
+import { signoutUser } from "../actions/auth/signoutAction";
 import { useDispatch } from "react-redux";
 
 function Sidebar({ icons }) {
@@ -12,10 +12,9 @@ function Sidebar({ icons }) {
 
   return (
     <div className="sidebar">
-        
-      {icons.map((Ico) => {
+      {icons.map((Ico, index) => {
         return (
-          <div className="dash-icons">
+          <div key={index} className="dash-icons">
             <div className="dash-background">{Ico}</div>
           </div>
         );

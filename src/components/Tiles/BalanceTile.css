@@ -25,42 +25,38 @@
 
 .tile-title{
     margin-top: 3px;
-    margin-bottom: 5px;
 }
 
-.bank{
-    margin-top: 4%;
-    margin-left: 15px;
+
+.institution{
+    font-size: 12px;
+    font-weight: 300px;
+    
+}
+.accounts > p{
+    font-size: 12;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-container{
     display: flex;
     flex-direction: row;
-    font-weight: 600;
-    color: #635BFF;
-
+    justify-content: space-between;
 }
 
-.bank-amount{
-    color: rgb(75, 75, 75);
-    /* color: black; */
-    font-weight: 600;
-    margin-left: 48%;
+.unLink-button{
+    border: 1px solid gray;
+    padding: 5px;
+    font-size: 10px;
 }
 
-.account-number{
-    margin-top: 0.5%;
-    margin-left: 15px;
-    font-size: 11px;
-    font-weight: 500;
-    color: gray;
-}
+.unLink-button:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
 
-.bank-name2{
-    margin-right: 53px;
-}
-
-.bank-name3{
-    margin-right: 30px;
-}
-
-.bank-name4{
-    margin-right: -83.5px;
 }

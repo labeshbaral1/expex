@@ -1,19 +1,42 @@
-.sidebarRight{
-    background-color: white;
-    bottom: 0;
-    position: sticky;
-    padding: 10px;
-
+.sidebarRight {
+  background-color: white;
+  bottom: 0;
+  position: sticky;
+  padding: 10px;
+  margin-left: 10px;
 }
 
-.account{
-    margin-bottom: 20px;
+.account {
+  margin-bottom: 20px;
 }
 .title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
-.list{
-    display: flex;
-    flex-direction: column;
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sideBarRight-title{
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+.transaction {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px gray solid;
+}
+
+.transaction-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.price{
+    font-weight: 600;
 }

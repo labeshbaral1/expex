@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
-import { signupUser } from "../../actions/signupAction";
+import { signupUser } from "../../actions/auth/signupAction";
 
 function Signup() {
 
