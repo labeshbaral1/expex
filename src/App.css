@@ -1,9 +1,13 @@
 .App {
-
+ display: flex;
+ flex-direction: column;
+  justify-content: space-between;
 }
 
 body{
-  min-width: 1500px;
+  background-color: white;
+  box-sizing: border-box;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 .App-logo {
@@ -42,11 +46,6 @@ body{
 }
 
 
-body{
-  background-color: white;
-
-  
-}
 
 
 
@@ -65,7 +64,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+flex-direction: column;
 }
 
 .sidebar-icons img{
@@ -82,20 +81,23 @@ background-color: rgb(234, 234, 234);
   font-weight: 300;
 }
 
-
 .content-container{
-  position: absolute;
+  position: relative;
   display: flex;
-  flex-direction: row;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 70px;
+  flex-direction: row;  
+  position: relative;
+  bottom: 0px;
+  justify-content: space-between;
+
+
 }
 
 .content{
-    width: 100%;
   border-radius: 15px;
   background-color: #eff3f8;
+  width: 84%;
+  min-width: 1200px;
 
+ 
 }
+

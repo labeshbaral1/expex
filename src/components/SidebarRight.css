@@ -1,9 +1,12 @@
 .sidebarRight {
+  position: relative;
+  width: 12%;
   background-color: white;
-  bottom: 0;
-  position: sticky;
-  padding: 10px;
-  margin-left: 10px;
+  bottom: 0px;
+  top: 0px;
+  min-width: 100px;
+
+
 }
 
 .account {

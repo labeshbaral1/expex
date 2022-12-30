@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import "./IncomeTile.css"
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Sector } from 'recharts';
+import "./main.css"
 
 
 
@@ -466,7 +467,7 @@ export default class Example extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <div className='incomeTile'>
+        <div className='incomeTile one-tile'>
           <h1 className='tile-title'>Income</h1>
           <ResponsiveContainer width="140%" height="88%" >
           {/* <div className="chart-container"> */}
@@ -478,10 +479,10 @@ export default class Example extends PureComponent {
                 data={dataForPieChart}
                 cx="50%"
                 cy="50%"
-                // innerRadius="48%"
-                // outerRadius="70%"
-                innerRadius="60%"
-                outerRadius="80%"
+                innerRadius="48%"
+                outerRadius="70%"
+                // innerRadius="60%"
+                // outerRadius="80%"
                 fill="#635BFF"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}

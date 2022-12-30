@@ -18,10 +18,12 @@ function Overview() {
           <PorfolioTile />
         </div>
         <div className="bottom-container">
+
           <IncomeTile />
           <ExpenseTile />
           <DistTile />
-        </div>
+
+      </div>
       </div>
 
 

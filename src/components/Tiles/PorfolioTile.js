@@ -1,21 +1,15 @@
 import React from 'react'
 import "./PorfolioTile.css"
-import NetWorth from "../../assets/networth.png"
+import "./main.css"
 
 
 function PorfolioTile() {
-    const porfolioChange = "+2"
-    const porfolioValue = "$100,123"
 
 
   return (
 
-    <div className='porfolioTile'>
-        <h1 className='tile-title'>Blank</h1>
-
-        <div className='chart-snapshot'>
-
-        </div>
+    <div className='porfolioTile one-tile'>
+        <h1 className=' tile-title '>Porfolio </h1>
 
 
     </div>

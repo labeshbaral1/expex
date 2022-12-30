@@ -3,11 +3,11 @@
     padding: 10px;
     border-radius: 15px;
     height: 300px;
-    width: 350px;
+    
     display: flex;
     flex-direction: column;
+    
     background: #fff;
-    float: left;
     transition: box-shadow .4s;
 }
 

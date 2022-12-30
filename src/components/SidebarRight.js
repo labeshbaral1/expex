@@ -48,7 +48,7 @@ function SidebarRight() {
 
   return (
     <div className="sidebarRight">
-      <h1 className="sideBarRight-title">  Right SideBar
+      <h1 className="sideBarRight-title">
 </h1>
       {mappedDictionary}
     </div>
