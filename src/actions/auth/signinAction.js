@@ -2,6 +2,7 @@ import { db, auth } from "../../firebase/firebase";
 import { toggleLoggedIn } from "../../redux/loggedInSlice";
 import { setUser } from "../../redux/userSlice";
 import { updateBalances } from "../api/balance";
+import { getMonthTransactions } from "../api/transactions";
 
 export const loginUser = (email, password, dispatch, navigate) => {
 
@@ -30,7 +31,10 @@ export const loginUser = (email, password, dispatch, navigate) => {
     })
     .catch((error) => alert(error.message));
     dispatch(toggleLoggedIn(true))
+
     updateBalances(email, dispatch)
+    
+
 
 };
 

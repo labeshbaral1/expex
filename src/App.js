@@ -55,7 +55,6 @@ function App() {
                 />
                 <div className="content">
                   <Overview />
-                  <div className="blank-container"></div>
                 </div>
                 <SidebarRight />
               </div>
