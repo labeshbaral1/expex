@@ -6,6 +6,7 @@
     background: #fff;
     float: left;
     transition: box-shadow .4s;
+    margin-right: 2%;
 }
 
 .distTile:hover{

@@ -10,6 +10,7 @@
     background: #fff;
     float: left;
     transition: box-shadow .4s;
+    margin-left: 1.5%;
 }
 
 .incomeTile:hover{
