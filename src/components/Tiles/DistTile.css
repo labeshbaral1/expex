@@ -21,6 +21,100 @@
     padding-left: 15px;
 }
 
-.chart-snapshot > img{
-    width: 80%;
+.main-cont{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.asset-cont{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 15px;
+    padding: 15px;
+    border:  1px solid lightgrey;
+    border-radius: 15px;
+}
+
+
+.asset-cont2{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 15px;
+    padding: 15px;
+    border:  1px solid lightgrey;
+    border-radius: 15px;
+
+}
+
+.button-cont{
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+}
+
+.add-button{
+padding-left: 10px;
+padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border:  1px solid black;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+}
+
+.asset-cont:hover .add-button{
+    transform: translateY(0rem);
+    animation: fadeInUp 0.5s ease 0s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.asset-num{
+    font-size: 1.6rem;
+    font-weight: 600;
+    /* color: #635BFF; */
+}
+
+.asset-name{
+    font-size: 1.6rem;
+}
+
+
+.cash-cont{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
+}
+
+.cash-cont2{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.cash-cont3{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 85px;
+}
+
+.cash-cont4{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
 }
