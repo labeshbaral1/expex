@@ -3,7 +3,7 @@ import "./SidebarRight.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateBalance } from "../actions/api/balance";
-import { updateTransaction } from "../actions/api/transactions";
+import { getMonthTransactions, updateTransaction } from "../actions/api/transactions";
 
 function SidebarRight() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function SidebarRight() {
   const accounts = useSelector((state) => state.accounts.accounts);
 
   useEffect(() => {
-    updateTransaction(email, dispatch);
+    getMonthTransactions(email, dispatch)
   }, []);
 
   function getTop5Transactions() {
@@ -48,7 +48,7 @@ function SidebarRight() {
 
   return (
     <div className="sidebarRight">
-      <h1 className="sideBarRight-title">
+    <h1 className="sideBarRight-title">
 </h1>
       {mappedDictionary}
     </div>

@@ -14,7 +14,7 @@ function BalanceTile() {
   let accounts = useSelector((state) => state.accounts.accounts);
 
   useEffect(() => {
-    updateBalances(email, dispatch);
+    // updateBalances(email, dispatch);
   }, []);
 
   const mappedDictionary = Object.entries(accounts).map(([key, value]) => {

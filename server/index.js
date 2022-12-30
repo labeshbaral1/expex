@@ -51,6 +51,11 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
+const server = app.listen(APP_PORT, function () {
+  console.log("plaid-quickstart server listening on port " + APP_PORT);
+});
+
+
 app.get("/", (req, res) => {
   res.send("Server is currently running");
 });
@@ -159,6 +164,44 @@ app.post("/api/transactions", function (request, response, next) {
     })
     .catch(next);
 });
+
+
+
+app.post("/api/month-transactions", function (request, response, next) {
+  const { accessToken } = request.body;
+
+  Promise.resolve()
+    .then(async function () {
+      const transactionRequest = await client.transactionsGet({
+        access_token: accessToken,
+        start_date: moment().startOf('month').format('YYYY-MM-DD'),
+        end_date: moment().format('YYYY-MM-DD')
+      });
+      
+      let transactions = transactionRequest.data.transactions;
+      const total_transactions = transactionRequest.data.total_transactions;
+      while (transactions.length < total_transactions) {
+        const paginatedRequest = {
+          access_token: accessToken,
+           start_date: moment().date(5).format("YYYY-MM-DD"),
+          end_date: moment().format('YYYY-MM-DD'),
+          options: {
+            offset: transactions.length,
+          },
+        };
+      
+        const paginatedResponse = await client.transactions.get(paginatedRequest);
+        transactions = transactions.concat(
+          paginatedResponse.data.transactions,
+        );
+      }
+            
+      response.json({ transactions: transactions });
+
+    
+    }) 
+    .catch(next);})
+
 
 // Retrieve Investment Transactions for an Item
 // https://plaid.com/docs/#investments
@@ -525,8 +568,5 @@ const authorizeAndCreateTransfer = async (accessToken) => {
 };
 
 //Run the Server
-const server = app.listen(APP_PORT, function () {
-  console.log("plaid-quickstart server listening on port " + APP_PORT);
-});
 
 // exports.api = functions.https.onRequest(api)
