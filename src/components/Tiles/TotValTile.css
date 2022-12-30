@@ -1,33 +1,19 @@
 .totvalTile{
     background-color: white;
+    height: 300px;
     padding: 10px;
     border-radius: 15px;
-    height: 300px;
-    width: 60%;
-    margin-left: 2%;
-    background: #fff;
-    float: left;
     transition: box-shadow .4s;
+    margin-left: 1.5%;
 }
 
 .totvalTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
-.totvalTile > h1{
-    text-align: start;
-
-}
-
-.chart-snapshot > img{
-    width: 80%;
-}
-
-.jim{
-    z-index: 100;
-}
 
 .tot-amount{
+
     margin-top: 3%;
     font-size: 42px;
     font-weight: 900;
@@ -41,29 +27,28 @@
 }
 
 .tot-chart{
-margin-top: 30px;
-padding-left: 15px;
+    width: 80%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .gain-loss{
     margin-left: 15px;
     margin-top: 9px;
     font-size: 14px;
-
-    max-width: 200px;
     /* color: #635BFF; */
     background-color: #d8c7ff;
     border-radius: 5px;
     padding: 8px;
-    padding-top: 7px;
-    padding-bottom: 6px;
     display: flex;
-flex-direction: row;
+    flex-direction: row;
 }
 
 .gain-loss-cont{
     display: flex;
-flex-direction: row;
+    flex-direction: row;
 }
 
 .up-arrow{

@@ -3,11 +3,10 @@
     padding: 10px;
     border-radius: 15px;
     height: 300px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
+
     background: #fff;
-    float: left;
+    
+
     transition: box-shadow .4s;
     margin-right: 2%;
 }
@@ -24,15 +23,3 @@
     padding-top: 15px;
     padding-left: 15px;
 }
-
-.change{
-    font-weight: 900;
-    color: green;
-    font-size: 25px
-    ;
-}
-
-.value{
-    font-size: 30px;
-}
-

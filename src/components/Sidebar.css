@@ -1,11 +1,13 @@
 .sidebar{
-    position:sticky;
+    position: relative;
+    width: 4.8%;
+    top: 0px;
     background-color: white;
-    width: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-color: #635BFF;
+
 }
 
 .sidebar-icons{

@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateBalances } from "../../actions/api/balance";
 import { unLinkAccount } from "../../actions/api/account";
 import { db } from "../../firebase/firebase";
+import "./main.css"
+
 
 function BalanceTile() {
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ function BalanceTile() {
   });
 
   return (
-    <div className="balanceTile">
+    <div className="balanceTile one-tile">
       <h1 className="tile-title">Account Balances</h1>
 
       {accounts.length == 0 ? <>BALANCES IS EMPTY</> : mappedDictionary}

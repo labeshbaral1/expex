@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import "./ExpenseTile.css"
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Sector } from 'recharts';
+import "./main.css"
 
 const Data1 = [
   {
@@ -464,7 +465,7 @@ export default class Example extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <div className='expenseTile'>
+        <div className='expenseTile one-tile'>
           <h1 className='tile-title'>Expenses</h1>
           <ResponsiveContainer width="140%" height="88%" >
 

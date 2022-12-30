@@ -35,9 +35,7 @@ function Header() {
           </Link>
 
 
-          <div className='notifs'>
-
-          </div>
+        
 
 
 
