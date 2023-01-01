@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
+
 import AddAccount from "./components/AddAccount";
 import Transactions from "./components/Transactions";
 import Budget from "./components/Budget";
@@ -62,7 +63,27 @@ function App() {
             }
           />
 
-          <Route exact path="transactions" element={<Transactions />} />
+          <Route
+            exact
+            path="error"
+            element={
+              <div className="content-container">
+                <Sidebar
+                  icons={[
+                    <DashboardOutlinedIcon />,
+                    <PersonAddAltOutlinedIcon />,
+                    <HelpCenterOutlinedIcon />,
+                    <SettingsOutlinedIcon />,
+                  ]}
+                />
+                <div className="content">
+                  <Error />
+                  <div className="blank-container"></div>
+                </div>
+                <SidebarRight />
+              </div>
+            }
+          />
           <Route exact path="budget" element={<Budget />} />
           <Route exact path="history" element={<History />} />
           <Route
