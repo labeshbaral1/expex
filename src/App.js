@@ -63,27 +63,6 @@ function App() {
             }
           />
 
-          <Route
-            exact
-            path="error"
-            element={
-              <div className="content-container">
-                <Sidebar
-                  icons={[
-                    <DashboardOutlinedIcon />,
-                    <PersonAddAltOutlinedIcon />,
-                    <HelpCenterOutlinedIcon />,
-                    <SettingsOutlinedIcon />,
-                  ]}
-                />
-                <div className="content">
-                  <Error />
-                  <div className="blank-container"></div>
-                </div>
-                <SidebarRight />
-              </div>
-            }
-          />
           <Route exact path="budget" element={<Budget />} />
           <Route exact path="history" element={<History />} />
           <Route
