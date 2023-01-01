@@ -1,0 +1,124 @@
+.distTile{
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    height: 300px;
+    background: #fff;
+    float: left;
+    transition: box-shadow .4s;
+    margin-right: 2%;
+}
+
+.distTile:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.distTile > h1{
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.main-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+
+
+}
+
+.asset-cont{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border:  1px solid lightgrey;
+    border-radius: 15px;
+    width: 48%;
+}
+
+
+.asset-cont2{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border:  1px solid lightgrey;
+    border-radius: 15px;
+    width: 48%;
+
+
+}
+
+.button-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-button{
+    align-self: center;
+padding-left: 10px;
+padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border:  1px solid black;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0;
+}
+
+.asset-cont:hover .add-button{
+    transform: translateY(0rem);
+    animation: fadeInUp 0.5s ease 0s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.asset-num{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.asset-name{
+    font-size: 1.2rem;
+}
+
+
+.cash-cont{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cash-cont2{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cash-cont3{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cash-cont4{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

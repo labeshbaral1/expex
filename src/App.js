@@ -1,9 +1,9 @@
 import "./App.css";
 import Header from "./components/Header.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Signin from "./components/Landing/Signin";
-import Signup from "./components/Landing/Signup";
-import Overview from "./components/Overview";
+import Signin from "./components/landing/Signin";
+import Signup from "./components/landing/Signup";
+import Overview from "./components/overview/Overview";
 import AddAccount from "./components/AddAccount";
 import Transactions from "./components/Transactions";
 import Budget from "./components/Budget";
@@ -11,7 +11,7 @@ import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarRight from "./components/SidebarRight";
 import Help from "./components/Help";
-import Error from "./components/Error.js";
+
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -19,6 +19,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import Balance from "./components/balances/Balance.js";
 
 function App() {
   const loggedIn = useSelector((state) => state.loggedIn.isLogged);
@@ -26,7 +27,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        
         {loggedIn && <Header />}
 
         <Routes>
@@ -65,7 +65,26 @@ function App() {
           <Route exact path="transactions" element={<Transactions />} />
           <Route exact path="budget" element={<Budget />} />
           <Route exact path="history" element={<History />} />
-          <Route exact path="error" element={<Error />} />
+          <Route
+            exact
+            path="error"
+            element={
+              <div className="content-container">
+                <Sidebar
+                  icons={[
+                    <DashboardOutlinedIcon />,
+                    <PersonAddAltOutlinedIcon />,
+                    <HelpCenterOutlinedIcon />,
+                    <SettingsOutlinedIcon />,
+                  ]}
+                />
+                <div className="content">
+                  <Balance />
+                </div>
+                <SidebarRight />
+              </div>
+            }
+          />
         </Routes>
       </Router>
     </div>

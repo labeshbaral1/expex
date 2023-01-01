@@ -1,0 +1,55 @@
+.balanceTile{
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    height: 300px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    background: #fff;
+    transition: box-shadow .4s;
+}
+
+.balanceTile:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.balanceTile > h1{
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+
+.bank{
+    margin-top: 4%;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #635BFF;
+
+}
+
+.bank-container{
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.bank-amount{
+    color: rgb(75, 75, 75);
+    font-weight: 600px;
+}
+
+.account-number{
+    margin-top: 0.5%;
+    font-size: 11px;
+    font-weight: 500;
+    color: gray;
+}

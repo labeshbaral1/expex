@@ -1,0 +1,6 @@
+.accounts-container{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    gap: 20px;
+}

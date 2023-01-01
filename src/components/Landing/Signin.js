@@ -17,6 +17,8 @@ function Signin() {
         onSubmit={(event) => {
           event.preventDefault();
           loginUser(email, password, dispatch, navigate);
+          updateEmail("")
+          updatePassword("")
         }}
       >
         <div className="bodyy">

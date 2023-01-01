@@ -1,0 +1,40 @@
+.overview{
+    display: flex;
+    flex-direction: column;
+    bottom: 0px;
+    padding: 1% 0%;
+
+}
+
+
+.tile-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.top-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+}
+
+.bottom-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    
+    padding: 10px;
+}
+
+
+
+
+.tile{    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 16px -3px;
+	background-color: #ffffff;
+}
+
