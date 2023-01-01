@@ -4,7 +4,7 @@ import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-import { updateBalance } from "../actions/api/balance";
+
 import { db } from "../firebase/firebase";
 import axios from "axios";
 

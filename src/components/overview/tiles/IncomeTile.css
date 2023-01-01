@@ -1,0 +1,61 @@
+
+
+.incomeTile{
+    padding: 10px;
+    border-radius: 15px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    float: left;
+    transition: box-shadow .4s;
+    margin-left: 1.5%;
+}
+
+.incomeTile:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+
+
+
+
+.incomeTile > h1{
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
+
+}
+
+.bob{
+    font-size: 10px;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+.chart-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (max-width: 1500px) {
+    .chart-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .jim{
+    width: 330;
+    height: 250;
+
+  }
+
+  .center-text{
+    /* font-size: 14px; */
+    font-size: 0.9vw;
+  }

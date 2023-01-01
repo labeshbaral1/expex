@@ -1,11 +1,12 @@
 import { db, auth } from "../../firebase/firebase";
+import { main } from "../../actions/api/main";
 import { toggleLoggedIn } from "../../redux/loggedInSlice";
 import { setUser } from "../../redux/userSlice";
-import { updateBalances } from "../api/balance";
-import { getMonthTransactions } from "../api/transactions";
 
 export const loginUser = (email, password, dispatch, navigate) => {
 
+
+    
   auth
     .signInWithEmailAndPassword(email, password)
     .then((auth) => {
@@ -23,19 +24,14 @@ export const loginUser = (email, password, dispatch, navigate) => {
             })
           );
         });
-
-
-
-
       navigate("/");
     })
     .catch((error) => alert(error.message));
     dispatch(toggleLoggedIn(true))
-
-    updateBalances(email, dispatch)
+    main(email, dispatch)
+  }
     
 
 
-};
 
 

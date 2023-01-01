@@ -1,0 +1,66 @@
+.account-card{
+    display: flex;
+    padding: 10px 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    border-radius: 15px;
+    background-color: white;
+    cursor: pointer;
+    
+}
+
+.account-card:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    
+}
+
+.drop-carrot{
+    opacity: 0;   
+}
+.account-card:hover .drop-carrot{
+    transform: translateY(0rem);
+    animation: fadeInUp 0.5s ease 0s forwards;
+  }
+
+.left-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+
+}
+
+.account-logo > img{
+    height: 40px;
+    width: 40px;    
+}
+
+
+.account-balance{
+    font-weight: 900;
+    color: #635BFF;
+}
+
+
+.dropDown{
+    background-color: white;
+    padding:10px
+}
+.dropDown-titles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dropDownTitle{
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.account-card-transaction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

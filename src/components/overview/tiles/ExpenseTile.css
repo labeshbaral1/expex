@@ -1,0 +1,34 @@
+
+
+.expenseTile{
+    padding: 10px;
+    border-radius: 15px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    float: left;
+    transition: box-shadow .4s;
+}
+
+.expenseTile:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.expenseTile>h1 {
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-left: 15px;
+
+}
+
+.chart-snapshot>img {
+    width: 100px
+}
+
+.incomePie {
+    margin-right: 30px;
+}
