@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import "./Balance.css";
+import ItemCard from "./ItemCard"
 
 export default function Balance() {
   const email = useSelector((state) => state.user.email);
@@ -8,7 +9,7 @@ export default function Balance() {
 
   const mappedDictionary = Object.entries(accounts).map(([key, value]) => {
     return (
-      <AccountCard
+      <ItemCard
         key={key}
         name={value.name}
         numberOfAccounts={value.accounts.length}
