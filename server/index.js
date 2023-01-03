@@ -138,14 +138,29 @@ app.post("/api/main", function (request, response, next) {
     const instResponse = await client.institutionsGetById(configs);
     const institution = await instResponse.data.institution
 
+    // const liabilitiesResponse = await client.liabilitiesGet({
+    //   access_token: accessToken,
+    // });
+    // const liabilities = await liabilitiesResponse.data;
+    
+      const liabilitiesResponse = await client.liabilitiesGet({
+        access_token: accessToken,
+      });
+      const liabilities = await liabilitiesResponse.data || null;
+    
+    
+    
+
     const balanceResponse = await client.accountsBalanceGet({
       access_token: accessToken,
     });
+
     const accounts = await balanceResponse.data
 
     const transactionRequest = await client.transactionsGet({
       access_token: accessToken,
-      start_date: ('2022-12-01'),
+       start_date: ('2022-12-01'),
+
       end_date: moment().format('YYYY-MM-DD')
     });
     
@@ -154,7 +169,7 @@ app.post("/api/main", function (request, response, next) {
     while (transactions.length < total_transactions) {
       const paginatedRequest = {
         access_token: accessToken,
-         start_date: moment().date(5).format("YYYY-MM-DD"),
+         start_date: ('2022-12-01'),
         end_date: moment().format('YYYY-MM-DD'),
         options: {
           offset: transactions.length,
@@ -171,7 +186,9 @@ app.post("/api/main", function (request, response, next) {
         item: item, 
         institution: institution,
         accounts: accounts,
-        transactions: transactions
+        transactions: transactions,
+        liabilities: liabilities
+
       })
 
   })
