@@ -5,10 +5,10 @@ function AccountCard({ name, balance, transactions }) {
   const [showTransactions, setShowTransactions] = useState(false);
 
   return (
-    <div className="account-card">
+    <div className="account-card"  onClick={() => setShowTransactions(!showTransactions)}>
       <div
         className="account"
-        onClick={() => setShowTransactions(!showTransactions)}
+       
       >
         <div className="account-name">{name}</div>
         <div className="account-balance">{balance}</div>
