@@ -1,16 +1,24 @@
-import "./DistTile.css"
-import "./main.css"
+import React from "react";
+
+import "./Loading.css";
 
 function Loading() {
-
-    return (
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    )
+  return (
+    <div className="loading">
+      <div className="loader"></div>
+      <div className="text">
+        Fetching User Data
+        <span className="bouncing-dots">
+          <span className="dot">.</span>
+          <span className="dot">.</span>
+          <span className="dot">.</span>
+        </span>
+      </div>
+    </div>
+  );
 }
 
-export default Loading
-
-
+export default Loading;
 
 // .lds-ellipsis {
 //     display: inline-block;
@@ -67,4 +75,3 @@ export default Loading
 //       transform: translate(24px, 0);
 //     }
 //   }
-  

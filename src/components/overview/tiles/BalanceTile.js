@@ -18,7 +18,7 @@ const email = useSelector((state) => state.user.email);
 
   const mappedDictionary = Object.entries(accounts).map(([key, value]) => {
     return (
-      <div key={value.id} className="bank">
+      <div key={value.name} className="bank">
         <div className="bank-container">
           <div className="bank-name">{value.name}:</div>
           <div className="account-number">**9022</div>

@@ -1,13 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit"
 
 
-import loggedInReducer from "../redux/loggedInSlice"
+import stateReducer from "../redux/stateSlice"
 import userReducer from "../redux/userSlice"
 import accountsReducer from "../redux/accountSlice"
 
 export const store = configureStore({
     reducer : {
-        loggedIn: loggedInReducer,
+        states: stateReducer,
         user: userReducer,
         accounts: accountsReducer    
     }

@@ -2,16 +2,17 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  border: 1px gray solid;
+  border-bottom: 1px gray solid;
 }
 
 .account-card:hover{
-    background-color: lightpink;
+    background-color: lightgray;
     cursor: pointer;
 
 }
 
 .account {
+  margin: auto 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
