@@ -10,7 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import AccountCard from "./AccountCard";
+import AccountCard from "./ItemCard";
 import "./Balance.css";
 
 export default function Balance() {
@@ -22,9 +22,10 @@ export default function Balance() {
       <AccountCard
         key={key}
         name={value.name}
-        numberOfAccounts={2}
+        numberOfAccounts={value.accounts.length}
         balance={value.balance}
-        transactions={value.transactions}
+        allTransactions={value.transactions}
+        accounts = {value.accounts}
       />
     );
   });
