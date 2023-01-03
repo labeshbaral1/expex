@@ -145,7 +145,7 @@ app.post("/api/main", function (request, response, next) {
 
     const transactionRequest = await client.transactionsGet({
       access_token: accessToken,
-      start_date: moment().startOf('month').format('YYYY-MM-DD'),
+      start_date: ('2022-12-01'),
       end_date: moment().format('YYYY-MM-DD')
     });
     
