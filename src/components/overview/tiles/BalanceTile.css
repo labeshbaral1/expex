@@ -45,6 +45,7 @@
 .bank-amount{
     color: rgb(75, 75, 75);
     font-weight: 600px;
+    margin-right: 10px;
 }
 
 .account-number{

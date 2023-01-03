@@ -70,7 +70,6 @@ function ItemCard({
         >
           {showDropDown &&
             accounts.map((account) => {
-              console.log(account);
 
               const transactions = getTransactions(
                 account.account_id,

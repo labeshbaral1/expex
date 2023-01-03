@@ -40,7 +40,7 @@ export const main = async (email, dispatch) => {
                 
         const transactions = await apiResponse.data.transactions;
 
-        const liabilities = await apiResponse.data.liabilities;
+        const liabilities = await apiResponse.data.liabilities.liabilities;
 
         // Add the total balance to the balances array
         res.push({

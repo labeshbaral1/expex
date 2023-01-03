@@ -1,4 +1,5 @@
-import React, { PureComponent } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./TotValTile.css";
 import "./main.css"
 import {
@@ -57,15 +58,64 @@ const data = [
   },
 ];
 
-export default class Example extends PureComponent {
-  static demoUrl = "https://codesandbox.io/s/tiny-line-chart-r5z0f";
+function TotValTile() {
 
-  render() {
+  const accounts = useSelector((state) => state.accounts.accounts);
+
+  const [liabilities, setLiabilities] = useState(0)
+
+
+  function getLiabilities(accounts) {
+
+    let credit_balance = 0
+    let loan_balance = 0
+    let total_debt = 0
+    let investment_balance = 0
+    let cash_balance = 0
+    let total_assets = 0
+    let net_worth = 0
+
+    Object.entries(accounts).map(([key, value]) => {
+
+
+      for (const account of value.accounts) {
+
+        if (account.type === 'credit') {
+          credit_balance += account.balances.current
+
+        }
+        else if (account.type === 'loan') {
+          loan_balance += account.balances.current
+
+        }
+
+        else if(account.type === 'investment'){
+          investment_balance += account.balances.current
+        }
+
+        else if(account.type === 'depository'){
+          cash_balance += account.balances.current
+        }
+
+        total_debt = credit_balance + loan_balance
+        total_assets = investment_balance + cash_balance
+        net_worth = total_assets - total_debt
+        console.log(net_worth)
+        net_worth = Math.round(net_worth * 100) / 100;
+        
+
+      }
+    })
+
+    return { credit_balance: credit_balance, loan_balance: loan_balance, total_debt: total_debt.toLocaleString(), total_assets: total_assets.toLocaleString(), investment_balance: investment_balance.toLocaleString(), cash_balance: cash_balance.toLocaleString(), net_worth: net_worth.toLocaleString()}
+  }
+
+  useEffect(() => setLiabilities(getLiabilities(accounts)), [])
+
     return (
-      <React.Fragment>
         <div className="totvalTile two-tile">
           <h1 className="tile-title">Total Asset Value</h1>
-          <div className="tot-amount">$56,400.90</div>
+          <div className="tot-amount">${liabilities.net_worth}</div>
           <div className="gain-loss-cont">
             <div className="gain-loss">
               <div className="up-arrow">▲</div>
@@ -86,7 +136,8 @@ export default class Example extends PureComponent {
             </ResponsiveContainer>
           </div>
         </div>
-      </React.Fragment>
     );
   }
-}
+
+  export default TotValTile
+
