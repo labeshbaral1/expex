@@ -100,7 +100,6 @@ function TotValTile() {
         total_debt = credit_balance + loan_balance
         total_assets = investment_balance + cash_balance
         net_worth = total_assets - total_debt
-        console.log(net_worth)
         net_worth = Math.round(net_worth * 100) / 100;
         
 
