@@ -13,7 +13,7 @@ import Sidebar from "./components/Sidebar";
 import SidebarRight from "./components/SidebarRight";
 import Help from "./components/Help";
 
-
+import StockChart from "./StockChart";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -38,7 +38,7 @@ function App() {
 
         <Routes>
 
-          <Route exact path="/test123" element={<Loading/>}/>
+          <Route exact path="/test123" element={<StockChart/>}/>
           
           <Route
             exact
