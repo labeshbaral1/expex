@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./Overview.css";
-import PorfolioTile from "./tiles/PorfolioTile";
+import TransferTile from "./tiles/TransferTile";
 import ExpenseTile from "./tiles/ExpenseTile";
 import TotValTile from "./tiles/TotValTile";
 import DistTile from "./tiles/DistTile";
@@ -12,6 +12,8 @@ import {main } from "../../actions/api/main"
 function Overview() {
   const dispatch = new useDispatch();
   const email = useSelector((state) => state.user.email);
+
+  
   useEffect(() => {
     main(email, dispatch);
   }, []);
@@ -22,7 +24,7 @@ function Overview() {
         <div className="top-container">
           <TotValTile />
           <BalanceTile />
-          <PorfolioTile />
+          <TransferTile />
         </div>
         
         <div className="bottom-container">

@@ -53,3 +53,9 @@ font-size: 13px;
 font-weight: 450;
 font-size: 9px;
 }
+
+.selected{
+    color:#635BFF;
+    font-weight: 900;
+
+}

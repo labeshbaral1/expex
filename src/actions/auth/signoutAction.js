@@ -1,5 +1,5 @@
 
-import { toggleLoggedIn } from "../../redux/loggedInSlice";
+import { toggleLoggedIn } from "../../redux/stateSlice";
 
 
 
