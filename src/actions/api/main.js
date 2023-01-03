@@ -1,6 +1,7 @@
 import { db } from "../../firebase/firebase";
 import { setAccounts } from "../../redux/accountSlice";
 import axios from "axios";
+import { toggleAPIloading } from "../../redux/stateSlice";
 
 export const main = async (email, dispatch) => {
 
@@ -33,9 +34,18 @@ export const main = async (email, dispatch) => {
 
         const accounts = await apiResponse.data.accounts.accounts;
 
+
+
         let totalBalance = 0;
+
+        
         for (const account of accounts) {
-          totalBalance += account.balances.available;
+          
+          if (account.type == "depository"){
+          totalBalance += account.balances.current;}
+          else if (account.type == "credit"){
+            totalBalance -=account.balances.current; }
+          
         }
                 
         const transactions = await apiResponse.data.transactions;
@@ -55,6 +65,7 @@ export const main = async (email, dispatch) => {
       }
 
       dispatch(setAccounts(res));
+      dispatch(toggleAPIloading(false))
       console.log('API request completed in ' + (new Date().getTime() - start) + ' milliseconds');    }
     }
 };

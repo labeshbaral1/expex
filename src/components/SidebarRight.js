@@ -26,7 +26,7 @@ const accounts = useSelector((state) => state.accounts.accounts);
   const mappedDictionary = Object.entries(getTop5Transactions()).map(
     ([key, value]) => {
       return (
-        <div key={value.id} className="transaction">
+        <div key={value.transaction_id} className="transaction">
           <div className="merchant-name">{value.merchant_name}</div>
           <div className="transaction-container">
             <div className="date">{value.date}</div>

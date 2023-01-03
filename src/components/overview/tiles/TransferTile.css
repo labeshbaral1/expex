@@ -1,4 +1,4 @@
-.porfolioTile{
+.transferTile{
     background-color: white;
     padding: 10px;
     border-radius: 15px;
@@ -11,12 +11,12 @@
     margin-right: 2%;
 }
 
-.porfolioTile:hover{
+.transferTile:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 
-.porfolioTile > h1{
+.transferTile > h1{
     align-self: flex-start;
     font-size: 14px;
     font-weight: 600;
