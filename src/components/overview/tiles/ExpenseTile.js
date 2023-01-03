@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./IncomeTile.css";
+import "./ExpenseTile.css";
 import {
   PieChart,
   Pie,
@@ -68,8 +68,8 @@ export default function ExpeseTile() {
     const cos = Math.cos(-RADIAN * midAngle);
     const sx = cx + (outerRadius + 10) * cos;
     const sy = cy + (outerRadius + 10) * sin;
-    const mx = cx + (outerRadius + 30) * cos;
-    const my = cy + (outerRadius + 30) * sin;
+    const mx = cx + (outerRadius + 15) * cos;
+    const my = cy + (outerRadius + 20) * sin;
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? "start" : "end";
@@ -133,7 +133,7 @@ export default function ExpeseTile() {
 
   return (
     <React.Fragment>
-      <div className="incomeTile one-tile">
+      <div className="expenseTile one-tile">
         <h1 className="tile-title">Expense</h1>
         <ResponsiveContainer width="140%" height="88%">
           <PieChart

@@ -10,20 +10,21 @@ import {
 } from "recharts";
 import { useSelector } from "react-redux";
 import "./main.css";
+import { fontSize } from "@mui/system";
 
 export default function IncomeTile() {
 
   const accounts = useSelector((state) => state.accounts.accounts);
-  
+
 
   function getData(accounts) {
     let res = [];
     Object.entries(accounts).map(
-      ([key, value]) => {    
+      ([key, value]) => {
         res.push(...value.transactions)
-  })
-  return res
-}
+      })
+    return res
+  }
 
   const Data1 = getData(accounts)
   const data = Data1.filter((transaction) => transaction.amount > 0).map(
@@ -68,16 +69,18 @@ export default function IncomeTile() {
     const cos = Math.cos(-RADIAN * midAngle);
     const sx = cx + (outerRadius + 10) * cos;
     const sy = cy + (outerRadius + 10) * sin;
-    const mx = cx + (outerRadius + 30) * cos;
-    const my = cy + (outerRadius + 30) * sin;
+    const mx = cx + (outerRadius + 15) * cos;
+    const my = cy + (outerRadius + 20) * sin;
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? "start" : "end";
 
+    const fontSize = payload.name.length > 10 ? 10 : 16;
+
     return (
       <g>
         <text
-          className="center-text"
+          className={`center-text ${fontSize === 10 ? "small-font" : "large-font"}`}
           x={cx}
           y={cy}
           dy={8}
