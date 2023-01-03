@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import AccountCard from "./AccountCard";
 import "./Balance.css";
 
 export default function Balance() {
@@ -12,9 +11,10 @@ export default function Balance() {
       <AccountCard
         key={key}
         name={value.name}
-        numberOfAccounts={2}
+        numberOfAccounts={value.accounts.length}
         balance={value.balance}
-        transactions={value.transactions}
+        allTransactions={value.transactions}
+        accounts = {value.accounts}
       />
     );
   });

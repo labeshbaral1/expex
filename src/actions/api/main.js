@@ -47,6 +47,7 @@ export const main = async (email, dispatch) => {
           item_id: item_id,
           name: institution,
           balance: totalBalance,
+          accounts: accounts,
           transactions: transactions,
           access_token: accessToken,
           liabilities: liabilities,
