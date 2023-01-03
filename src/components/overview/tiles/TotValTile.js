@@ -106,7 +106,10 @@ function TotValTile() {
       }
     })
 
-    return { credit_balance: credit_balance, loan_balance: loan_balance, total_debt: total_debt.toLocaleString(), total_assets: total_assets.toLocaleString(), investment_balance: investment_balance.toLocaleString(), cash_balance: cash_balance.toLocaleString(), net_worth: net_worth.toLocaleString()}
+    return { credit_balance: credit_balance, loan_balance: loan_balance, total_debt: total_debt.toLocaleString(), total_assets: total_assets.toLocaleString(), investment_balance: investment_balance.toLocaleString(), cash_balance: cash_balance.toLocaleString(), net_worth: net_worth.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      currencyDisplay: "symbol",})}
   }
 
   useEffect(() => setLiabilities(getLiabilities(accounts)), [])
@@ -114,7 +117,7 @@ function TotValTile() {
     return (
         <div className="totvalTile two-tile">
           <h1 className="tile-title">Total Asset Value</h1>
-          <div className="tot-amount">${liabilities.net_worth}</div>
+          <div className="tot-amount">{liabilities.net_worth}</div>
           <div className="gain-loss-cont">
             <div className="gain-loss">
               <div className="up-arrow">▲</div>
@@ -140,3 +143,8 @@ function TotValTile() {
 
   export default TotValTile
 
+  // .toLocaleString("en-US", {
+  //   style: "currency",
+  //   currency: "USD",
+  //   currencyDisplay: "symbol",
+  // });
