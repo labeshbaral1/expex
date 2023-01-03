@@ -1,15 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 import AccountCard from "./AccountCard";
 import "./Balance.css";
 

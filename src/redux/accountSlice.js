@@ -14,13 +14,15 @@ const accountSlice = createSlice({
         if (state.accounts.hasOwnProperty(element.item_id)) {
           state.accounts[element.item_id].name = element.name;
           state.accounts[element.item_id].balance = element.balance;
-          state.accounts[element.item_id].transactions = element.transactions
+          state.accounts[element.item_id].transactions = element.transactions;
+          state.accounts[element.item_id].liabilities = element.liabilities;
         } else {
           state.accounts[element.item_id] = {
             name: element.name,
             balance: element.balance,
             transactions: element.transactions,
-            access_token: element.access_token
+            access_token: element.access_token,
+            liabilities: element.liabilities,
           };
         }
       }

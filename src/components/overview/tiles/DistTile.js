@@ -1,14 +1,19 @@
-import {useState} from 'react'
-import { useSelector } from 'react-redux'
-
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./DistTile.css"
 import "./main.css"
 
 function DistTile() {
-  
+  const accounts = useSelector((state) => state.accounts.accounts);
+ 
+  // function getLiabilities(accounts) {
+  //   const res = []
+  //   for(const account of accounts) {
+  //     res.push(account.liabilities.liabilities)
+  //   }
 
+  // }
 
-  
   return (
     <div className='distTile two-tile'>
       <h1 className='tile-title'>Asset/Liability Distribution</h1>
@@ -21,7 +26,7 @@ function DistTile() {
           <div className='asset-name'>Assets</div>
           <div className='cash-cont'>
             <div>Cash</div>
-            <div>$</div>
+            <div>$nuts</div>
           </div>
           <div className='cash-cont2'>
             <div>Investment</div>
@@ -30,10 +35,8 @@ function DistTile() {
         </div>
 
 
-
-
         <div className='asset-cont2'>
-          <div className='asset-num'>$121,974.06</div>
+        <div className="bank-name">{}:</div>
           <div className='asset-name'>Liabilities</div>
           <div className='cash-cont3'>
             <div>Credit Cards</div>

@@ -40,6 +40,7 @@ export const main = async (email, dispatch) => {
                 
         const transactions = await apiResponse.data.transactions;
 
+        const liabilities = await apiResponse.data.liabilities;
 
         // Add the total balance to the balances array
         res.push({
@@ -48,12 +49,13 @@ export const main = async (email, dispatch) => {
           balance: totalBalance,
           transactions: transactions,
           access_token: accessToken,
+          liabilities: liabilities,
         });
       }
 
       dispatch(setAccounts(res));
       console.log('API request completed in ' + (new Date().getTime() - start) + ' milliseconds');    }
-  }
+    }
 };
 
 
