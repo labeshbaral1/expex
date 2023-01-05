@@ -1,17 +1,19 @@
 import "./App.css";
 import Header from "./components/Header.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
+import { useNavigate } from "react-router-dom";
 
 import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
 import Budget from "./components/Budget";
 import History from "./components/History";
 import Sidebar from "./components/Sidebar";
+import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
-import Help from "./components/Help";
 
 import StockChart from "./StockChart";
 import { useState } from "react";
@@ -23,28 +25,22 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import Balance from "./components/balances/Balance.js";
 import Loading from "./components/landing/Loading";
+import Settings from "./components/sidebarIcons/Settings";
+import Help from "./components/sidebarIcons/Help";
 
 function App() {
   const loggedIn = useSelector((state) => state.states.isLogged);
-  const apiLoading = useSelector(state => state.states.apiLoading)
-
+  const apiLoading = useSelector((state) => state.states.apiLoading);
+  const navigate = useNavigate();
   return (
     <div className="App">
       <Router>
-
-
-        
         {loggedIn && <Header />}
 
         <Routes>
+          <Route exact path="/test123" element={<StockChart />} />
 
-          <Route exact path="/test123" element={<StockChart/>}/>
-          
-          <Route
-            exact
-            path=""
-            element={!loggedIn && <Signin />}
-          />
+          <Route exact path="" element={!loggedIn && <Signin />} />
           <Route exact path="linkAccount" element={<AddAccount />} />
 
           <Route exact path="signin" element={<Signin />} />
@@ -61,12 +57,22 @@ function App() {
                 <div className="content-container">
                   <Sidebar
                     icons={[
-                      <DashboardOutlinedIcon />,
-                      <AddAccount/>,
-                      <HelpCenterOutlinedIcon />,
-                      <SettingsOutlinedIcon />,
+                      <SidebarIcon
+                        navigate={()=>navigate("/overview")}
+                        Icon={<DashboardOutlinedIcon />}
+                      />,
+                      <AddAccount />,
+                      <SidebarIcon
+                      navigate={()=>navigate("/help")}
+                        Icon={<HelpCenterOutlinedIcon />}
+                      />,
+                      <SidebarIcon
+                      navigate={()=>navigate("/settings")}
+                        Icon={<SettingsOutlinedIcon />}
+                      />,
                     ]}
                   />
+
                   <div className="content">
                     <Overview />
                   </div>
@@ -75,6 +81,9 @@ function App() {
               )
             }
           />
+
+          <Route exact path="settings" element={<Settings />} />
+          <Route exact path="help" element={<Help />} />
 
           <Route
             exact

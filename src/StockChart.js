@@ -1,35 +1,83 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { ResponsiveContainer, LineChart, Line } from 'recharts';
+import { Line } from 'react-chartjs-2';
 
+export default function StockChart() {
 
-export default function StockChart(){
-    const [data, setData] = useState([]);
-    useEffect(() => {
-      async function fetchData() {
-        const API_KEY = 'YOUR_API_KEY_HERE';
-        const response = await axios.get(
-          `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=DJIA&interval=1min&apikey=${API_KEY}`
-        );
-        const timeSeries = response.data['Time Series (1min)'];
-        const data = Object.keys(timeSeries).map(key => {
-          return {
-            time: key,
-            close: parseFloat(timeSeries[key]['4. close'])
-          };
-        });
-        setData(data);
-      }
-      fetchData();
-      const intervalId = setInterval(fetchData, 60000);
-      return () => clearInterval(intervalId);
-    }, []);
-    return (
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <Line type="monotone" dataKey="close" stroke="#8884d8" />
-        </LineChart>
-      </ResponsiveContainer>
-    );
+  const Utils = {
+    CHART_COLORS: {
+      red: 'rgb(255, 99, 132)',
+      blue: 'rgb(54, 162, 235)',
+      green: 'rgb(75, 192, 192)',
+    },
   };
+
+
+  const DATA_COUNT = 12;
+  const labels = [];
+  for (let i = 0; i < DATA_COUNT; ++i) {
+    labels.push(i.toString());
+  }
+  const datapoints = [0, 20, 20, 60, 60, 120, 140, 180, 120, 125, 105, 110, 170];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Cubic interpolation (monotone)',
+        data: datapoints,
+        borderColor: Utils.CHART_COLORS.red,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4
+      }, {
+        label: 'Cubic interpolation',
+        data: datapoints,
+        borderColor: Utils.CHART_COLORS.blue,
+        fill: false,
+        tension: 0.4
+      }, {
+        label: 'Linear interpolation (default)',
+        data: datapoints,
+        borderColor: Utils.CHART_COLORS.green,
+        fill: false
+      }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Chart.js Line Chart - Cubic interpolation mode'
+        },
+      },
+      interaction: {
+        intersect: false,
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Value'
+          },
+          suggestedMin: -10,
+          suggestedMax: 200
+        }
+      }
+    },
+  };
+
+  return (
+    <Line options={config} data={data} error={error => console.log(error)} />
+  );
   
+}
