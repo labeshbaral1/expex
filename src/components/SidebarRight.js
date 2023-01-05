@@ -64,7 +64,6 @@ function SidebarRight() {
 
   let amount = 0;
   const mappedDictionary = Object.entries(getTop5Transactions()).map(([key, value]) => {
-    console.log(value.amount);
     amount = value.amount;
     const date = new Date(value.date);
     let formattedDateString;

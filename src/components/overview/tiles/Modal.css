@@ -1,0 +1,50 @@
+.modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  opacity: .5;
+  z-index: 3;
+
+}
+
+.modal-tile {
+  position: fixed;
+  top: 50%;
+  left:50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background-color: #eff3f8;
+  padding: 20px;
+  z-index: 12;
+  border-radius: 15px;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content > form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.modal-header > h1 {
+ font-size: 24px;
+ font-weight: 600;
+}
+.modal-close {
+  cursor: pointer;
+  font-size: 24px;
+}

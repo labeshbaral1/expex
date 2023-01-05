@@ -81,8 +81,56 @@ export default function App() {
             }
           />
 
-          <Route exact path="settings" element={<Settings />} />
-          <Route exact path="help" element={<Help />} />
+          <Route exact path="settings" element={
+           <div className="content-container">
+           <Sidebar
+             icons={[
+               <SidebarIcon
+               navigate= {"/overview"}
+                 Icon={<DashboardOutlinedIcon />}
+               />,
+               <AddAccount />,
+               <SidebarIcon
+               navigate={"/help"}
+                 Icon={<HelpCenterOutlinedIcon />}
+               />,
+               <SidebarIcon
+               navigate={"/settings"}
+                 Icon={<SettingsOutlinedIcon />}
+               />,
+             ]}
+           />
+
+           <div className="content">
+           <Settings />
+           </div>
+          
+         </div>
+          } />
+          <Route exact path="help" element={   <div className="content-container">
+           <Sidebar
+             icons={[
+               <SidebarIcon
+               navigate= {"/overview"}
+                 Icon={<DashboardOutlinedIcon />}
+               />,
+               <AddAccount />,
+               <SidebarIcon
+               navigate={"/help"}
+                 Icon={<HelpCenterOutlinedIcon />}
+               />,
+               <SidebarIcon
+               navigate={"/settings"}
+                 Icon={<SettingsOutlinedIcon />}
+               />,
+             ]}
+           />
+
+           <div className="content">
+           <Help />
+           </div>
+          
+         </div>} />
 
           <Route
             exact

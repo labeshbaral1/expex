@@ -17,6 +17,7 @@
     "highcharts": "^10.3.2",
     "highcharts-react-official": "^3.1.0",
     "plaid": "^12.2.0",
+    "plaid-threads": "^14.5.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.1.0",
     "react-dom": "^18.2.0",
