@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
-import { useNavigate } from "react-router-dom";
 
 import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
@@ -16,7 +15,7 @@ import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
 
 import StockChart from "./StockChart";
-import { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -28,10 +27,10 @@ import Loading from "./components/landing/Loading";
 import Settings from "./components/sidebarIcons/Settings";
 import Help from "./components/sidebarIcons/Help";
 
-function App() {
+export default function App() {
   const loggedIn = useSelector((state) => state.states.isLogged);
   const apiLoading = useSelector((state) => state.states.apiLoading);
-  const navigate = useNavigate();
+
   return (
     <div className="App">
       <Router>
@@ -58,16 +57,16 @@ function App() {
                   <Sidebar
                     icons={[
                       <SidebarIcon
-                        navigate={()=>navigate("/overview")}
+                      navigate= {"/overview"}
                         Icon={<DashboardOutlinedIcon />}
                       />,
                       <AddAccount />,
                       <SidebarIcon
-                      navigate={()=>navigate("/help")}
+                      navigate={"/help"}
                         Icon={<HelpCenterOutlinedIcon />}
                       />,
                       <SidebarIcon
-                      navigate={()=>navigate("/settings")}
+                      navigate={"/settings"}
                         Icon={<SettingsOutlinedIcon />}
                       />,
                     ]}
@@ -114,4 +113,3 @@ function App() {
   );
 }
 
-export default App;

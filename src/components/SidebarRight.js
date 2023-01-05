@@ -78,12 +78,11 @@ function SidebarRight() {
       formattedDateString = getFormattedMonthDay(date);
     }
     return (
-      <div key={value.id} className="transaction">
+      <div key={value.id} className="transaction" >
         <div className="transac-container">
           <div className="tran-name-containter">
-            <div className="merchant-name">{value.merchant_name || value.category}</div>
+            <div className="merchant-name">{value.merchant_name || value.name.substring(0,12) + ".." ||value.name}</div>
             <div className="date">{formattedDateString}</div>
-
           </div>
           <div className="price" style={{ color: amount > 0 ? '#52c8a0' : '#ec898b' }}>{amount > 0 ? '+' : ''}{amount.toLocaleString('en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'symbol' })}</div>
         </div>

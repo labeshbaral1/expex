@@ -19,7 +19,7 @@ function Overview() {
   }, []);
 
   return (
-    <div className="overview">
+    <div className="overAview">
       <div className="tile-container">
         <div className="top-container">
           <TotValTile />
