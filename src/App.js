@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
-
-import AddAccount from "./components/sidebarIcons/AddAccount";
+import AddAccount from "./components/SidebarIcons/AddAccount"
+// import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
 import Budget from "./components/Budget";
 import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarRight from "./components/SidebarRight";
-import Help from "./components/Help";
+import About from "./About";
 
 import StockChart from "./StockChart";
 import { useState } from "react";
@@ -43,7 +43,7 @@ function App() {
           <Route
             exact
             path=""
-            element={!loggedIn && <Signin />}
+            element={loggedIn? <About /> : <Signin />}
           />
           <Route exact path="linkAccount" element={<AddAccount />} />
 
