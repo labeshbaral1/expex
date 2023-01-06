@@ -14,3 +14,13 @@
     background-color: white;
     border-radius: 15px;
 }
+
+.delete{
+
+    padding: 4px;
+    border-radius: 50%;
+    background-color: pink;
+    color: white;
+    font-size: 9;
+    cursor: pointer;
+}

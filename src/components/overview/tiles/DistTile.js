@@ -9,8 +9,9 @@ function DistTile({liabilities}) {
 const accounts = useSelector((state) => state.accounts.accounts);
   const email = useSelector(state => state.user.email)
   const additional_assets = useSelector(state => state.accounts.user_assets)
-  
   const [show, setShow] = useState(false);
+  console.log(show)
+
 
 	return (
 			<div className="distTile two-tile">

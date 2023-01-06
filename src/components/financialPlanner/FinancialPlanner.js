@@ -16,6 +16,8 @@ function FinancialPlanner() {
                     <div className="asset-tile">
                         <div className="asset-name">{asset.name}</div>
                         <div className="asset-value">{asset.value}</div>
+                        <div className="delete" onClick={()=> {console.log(asset.name + "detleted")}  }>delete</div>
+
                     </div>
                 )
             })
