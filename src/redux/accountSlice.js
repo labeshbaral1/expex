@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   accounts: {},
+  user_assets: []
 };
 
 const accountSlice = createSlice({
@@ -38,6 +39,12 @@ const accountSlice = createSlice({
         state.accounts[element.item_id].transactions = element.transactions;
       }
     },
+    addAsset: (state, action) =>  {
+      state.user_assets.push({name: action.payload.name, value: action.payload.value})
+        },
+    setAssets: (state,action) => {
+      state.user_assets = action.payload
+    },
     removeAccount: (state, action) => {
       if (state.accounts.hasOwnProperty(action.payload.item_id)){
         delete state.accounts[action.payload.item_id]
@@ -52,4 +59,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { setAccounts, setTransactions , removeAccount} = accountSlice.actions;
+export const { setAccounts, setTransactions , removeAccount, addAsset, setAssets} = accountSlice.actions;

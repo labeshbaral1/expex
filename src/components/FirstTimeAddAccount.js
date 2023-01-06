@@ -1,14 +1,12 @@
 import { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./LinkAccount.css";
 import Jack from "../assets/jack.png";
 import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
-
 import { db } from "../firebase/firebase";
 import axios from "axios";
 
-export default function AddAccount() {
+export default function FirstTimeAddAccount() {
   const [token, setToken] = useState(null);
   const email = useSelector((state) => state.user.email);
   const uid = useSelector((state) => state.user.uid);
