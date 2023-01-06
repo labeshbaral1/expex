@@ -3,7 +3,9 @@ import { setAccounts } from "../../redux/accountSlice";
 import axios from "axios";
 import { toggleAPIloading } from "../../redux/stateSlice";
 
+
 export const main = async (email, dispatch) => {
+  
 
     var start = new Date().getTime();
 
@@ -67,6 +69,11 @@ export const main = async (email, dispatch) => {
       dispatch(setAccounts(res));
       dispatch(toggleAPIloading(false))
       console.log('API request completed in ' + (new Date().getTime() - start) + ' milliseconds');    }
+      return true
+    }
+    else{
+      console.log("this should return falase")
+      return false
     }
 };
 

@@ -1,16 +1,37 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {addAsset} from "../../../redux/accountSlice"
 import "./Modal.css";
+import {db} from "../../../firebase/firebase"
 
-function Modal({ closeModal }) {
+function Modal({email, closeModal }) {
+	const dispatch = useDispatch()
+	
 	const [name, setName] = useState("");
 	const [value, setValue] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		closeModal();
-		setName("");
-		setValue("");
-	};
+		dispatch(addAsset({name: name, value: value}))
+
+		const docRef = db.collection("users").doc(btoa(email)).collection("additional_assets").doc("assets");
+
+		docRef.get().then(doc => {
+		  const userAssets = doc.data().user_assets;
+		  
+		  
+		  docRef.update({
+			user_assets: [...userAssets, { name: name, value: value }]
+		  });
+		});
+
+		setName("")
+		setValue("")
+		closeModal()
+			
+        
+	
+}
 
 	return (	
 		<div className="modal-overlay">

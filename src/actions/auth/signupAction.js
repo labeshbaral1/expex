@@ -16,6 +16,14 @@ export const signupUser = (name, email, password, navigate) => {
             email: email,
             created: new Date(),
           });
+          
+          db.collection("users")
+          .doc(btoa(email))
+          .collection("additional_assets")
+          .doc("assets")
+          .set({
+            user_assets: []
+          });
 
         navigate("/signin");
       }

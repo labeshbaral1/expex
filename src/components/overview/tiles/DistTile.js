@@ -5,50 +5,12 @@ import Modal from './Modal.js'
 import "./DistTile.css";
 import "./main.css";
 
-function DistTile() {
-	const accounts = useSelector((state) => state.accounts.accounts);
+function DistTile({liabilities}) {
+const accounts = useSelector((state) => state.accounts.accounts);
   const email = useSelector(state => state.user.email)
-  const [liabilities, setLiabilities] = useState(0);
-  const [show, setShow] = useState(false);
+  const additional_assets = useSelector(state => state.accounts.user_assets)
   
-	function getLiabilities(accounts) {
-		let credit_balance = 0;
-		let loan_balance = 0;
-		let total_debt = 0;
-		let investment_balance = 0;
-		let cash_balance = 0;
-		let total_assets = 0;
-
-		Object.entries(accounts).map(([key, value]) => {
-			for (const account of value.accounts) {
-				if (account.type === "credit") {
-					credit_balance += account.balances.current;
-				} else if (account.type === "loan") {
-					loan_balance += account.balances.current;
-				} else if (account.type === "investment") {
-					investment_balance += account.balances.current;
-				} else if (account.type === "depository") {
-					cash_balance += account.balances.current;
-				}
-
-				total_debt = credit_balance + loan_balance;
-				total_assets = investment_balance + cash_balance;
-				total_assets = Math.round(total_assets * 100) / 100;
-				investment_balance = Math.round(investment_balance * 100) / 100;
-			}
-		});
-
-		return {
-			credit_balance: credit_balance,
-			loan_balance: loan_balance.toLocaleString(),
-			total_debt: total_debt.toLocaleString(),
-			total_assets: total_assets.toLocaleString(),
-			investment_balance: investment_balance.toLocaleString(),
-			cash_balance: cash_balance.toLocaleString(),
-		};
-	}
-
-	useEffect(() => setLiabilities(getLiabilities(accounts)), []);
+  const [show, setShow] = useState(false);
 
 	return (
 			<div className="distTile two-tile">
@@ -56,7 +18,7 @@ function DistTile() {
 				<div className="main-cont">
 					<div className="asset-cont">
 						<div className="button-cont">
-							<div className="asset-num">${liabilities.total_assets}</div>
+						<div className="asset-num">${Math.round((liabilities.investment_balance + liabilities.cash_balance + liabilities.user_asset_balance) * 100) / 100}</div>
 							<div className="add-button" onClick={() => setShow(true)}>
 								Add
 							</div>
@@ -74,7 +36,7 @@ function DistTile() {
 					</div>
 
 					<div className="asset-cont2">
-						<div className="asset-num">${liabilities.total_debt}</div>
+					<div className="asset-num">${Math.round((liabilities.credit_balance + liabilities.loan_balance) * 100) / 100}</div>
 						<div className="asset-name">Liabilities</div>
 						<div className="cash-cont3">
 							<div>Credit Cards</div>
@@ -86,7 +48,7 @@ function DistTile() {
 						</div>
 					</div>
 				</div>
-        {show && <Modal closeModal={() => setShow(false)}/>}
+        {show && <Modal email={email} closeModal={() => setShow(false)}/>}
 
 			</div>
 	);

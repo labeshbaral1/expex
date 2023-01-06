@@ -6,9 +6,10 @@ import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
 
+import FirstTimeAddAccount from "./components/FirstTimeAddAccount"
 import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
-import Budget from "./components/Budget";
+import FinancialPlanner from "./components/financialPlanner/FinancialPlanner";
 import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
@@ -37,10 +38,10 @@ export default function App() {
         {loggedIn && <Header />}
 
         <Routes>
-          <Route exact path="/test123" element={<StockChart />} />
 
           <Route exact path="" element={!loggedIn && <Signin />} />
-          <Route exact path="linkAccount" element={<AddAccount />} />
+
+          <Route exact path="linkAccount" element={<FirstTimeAddAccount />} />
 
           <Route exact path="signin" element={<Signin />} />
 
@@ -153,7 +154,22 @@ export default function App() {
             }
           />
 
-          <Route exact path="financial_planner" element={<Budget />} />
+          <Route exact path="financial_planner" element={
+              <div className="content-container">
+                <Sidebar
+                  icons={[
+                    <DashboardOutlinedIcon />,
+                    <PersonAddAltOutlinedIcon />,
+                    <HelpCenterOutlinedIcon />,
+                    <SettingsOutlinedIcon />,
+                  ]}
+                />
+                <div className="content">
+                  <FinancialPlanner />
+                </div>
+                <SidebarRight />
+              </div>
+            } />
           <Route exact path="invest" element={<History />} />
         </Routes>
       </Router>
