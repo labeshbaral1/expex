@@ -6,6 +6,8 @@ import Signin from "./components/landing/Signin";
 import Signup from "./components/landing/Signup";
 import Overview from "./components/overview/Overview";
 
+// import AddAccount from "./components/sidebarIcons/AddAccount";
+
 import FirstTimeAddAccount from "./components/FirstTimeAddAccount"
 import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
@@ -14,6 +16,8 @@ import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
+import About from "./About";
+
 
 import StockChart from "./StockChart";
 import React from "react";
@@ -39,6 +43,7 @@ export default function App() {
 
         <Routes>
 
+<Route exact path="linkAccount" element={<AddAccount />} />
           <Route exact path="" element={!loggedIn && <Signin />} />
 
           <Route exact path="linkAccount" element={<FirstTimeAddAccount />} />
