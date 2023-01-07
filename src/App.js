@@ -16,8 +16,7 @@ import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
-import About from "./About";
-
+// import About from "./About";
 
 import StockChart from "./StockChart";
 import React from "react";
@@ -79,7 +78,7 @@ export default function App() {
                   />
 
                   <div className="content">
-                    <Overview />
+                    <Overview  />
                   </div>
                   <SidebarRight />
                 </div>
