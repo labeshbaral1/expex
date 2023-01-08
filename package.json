@@ -14,7 +14,7 @@
     "axios": "^1.2.1",
     "chart.js": "^4.1.1",
     "firebase": "^9.15.0",
-    "framer-motion": "^8.1.9",
+    "framer-motion": "^8.2.4",
     "highcharts": "^10.3.2",
     "highcharts-react-official": "^3.1.0",
     "plaid": "^12.2.0",

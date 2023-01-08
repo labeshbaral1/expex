@@ -8,7 +8,7 @@ import Overview from "./components/overview/Overview";
 
 // import AddAccount from "./components/sidebarIcons/AddAccount";
 
-import FirstTimeAddAccount from "./components/FirstTimeAddAccount"
+import FirstTimeAddAccount from "./components/FirstTimeAddAccount";
 import AddAccount from "./components/sidebarIcons/AddAccount";
 import Transactions from "./components/Transactions";
 import FinancialPlanner from "./components/financialPlanner/FinancialPlanner";
@@ -16,8 +16,7 @@ import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
-import About from "./About";
-
+// import About from "./About";
 
 import StockChart from "./StockChart";
 import React from "react";
@@ -42,8 +41,6 @@ export default function App() {
         {loggedIn && <Header />}
 
         <Routes>
-
-<Route exact path="linkAccount" element={<AddAccount />} />
           <Route exact path="" element={!loggedIn && <Signin />} />
 
           <Route exact path="linkAccount" element={<FirstTimeAddAccount />} />
@@ -57,22 +54,26 @@ export default function App() {
             path="overview"
             element={
               apiLoading ? (
-                <Loading />
+                apiLoading ? (
+                  <Loading />
+                ) : (
+                  <FirstTimeAddAccount />
+                )
               ) : (
                 <div className="content-container">
                   <Sidebar
                     icons={[
                       <SidebarIcon
-                      navigate= {"/overview"}
+                        navigate={"/overview"}
                         Icon={<DashboardOutlinedIcon />}
                       />,
                       <AddAccount />,
                       <SidebarIcon
-                      navigate={"/help"}
+                        navigate={"/help"}
                         Icon={<HelpCenterOutlinedIcon />}
                       />,
                       <SidebarIcon
-                      navigate={"/settings"}
+                        navigate={"/settings"}
                         Icon={<SettingsOutlinedIcon />}
                       />,
                     ]}
@@ -87,56 +88,64 @@ export default function App() {
             }
           />
 
-          <Route exact path="settings" element={
-           <div className="content-container">
-           <Sidebar
-             icons={[
-               <SidebarIcon
-               navigate= {"/overview"}
-                 Icon={<DashboardOutlinedIcon />}
-               />,
-               <AddAccount />,
-               <SidebarIcon
-               navigate={"/help"}
-                 Icon={<HelpCenterOutlinedIcon />}
-               />,
-               <SidebarIcon
-               navigate={"/settings"}
-                 Icon={<SettingsOutlinedIcon />}
-               />,
-             ]}
-           />
+          <Route
+            exact
+            path="settings"
+            element={
+              <div className="content-container">
+                <Sidebar
+                  icons={[
+                    <SidebarIcon
+                      navigate={"/overview"}
+                      Icon={<DashboardOutlinedIcon />}
+                    />,
+                    <AddAccount />,
+                    <SidebarIcon
+                      navigate={"/help"}
+                      Icon={<HelpCenterOutlinedIcon />}
+                    />,
+                    <SidebarIcon
+                      navigate={"/settings"}
+                      Icon={<SettingsOutlinedIcon />}
+                    />,
+                  ]}
+                />
 
-           <div className="content">
-           <Settings />
-           </div>
-          
-         </div>
-          } />
-          <Route exact path="help" element={   <div className="content-container">
-           <Sidebar
-             icons={[
-               <SidebarIcon
-               navigate= {"/overview"}
-                 Icon={<DashboardOutlinedIcon />}
-               />,
-               <AddAccount />,
-               <SidebarIcon
-               navigate={"/help"}
-                 Icon={<HelpCenterOutlinedIcon />}
-               />,
-               <SidebarIcon
-               navigate={"/settings"}
-                 Icon={<SettingsOutlinedIcon />}
-               />,
-             ]}
-           />
+                <div className="content">
+                  <Settings />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            exact
+            path="help"
+            element={
+              <div className="content-container">
+                <Sidebar
+                  icons={[
+                    <SidebarIcon
+                      navigate={"/overview"}
+                      Icon={<DashboardOutlinedIcon />}
+                    />,
+                    <AddAccount />,
+                    <SidebarIcon
+                      navigate={"/help"}
+                      Icon={<HelpCenterOutlinedIcon />}
+                    />,
+                    <SidebarIcon
+                      navigate={"/settings"}
+                      Icon={<SettingsOutlinedIcon />}
+                    />,
+                  ]}
+                />
 
-           <div className="content">
-           <Help />
-           </div>
-          
-         </div>} />
+                <div className="content">
+                  <Help />
+                </div>
+              </div>
+            }
+          />
 
           <Route
             exact
@@ -159,7 +168,10 @@ export default function App() {
             }
           />
 
-          <Route exact path="financial_planner" element={
+          <Route
+            exact
+            path="financial_planner"
+            element={
               <div className="content-container">
                 <Sidebar
                   icons={[
@@ -174,11 +186,11 @@ export default function App() {
                 </div>
                 <SidebarRight />
               </div>
-            } />
+            }
+          />
           <Route exact path="invest" element={<History />} />
         </Routes>
       </Router>
     </div>
   );
 }
-

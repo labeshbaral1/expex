@@ -6,6 +6,7 @@ position: relative;
   min-width: 100px;
   padding-right: 5apx;
   z-index: 2;
+  margin: 0px 10px;
 }
 
 .account {
