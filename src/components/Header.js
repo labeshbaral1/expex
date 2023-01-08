@@ -14,7 +14,8 @@ function Header() {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="">
+        <Link to="about"
+        >
           <div className="cust-logo">
             <div className="double-e">ƎE</div>
             <div className="name">EXPEX</div>

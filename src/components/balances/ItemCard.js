@@ -57,11 +57,11 @@ function ItemCard({
               <div className="item-number">
                 {numberOfAccounts ? numberOfAccounts : "no"} accounts available
               </div>
+              
             </div>
           </div>
-          {numberOfAccounts && <div className="drop-carrot">⌄</div>}
-
-          <div className="item-balance">${balance}</div>
+          {/* <div className="drop-carrot">⌄</div> */}
+          <div className="item-balance">{balance ? balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : ''}</div>
         </div>
 
         <div

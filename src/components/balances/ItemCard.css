@@ -1,4 +1,4 @@
-.item-card{
+.item-card {
     display: flex;
     padding: 10px 40px;
     flex-direction: row;
@@ -8,25 +8,30 @@
     border-radius: 15px;
     background-color: white;
     cursor: pointer;
-    
 }
 
-
-
-.account-card:hover{
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
-    
+.item-name{
+    font-size: 32px;
+    margin-bottom: 1px;
 }
 
-.drop-carrot{
-    opacity: 0;   
+.account-card:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+
 }
-.item-card:hover .drop-carrot{
+
+.drop-carrot {
+    opacity: 0;
+margin-top: 5%;
+transform: translateY(-2.0rem);
+}
+
+.item-card:hover .drop-carrot {
     transform: translateY(0rem);
-    animation: fadeInUp 0.5s ease 0s forwards;
-  }
+    animation: fadeInUp .5s ease 0s forwards;
+}
 
-.left-container{
+.left-container {
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -34,22 +39,37 @@
 
 }
 
-.item-logo > img{
+.item-logo>img {
+    margin-top: 5px;
     height: 40px;
-    width: 40px;    
+    width: 40px;
 }
 
 
-.account-balance{
-    font-weight: 900;
-    color: #635BFF;
+.account-balance {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 12px;
+    color: rgb(75, 75, 75);
 }
 
 
-.dropDown{
+.dropDown {
+    border-radius: 15px;
+    margin-top: -4.5%;
     background-color: white;
-    padding:20px
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    opacity: 1;
+    transform: translateY(-.8rem);
+    animation: fadeInUp .5s ease 0s forwards;
 }
 
 
-
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

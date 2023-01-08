@@ -8,13 +8,15 @@ import Overview from "./components/overview/Overview";
 
 // import AddAccount from "./components/sidebarIcons/AddAccount";
 
+
 import FirstTimeAddAccount from "./components/FirstTimeAddAccount";
 import AddAccount from "./components/sidebarIcons/AddAccount";
+
 import Transactions from "./components/Transactions";
 import FinancialPlanner from "./components/financialPlanner/FinancialPlanner";
 import History from "./components/History";
 import Sidebar from "./components/Sidebar";
-import SidebarIcon from "./components/sidebarIcons/SidebarIcon";
+import SidebarIcon from "./components/SidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
 // import About from "./About";
 
@@ -28,8 +30,8 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import Balance from "./components/balances/Balance.js";
 import Loading from "./components/landing/Loading";
-import Settings from "./components/sidebarIcons/Settings";
-import Help from "./components/sidebarIcons/Help";
+import Settings from "./components/SidebarIcons/Settings"
+import Help from "./components/SidebarIcons/Help";
 
 export default function App() {
   const loggedIn = useSelector((state) => state.states.isLogged);
@@ -48,6 +50,8 @@ export default function App() {
           <Route exact path="signin" element={<Signin />} />
 
           <Route exact path="signup" element={<Signup />} />
+
+          <Route exact path="about" element={<About />} />
 
           <Route
             exact
