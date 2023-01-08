@@ -1,13 +1,99 @@
-.card {
-    /* opacity: 0;
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+align-items: center;
+
+}
+
+.card{
+
+    background-color: #e5dbff;
+    padding: 50px 50px;
+    margin-top: 20vh;
+}
+
+.card2{
+
+    background-color: #e5dbff;
+    padding: 50px 50px;
+    margin-top: 10vh;
+}
+
+.card3{
+
+    background-color: #e5dbff;
+    padding: 50px 50px;
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+}
+
+.card p{
+
+    line-height: 150%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.card2 p{
+    line-height: 150%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.card3 p{
+
+    line-height: 150%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.aboutus{
+    font-family: 'Roboto Mono', monospace;
+    font-size:24px;
+    white-space: nowrap;
+}
+
+.expand{
+width: 40rem;
+}
+
+.hand{
+    position: absolute;  /* position the element absolute */
+    bottom: 0;
+    right: 0;
+max-width: 650px;
+  
+}
+
+@media (max-height: 800px) {  /* apply these styles when the viewport is 576px or narrower */
+    .hand {
+        max-width: 500px;
+    }
+  }
+
+/* .phone{
+    font-size: 30px;
+    margin-top: 14%;
+    margin-left: 42%;
+    margin-right: 31%;
+    padding-top: 485px;
+    border-radius: 20px;
+    background-color: red;
+    width: 233px;
+} */
+/* .card {
+    opacity: 0;
     transform: translateY(3rem);
-    animation: fadeInUp 1.5s ease 0.5s forwards; */
+    animation: fadeInUp 1.5s ease 0.5s forwards;
     margin-top: 6.0%;
     margin-bottom: 6.0%;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 120px;
+min-height: 100vh;
     background-color: #d8c7ff;
     border-radius: 25px;
     flex-direction: column;
@@ -36,3 +122,5 @@
     padding-right: 60px;
     background-color: white;
 }
+
+ */

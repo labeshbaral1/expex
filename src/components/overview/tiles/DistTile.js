@@ -31,7 +31,7 @@ const accounts = useSelector((state) => state.accounts.accounts);
 						</div>
 						<div className="cash-cont2">
 							<div>Investment</div>
-							<div>${liabilities.investment_balance}</div>
+							<div>${Math.round(liabilities.investment_balance *100)/100}</div>
 						</div>
 					</div>
 
