@@ -17,7 +17,10 @@ const stateSlice = createSlice({
         toggleAPIloading: (state, action) => {
             state.apiLoading = action.payload
         }
+        ,
+
  
+
     }
  
 })

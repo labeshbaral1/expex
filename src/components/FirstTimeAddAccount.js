@@ -1,16 +1,15 @@
 import { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Jack from "../assets/jack.png";
-import { FiLink } from "react-icons/fi";
 import { usePlaidLink } from "react-plaid-link";
 import { db } from "../firebase/firebase";
 import axios from "axios";
+import "./FirstTimeAddAccount.css";
 
 export default function FirstTimeAddAccount() {
   const [token, setToken] = useState(null);
   const email = useSelector((state) => state.user.email);
   const uid = useSelector((state) => state.user.uid);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   //API call to create_link_token
   useEffect(() => {
@@ -48,7 +47,6 @@ export default function FirstTimeAddAccount() {
   const onSuccess = useCallback((publicToken, metadata) => {
     // send public_token to your server
     // https://plaid.com/docs/api/tokens/#token-exchange-flow
-
 
     const setAccessToken = async () => {
       const accessTokenResponse = await axios.post(
@@ -140,16 +138,24 @@ export default function FirstTimeAddAccount() {
   return isOAuthRedirect ? (
     <> </>
   ) : (
-    <button
-      onClick={() => {
-        open();
-      }}
-    >
-      <div className="tile">
-        <FiLink className="symbol" size={150} />
-        <h3>Link your Account</h3>
+    <div className="landing-page">
+      <div className="landing-content">
+
+
+        <h1>Take Control of Your Finances</h1>
+        <p>On the worlds #1 trusted bank</p>
+        <div
+          className="linkAccountButton"
+          onClick={() => {
+            open();
+          }}
+        >
+          Link Your First Account
+        </div>
+
       </div>
-      <img className="jack" src={Jack} alt="" />{" "}
-    </button>
+
+      <div className="carouselSlideShow"></div>
+    </div>
   );
 }
