@@ -97,7 +97,7 @@ padding-right: 10px;
 
 
 .cash-cont{
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -111,7 +111,7 @@ padding-right: 10px;
 }
 
 .cash-cont3{
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

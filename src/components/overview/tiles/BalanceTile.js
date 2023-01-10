@@ -24,7 +24,7 @@ function BalanceTile() {
           <div className="bank-name">{value.name}:</div>
           <div className="account-number">**9022</div>
         </div>
-        <p className="bank-amount">${value.balance}</p>
+        <p className="bank-amount">${value.balance.toLocaleString()}</p>
       </div>
     );
   });
