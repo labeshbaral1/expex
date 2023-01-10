@@ -1,26 +1,35 @@
-.app{
+.app {
     display: flex;
     flex-direction: column;
     justify-content: center;
-align-items: center;
+    align-items: center;
 
 }
 
-.card{
+.MuiTimeline-root {
+    font-size: 40px;
+  }
+
+::-webkit-scrollbar {
+    width: 0.25em;  /* set the width of the scrollbar */
+    /* background-color: transparent;  */
+  }
+
+.card {
 
     background-color: #e5dbff;
     padding: 50px 50px;
     margin-top: 20vh;
 }
 
-.card2{
+.card2 {
 
     background-color: #e5dbff;
     padding: 50px 50px;
     margin-top: 10vh;
 }
 
-.card3{
+.card3 {
 
     background-color: #e5dbff;
     padding: 50px 50px;
@@ -28,7 +37,7 @@ align-items: center;
     margin-bottom: 20vh;
 }
 
-.card p{
+.card p {
 
     line-height: 150%;
     font-family: 'Roboto Mono', monospace;
@@ -36,14 +45,14 @@ align-items: center;
     margin-top: 15px;
 }
 
-.card2 p{
+.card2 p {
     line-height: 150%;
     font-family: 'Roboto Mono', monospace;
     font-size: 18px;
     margin-top: 15px;
 }
 
-.card3 p{
+.card3 p {
 
     line-height: 150%;
     font-family: 'Roboto Mono', monospace;
@@ -51,29 +60,153 @@ align-items: center;
     margin-top: 15px;
 }
 
-.aboutus{
+.aboutus {
     font-family: 'Roboto Mono', monospace;
-    font-size:24px;
+    font-size: 24px;
     white-space: nowrap;
 }
 
-.expand{
-width: 40rem;
+.expand {
+    width: 40rem;
 }
 
-.hand{
-    position: absolute;  /* position the element absolute */
+.hand {
+    position: absolute;
+    /* position the element absolute */
     bottom: 0;
     right: 0;
-max-width: 650px;
-  
+    max-width: 650px;
+
 }
 
-@media (max-height: 800px) {  /* apply these styles when the viewport is 576px or narrower */
+@media (max-height: 800px) {
+
+    /* apply these styles when the viewport is 576px or narrower */
     .hand {
         max-width: 500px;
     }
-  }
+}
+
+.about-center {
+    margin-top: 90px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.about-center p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.about-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-title2 {
+    font-size: 32px;
+    margin-bottom: 70px;
+    margin-top: 60px;
+}
+
+.about-title3 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+.profile-pic-cont {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 150px;
+}
+
+.profile-pic-text-cont{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.socials{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+/* .profile-pic-text-cont {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 230px;
+    font-size: 18px;
+    margin-bottom: 200px;
+} */
+
+.nuts {
+    width: 175px;
+    height: 225px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.full-timeline{
+    font-weight: 900;
+}
+
+.developer-cont{
+    background-color: #f3f5f9;
+    border-radius: 15px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.developer-cont2{
+    background-color: #f3f5f9;
+    border-radius: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+
+
+}
+
+.full-dev-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 100px;
+}
+
+
+.dev-name{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.dev-title{
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #635BFF;
+}
 
 /* .phone{
     font-size: 30px;
