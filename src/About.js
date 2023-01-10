@@ -31,8 +31,10 @@ function About() {
     }
 
     return (
-        <div>
-            <div className="split left">
+        <div className='about'>
+            
+            <div className="split-left">
+                
                 <div className="about-center">
                     <div className='about-title'>About Us.</div>
                     <p>
@@ -165,9 +167,9 @@ function About() {
 
                 </div>
             </div>
-            <div className="split right">
+            <div className="split-right">
                 <img className="hand" src={bob} alt="" />{" "}
-                <div className='phone'></div>
+                <img className="phone" src= {"/assets/srikar.png"}/>
             </div>
         </div>
 

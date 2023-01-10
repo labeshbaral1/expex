@@ -40,6 +40,7 @@ export default function App() {
   return (
     <div className="App">
       <Router>
+        
         {loggedIn && <Header />}
 
         <Routes>
@@ -51,7 +52,7 @@ export default function App() {
 
           <Route exact path="signup" element={<Signup />} />
 
-          <Route exact path="about" element={<About />} />
+          <Route exact path="about" element={ <About />}/>
 
           <Route
             exact

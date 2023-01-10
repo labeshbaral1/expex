@@ -1,9 +1,20 @@
-.app {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
+.about{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+
+}
+.split-left{
+    width: 50%;
+    overflow: auto;
+
+
+}
+
+.split-right{
+    width: 50%;
 }
 
 .MuiTimeline-root {
@@ -71,13 +82,23 @@
 }
 
 .hand {
-    position: absolute;
-    /* position the element absolute */
-    bottom: 0;
-    right: 0;
+    position: relative;
+    bottom: 0px;
+    right: -200px;
     max-width: 650px;
 
+
 }
+
+.phone{
+    z-index: 20;
+    position: relative;
+    height: 300px;
+    width: 150px;
+    bottom: 300px;
+    right: 150px;
+}
+
 
 @media (max-height: 800px) {
 
