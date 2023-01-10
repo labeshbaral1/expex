@@ -58,14 +58,15 @@ const data = [
   },
 ];
 
-function TotValTile({liabilities}) {
+function TotValTile({ liabilities }) {
   const accounts = useSelector((state) => state.accounts.accounts);
-  
+  const amount = Math.round((liabilities.cash_balance + liabilities.investment_balance + liabilities.user_asset_balance - liabilities.loan_balance - liabilities.credit_balance) * 100) / 100;
+  const formattedAmount = amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
   return (
     <div className="totvalTile two-tile">
       <h1 className="tile-title">Total Asset Value</h1>
-      <div className="tot-amount">{Math.round((liabilities.cash_balance + liabilities.investment_balance + liabilities.user_asset_balance - liabilities.loan_balance - liabilities.credit_balance) * 100) / 100}</div>
+      <div className="tot-amount">{formattedAmount}</div>
       <div className="gain-loss-cont">
         <div className="gain-loss">
           <div className="up-arrow">▲</div>

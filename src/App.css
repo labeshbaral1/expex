@@ -100,3 +100,13 @@ background-color: rgb(234, 234, 234);
  
 }
 
+@media (min-height: 900px) {
+
+  .content{
+    border-radius: 15px;
+    background-color: #eff3f8;
+    min-width: 1085px;
+    min-height: 825px;
+    /* overflow: auto; */
+  }
+}

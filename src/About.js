@@ -163,8 +163,6 @@ function About() {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <div className="split right">
