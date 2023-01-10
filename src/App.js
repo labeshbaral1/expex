@@ -10,7 +10,7 @@ import Overview from "./components/overview/Overview";
 
 
 import FirstTimeAddAccount from "./components/FirstTimeAddAccount";
-import AddAccount from "./components/sidebarIcons/AddAccount";
+import AddAccount from "./components/SidebarIcons/AddAccount";
 
 import Transactions from "./components/Transactions";
 import FinancialPlanner from "./components/financialPlanner/FinancialPlanner";
@@ -18,7 +18,7 @@ import History from "./components/History";
 import Sidebar from "./components/Sidebar";
 import SidebarIcon from "./components/SidebarIcons/SidebarIcon";
 import SidebarRight from "./components/SidebarRight";
-// import About from "./About";
+import About from "./About";
 
 import StockChart from "./StockChart";
 import React from "react";
