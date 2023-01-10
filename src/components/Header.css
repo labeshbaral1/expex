@@ -2,6 +2,7 @@
 nav{
     display: flex;
     background-color: #FFFFFF;
+    z-index: 15;
 }
 
 .container{ 
