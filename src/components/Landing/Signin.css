@@ -91,7 +91,7 @@ justify-content: center;
 
 .login-desc{
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 300;
     margin-bottom: 5%;
     color: gray;
 }
@@ -107,21 +107,26 @@ justify-content: center;
 .em{
     background: transparent;
     height: 30px;
+    padding-left: 2px;
     margin-bottom: 1%;
-
     border-radius: 5px;
     background-color: white;
     border: 1px solid lightgrey;
     font-weight: 400;
-    font-size: 11px;
-    
+    font-size: 11px; 
+}
+
+
+.em:focus{
+    outline: none;
+    border: 1.5px solid #635BFF;
 }
 
 .pass{
     background: transparent;
     height: 30px;
     margin-bottom: 3%;
-
+    padding-left: 2px;
     border-radius: 5px;
     background-color: white;
     border: 1px solid lightgrey;
@@ -130,7 +135,8 @@ justify-content: center;
 }
 
 .pass:focus{
-    border: none;
+    outline: none;
+    border: 1.5px solid #635BFF;
 }
 
 .forgot{
@@ -200,7 +206,7 @@ justify-content: center;
 }
 
 .new-acct{
-    font-weight: 500;
+    font-weight: 300;
     font-size: 9px;
     color: gray;
     display: flex;

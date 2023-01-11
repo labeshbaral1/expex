@@ -17,8 +17,16 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import CloseIcon from '@mui/icons-material/Close';
+import { Link } from "react-router-dom";
+
+
 
 function About() {
+    const [selectedTab, setSelectedTab] = useState("overview");
+    function handleTabClick(divId) {
+        setSelectedTab(divId);
+    }
 
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
@@ -30,11 +38,13 @@ function About() {
         if (cardNumber !== 3) setIsOpen3(false);
     }
 
+
+
     return (
         <div className='about'>
-            
+
             <div className="split left">
-                
+
                 <div className="about-center">
                     <div className='about-title'>About Us.</div>
                     <p>
@@ -131,7 +141,7 @@ function About() {
 
                     <div className='about-title2'>Meet the Developers.</div>
                     <div className='full-dev-cont'>
-                    <div className='developer-cont2'>
+                        <div className='developer-cont2'>
                             <div className='profile-pic-cont'>
                                 <img className="nuts" src={labesh} alt="" />{" "}
                             </div>
@@ -166,8 +176,13 @@ function About() {
                 </div>
             </div>
             <div className="split right">
+                <Link to='/overview' onClick={() => handleTabClick("overview")}>
+                    <div className='close-cont'>
+                        <CloseIcon className='close' fontSize='large' style={{color: "black"}}/>
+                    </div>
+                </Link>
                 <img className="hand" src={bob} alt="" />{" "}
-                <img className="phone" src= {"/assets/srikar.png"}/>
+                {/* <img className="phone" src={"/assets/srikar.png"} /> */}
             </div>
         </div>
 
