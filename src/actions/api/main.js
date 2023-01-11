@@ -1,7 +1,7 @@
 import { db } from "../../firebase/firebase";
 import { setAccounts } from "../../redux/accountSlice";
 import axios from "axios";
-import { toggleAPIloading } from "../../redux/stateSlice";
+import { toggleAPIloading, toggleFirstTimeLogin } from "../../redux/stateSlice";
 
 
 export const main = async (email, dispatch) => {
@@ -72,8 +72,7 @@ export const main = async (email, dispatch) => {
       return true
     }
     else{
-      console.log("this should return falase")
-      return false
+      dispatch(toggleFirstTimeLogin(true))
     }
 };
 

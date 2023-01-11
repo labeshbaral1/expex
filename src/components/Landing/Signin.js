@@ -9,6 +9,7 @@ function Signin() {
   const [email, updateEmail] = useState("");
   const [password, updatePassword] = useState("");
   const dispatch = useDispatch();
+  const [error, toggleError] = useState(null);
 
   return (
     <div className="signin">
@@ -16,9 +17,9 @@ function Signin() {
         className="signin-form"
         onSubmit={(event) => {
           event.preventDefault();
-          loginUser(email, password, dispatch, navigate);
-          updateEmail("")
-          updatePassword("")
+          loginUser(email, password, toggleError, dispatch, navigate);
+          updateEmail("");
+          updatePassword("");
         }}
       >
         <div className="bodyy">
@@ -49,6 +50,7 @@ function Signin() {
                   onChange={(e) => updatePassword(e.target.value)}
                 />
                 <div className="forgot">Forgot password</div>
+                {error && <div className="error">{error}</div> }
                 <button className="goog1-but">Sign in</button>
                 <button className="goog2-but">Sign in with Google</button>
                 <div className="new-acct">
