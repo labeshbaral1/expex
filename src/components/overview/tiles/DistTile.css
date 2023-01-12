@@ -93,7 +93,6 @@ padding-right: 10px;
 
 .asset-name{
     font-size: 1.2rem;
-    font-weight: 300;
 }
 
 
@@ -102,7 +101,6 @@ padding-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-weight: 300;
 }
 
 .cash-cont2{
@@ -110,7 +108,6 @@ padding-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-weight: 300;
 }
 
 .cash-cont3{
@@ -118,7 +115,6 @@ padding-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-weight: 300;
 }
 
 .cash-cont4{
@@ -126,5 +122,4 @@ padding-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-weight: 300;
 }

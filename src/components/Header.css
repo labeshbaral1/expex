@@ -2,7 +2,6 @@
 nav{
     display: flex;
     background-color: #FFFFFF;
-    justify-content: space-between;
 }
 
 .container{ 
@@ -27,7 +26,7 @@ nav{
 .tab{
     padding: 5px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     color: rgb(60, 60, 60);
     align-self: center;
 
@@ -57,48 +56,6 @@ font-size: 9px;
 
 .selected{
     color:#635BFF;
-    font-weight: 600;
+    font-weight: 900;
 
-}
-
-.navigation2{
-    display: flex;
-    flex-direction: row;
-margin-right: 25px;
-align-items: center;
-
-}
-
-.search-bar{
-    margin-right: 18px;
-    padding: 10px;
-    padding-right: 40px;
-    border: 2px solid rgb(75, 75, 75);
-    border-radius: 30px;
-}
-
-.search-bar::placeholder{
-    color: grey;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.search-bar:focus{
-    outline: none;
-    border-color: #635BFF;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.search-icon {
-position: relative;
-top: 8px;
-    left: 35px;
-  }
-
-
-
-.notifs:hover{
-    cursor: pointer;
-    color: #635BFF;
 }
