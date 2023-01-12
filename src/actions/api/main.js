@@ -72,7 +72,9 @@ export const main = async (email, dispatch) => {
       return true
     }
     else{
+      console.log("first time log is tr")
       dispatch(toggleFirstTimeLogin(true))
+      return false
     }
 };
 

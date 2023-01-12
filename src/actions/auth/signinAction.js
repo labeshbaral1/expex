@@ -8,7 +8,14 @@ import {
 import { setUser } from "../../redux/userSlice";
 import { setAssets } from "../../redux/accountSlice";
 
-export const loginUser = (email, password, toggleError, dispatch, navigate) => {
+export const loginUser = (
+  email,
+  password,
+  toggleError,
+  firstTimeLogin,
+  dispatch,
+  navigate
+) => {
   auth
     .signInWithEmailAndPassword(email, password)
 
@@ -27,23 +34,23 @@ export const loginUser = (email, password, toggleError, dispatch, navigate) => {
           );
         });
 
-      main(email, dispatch);
+      main(email, dispatch).then((res) => {
+        if (!res) {
+          navigate("/about");
+        } else {
+          db.collection("users")
+            .doc(btoa(email))
+            .collection("additional_assets")
+            .doc("assets")
+            .onSnapshot((snap) => {
+              console.log(snap.data().user_assets);
+              dispatch(setAssets(snap.data().user_assets));
+            });
 
-      if (toggleFirstTimeLogin) {
-        navigate("/about");
-      } else {
-        db.collection("users")
-          .doc(btoa(email))
-          .collection("additional_assets")
-          .doc("assets")
-          .onSnapshot((snap) => {
-            console.log(snap.data().user_assets);
-            dispatch(setAssets(snap.data().user_assets));
-          });
-
-        navigate("/overview");
-      }
-      dispatch(toggleLoggedIn(true));
+          navigate("/overview");
+        }
+        dispatch(toggleLoggedIn(true));
+      });
     })
     .catch((error) => toggleError(error));
 };

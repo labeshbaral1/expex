@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialState = {
     isLogged: false,
     apiLoading: false,
-    firstTimeLogin: false
+    firstTimeLogin: false    
 }
 
 

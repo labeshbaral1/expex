@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./Signin.css";
 import { loginUser } from "../../actions/auth/signinAction";
+import {useSelector} from 'react-redux'
 
 function Signin() {
   const navigate = useNavigate();
@@ -10,6 +11,8 @@ function Signin() {
   const [password, updatePassword] = useState("");
   const dispatch = useDispatch();
   const [error, toggleError] = useState(null);
+  const firstTimeLogin = useSelector(state => state.states.firstTimeLogin)
+
 
   return (
     <div className="signin">
@@ -17,7 +20,7 @@ function Signin() {
         className="signin-form"
         onSubmit={(event) => {
           event.preventDefault();
-          loginUser(email, password, toggleError, dispatch, navigate);
+          loginUser(email, password, toggleError, firstTimeLogin, dispatch, navigate);
           updateEmail("");
           updatePassword("");
         }}
