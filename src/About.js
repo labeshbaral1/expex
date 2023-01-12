@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import "./About.css";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import bob from "./assets/hand-holding-phone.webp";
 import labesh from "./assets/labesh.PNG"
 import shubham from "./assets/shubham.JPG"
@@ -173,7 +173,9 @@ function About() {
                             </div>
                         </div>
                     </div>
+
                 </div>
+              </div>
             </div>
             <div className="split right">
                 <Link to='/overview' onClick={() => handleTabClick("overview")}>
@@ -183,11 +185,26 @@ function About() {
                 </Link>
                 <img className="hand" src={bob} alt="" />{" "}
                 {/* <img className="phone" src={"/assets/srikar.png"} /> */}
-            </div>
-        </div>
 
-    );
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="split right">
+        <img className="hand" src={bob} alt="" />{" "}
+        <img className="phone" src={"/assets/srikar.png"} />
+        {firstTimeLogin && (
+          <>
+            <Link to="linkAccount" />
+            <div className="continue">
+              continue→
+            </div>
+            <Link />
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default About;
-
