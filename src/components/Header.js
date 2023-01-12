@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+
 
 function Header() {
   // Use a state variable to store the currently selected tab
@@ -47,9 +50,8 @@ function Header() {
           >
             <div
               id={"financial_planner"}
-              className={`tab ${
-                selectedTab === "financial_planner" ? "selected" : ""
-              }`}
+              className={`tab ${selectedTab === "financial_planner" ? "selected" : ""
+                }`}
             >
               Financial Planner
             </div>
@@ -64,6 +66,14 @@ function Header() {
             </div>
           </Link>
         </div>
+
+      </div>
+      <div className="navigation2">
+        <div className="search-container">
+        {/* <SearchOutlinedIcon className='search-icon' /> */}
+        <input className="search-bar" type="text" placeholder="Search..." />
+        </div>
+        <NotificationsNoneOutlinedIcon className="notifs"/>
       </div>
     </nav>
   );
