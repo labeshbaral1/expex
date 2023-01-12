@@ -18,8 +18,17 @@ export const loginUser = (
 ) => {
   auth
     .signInWithEmailAndPassword(email, password)
-
-    .then((user) => {
+    .then(() => {
+      return (
+        db
+          .collection("users")
+          .doc(btoa(email))
+          .collection("accounts")
+          .doc("accessTokens")
+          .get() || null
+      );
+    })
+    .then((accessTokensDoc) => {
       db.collection("users")
         .doc(btoa(email))
         .collection("user-info")
@@ -34,23 +43,27 @@ export const loginUser = (
           );
         });
 
-      main(email, dispatch).then((res) => {
-        if (!res) {
-          navigate("/about");
-        } else {
-          db.collection("users")
-            .doc(btoa(email))
-            .collection("additional_assets")
-            .doc("assets")
-            .onSnapshot((snap) => {
-              console.log(snap.data().user_assets);
-              dispatch(setAssets(snap.data().user_assets));
-            });
+      if (accessTokensDoc.exists) {
+        
+        main(accessTokensDoc, dispatch);
+        db.collection("users")
+          .doc(btoa(email))
+          .collection("additional_assets")
+          .doc("assets")
+          .onSnapshot((snap) => {
+            dispatch(setAssets(snap.data().user_assets));
+          });
 
-          navigate("/overview");
-        }
-        dispatch(toggleLoggedIn(true));
-      });
+        navigate("/overview");
+      } else {
+        dispatch(toggleFirstTimeLogin(true));
+        navigate("/about");
+
+      }
+      dispatch(toggleLoggedIn(true));
     })
-    .catch((error) => toggleError(error));
+    .catch((error) => {
+      console.log("error Detected logging in");
+      toggleError(error);
+    });
 };

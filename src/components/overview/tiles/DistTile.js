@@ -10,7 +10,6 @@ function DistTile({ liabilities }) {
 	const email = useSelector(state => state.user.email)
 	const additional_assets = useSelector(state => state.accounts.user_assets)
 	const [show, setShow] = useState(false);
-	console.log(show)
 	const totAsset = Math.round((liabilities.investment_balance + liabilities.cash_balance + liabilities.user_asset_balance) * 100) / 100;
 	const MtotAsset = totAsset.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 	const totLiabilities = Math.round((liabilities.credit_balance + liabilities.loan_balance) * 100) / 100;
