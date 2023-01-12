@@ -45,7 +45,7 @@ function Signin() {
                 />
                 <div className="small-email">Password</div>
                 <input
-                  type="password"
+                  type="text"
                   id="password"
                   className="pass"
                   placeholder=" Enter password"

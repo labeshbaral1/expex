@@ -44,14 +44,14 @@
 .account-number{
     margin-top: 0.5%;
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 500;
     color: gray;
 }
 
 
 .bank-amount{
     color: rgb(75, 75, 75);
-    font-weight: 500px;
+    font-weight: 600px;
     margin-right: 10px;
 }
 

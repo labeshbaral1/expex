@@ -1,31 +1,25 @@
 .about {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100vw;
-
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
 }
-
 .split-left {
-    width: 50%;
-    overflow: auto;
-
-
+  width: 50%;
+  overflow: auto;
 }
 
 .split-right {
-    width: 50%;
+  width: 50%;
 }
 
 .MuiTimeline-root {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 ::-webkit-scrollbar {
-    width: 0.25em;
-    /* set the width of the scrollbar */
-    /* background-color: transparent;  */
-
+  width: 0.25em; /* set the width of the scrollbar */
+  /* background-color: transparent;  */
 }
 
 .card {
@@ -94,25 +88,6 @@
   right: 150px;
 
 
-.close {
-    position: absolute;
-    top: 40px;
-    right: 35px;
-    z-index: 10000;
-}
-
-.close:hover {
-
-}
-
-.phone {
-    z-index: 20;
-    position: relative;
-    height: 300px;
-    width: 150px;
-    bottom: 300px;
-    right: 150px;
-
 }
 
 
@@ -167,28 +142,26 @@
 }
 
 .profile-pic-cont {
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 150px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 150px;
 }
 
 .profile-pic-text-cont {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
     justify-content: center; */
 }
 
 .socials {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 /* .profile-pic-text-cont {
@@ -210,56 +183,49 @@
 }
 
 .full-timeline {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .developer-cont {
-    background-color: #f3f5f9;
-    border-radius: 15px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #f3f5f9;
+  border-radius: 15px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .developer-cont2 {
-    background-color: #f3f5f9;
-    border-radius: 15px;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    box-shadow:
-        0 1px 1px hsl(0deg 0% 0% / 0.075),
-        0 2px 2px hsl(0deg 0% 0% / 0.075),
-        0 4px 4px hsl(0deg 0% 0% / 0.075),
-        0 8px 8px hsl(0deg 0% 0% / 0.075),
-        0 16px 16px hsl(0deg 0% 0% / 0.075);
-
-
+  background-color: #f3f5f9;
+  border-radius: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
 .full-dev-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 100px;
 }
 
-
 .dev-name {
-    font-size: 22px;
-    margin-top: 20px;
+  font-size: 22px;
+  margin-top: 20px;
 }
 
 .dev-title {
-    margin-top: 15px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #635BFF;
-
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #635bff;
 }
 
 
