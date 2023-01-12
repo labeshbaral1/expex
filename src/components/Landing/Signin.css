@@ -1,4 +1,4 @@
-.bodyy{
+.body{
     background-color: white;
     font-family:'Inter';
 }
@@ -211,5 +211,13 @@ justify-content: center;
 margin-left: 1.5%;
 color:#635BFF;
 font-weight: 600;
+}
+
+.error{
+    color: red;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
 }
 

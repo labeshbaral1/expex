@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./Signin.css";
 import { loginUser } from "../../actions/auth/signinAction";
+import {useSelector} from 'react-redux'
 
 function Signin() {
   const navigate = useNavigate();
   const [email, updateEmail] = useState("");
   const [password, updatePassword] = useState("");
   const dispatch = useDispatch();
+  const [error, toggleError] = useState(null);
+  const firstTimeLogin = useSelector(state => state.states.firstTimeLogin)
+
 
   return (
     <div className="signin">
@@ -16,9 +20,9 @@ function Signin() {
         className="signin-form"
         onSubmit={(event) => {
           event.preventDefault();
-          loginUser(email, password, dispatch, navigate);
-          updateEmail("")
-          updatePassword("")
+          loginUser(email, password, toggleError, firstTimeLogin, dispatch, navigate);
+          updateEmail("");
+          updatePassword("");
         }}
       >
         <div className="bodyy">
@@ -49,6 +53,7 @@ function Signin() {
                   onChange={(e) => updatePassword(e.target.value)}
                 />
                 <div className="forgot">Forgot password</div>
+                {error && <div className="error">{error}</div> }
                 <button className="goog1-but">Sign in</button>
                 <button className="goog2-but">Sign in with Google</button>
                 <div className="new-acct">
