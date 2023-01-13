@@ -1,4 +1,21 @@
-.setting-cont{
+.settings-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-tile{
+    margin-top: 35px;
+    margin-left: 45px;
+    background-color: var(--tile-color);
+    margin-right: 0px;
+    border-radius: 15px;
+    padding: 35px;
+    padding-top: 25px;
+    color: var(--text-color);;
+    min-width: 600px;
+}
+
+.setting-tile2{
     margin-top: 35px;
     margin-left: 45px;
     background-color: var(--tile-color);
@@ -6,11 +23,17 @@
     border-radius: 15px;
     padding: 35px;
     padding-top: 25px;
-    color: var(--text-color);
+    color: var(--text-color);;
+    max-width: 1200px;
 }
 
 .section-title{
     font-size: 24px;
+}
+
+.section-title2{
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .color-title{
@@ -58,6 +81,7 @@ gap: 10px;
 
 .theme-button-cont{
     margin-top: 15px;
+    margin-left: 5px;
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -77,5 +101,11 @@ gap: 10px;
 }
 
 .deeznuts{
-    margin-left: 20px;
+    margin-left: -5px;
+}
+
+.setting-tile2 h3{
+margin-top: 15px;
+margin-bottom: 2px;
+font-weight: 500;
 }
