@@ -5,7 +5,8 @@
 }
 
 body{
-  background-color: white;
+
+  background-color: var(--background-color);/* nutsack  */
   box-sizing: border-box;
 }
 
@@ -28,7 +29,7 @@ body{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-color);
 }
 
 .App-link {
@@ -94,7 +95,8 @@ background-color: rgb(234, 234, 234);
 
 .content{
   border-radius: 15px;
-  background-color: #eff3f8;
+  /* background-color: #eff3f8; */
+  background-color: red;
   min-width: 1085px;
   /* overflow: auto; */
  
@@ -104,7 +106,7 @@ background-color: rgb(234, 234, 234);
 
   .content{
     border-radius: 15px;
-    background-color: #eff3f8;
+    background-color: var(--inside-color);
     min-width: 1085px;
     min-height: 825px;
     /* overflow: auto; */

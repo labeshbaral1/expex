@@ -20,3 +20,33 @@ a{
 
 
 /* purple: 635BFF */
+/* :root {
+  --selected-color: #635BFF;
+  --text-color: white;
+  --grey-color: grey;
+  --grey-color2: rgb(75, 75, 75);
+  --grey-color3: rgb(60, 60, 60);
+  --grey-color4: rgb(102, 102, 102);
+  --tile-color: #01081b;
+  --inside-color: #091c3b;
+  --background-color: #000b23;
+  --borders: lightgrey;
+  --accent: #d8c7ff;
+} */
+
+/* #000b23 */
+
+:root {
+  --selected-color: #635BFF;
+  --text-color: black;
+  --grey-color: grey;
+  --grey-color2: rgb(75, 75, 75);
+  --grey-color3: rgb(60, 60, 60);
+  --grey-color4: rgb(102, 102, 102);
+  --grey-color5: rgb(180, 177, 177);
+  --tile-color: white;
+  --inside-color: #eff3f8;
+  --background-color: white;
+  --borders: lightgrey;
+  --accent-color: #d8c7ff;
+}
