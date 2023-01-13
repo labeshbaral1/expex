@@ -1,0 +1,81 @@
+.setting-cont{
+    margin-top: 35px;
+    margin-left: 45px;
+    background-color: var(--tile-color);
+    margin-right: 45px;
+    border-radius: 15px;
+    padding: 35px;
+    padding-top: 25px;
+    color: var(--text-color);
+}
+
+.section-title{
+    font-size: 24px;
+}
+
+.color-title{
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-color);
+    margin-top: 30px;
+}
+
+.color-cont{
+margin-top: 15px;
+display: flex;
+flex-direction: row;
+gap: 10px;
+}
+
+.purple{
+    color: #635BFF;
+}
+
+.blue{
+    color: blue;
+}
+
+.green{
+    color: green;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.red{
+    color: red;
+}
+
+.pink{
+    color: pink;
+}
+
+.black{
+    color: black;
+}
+
+
+.theme-button-cont{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.dark-theme-button{
+    padding: 10px;
+    background-color: #635BFF;
+    border-radius: 10px;
+}
+
+.light-theme-button{
+    padding: 10px;
+    background-color: #d8c7ff;
+    color: black;
+    border-radius: 10px;
+}
+
+.deeznuts{
+    margin-left: 20px;
+}

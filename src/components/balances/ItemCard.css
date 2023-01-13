@@ -6,13 +6,15 @@
     align-items: center;
     height: 150px;
     border-radius: 15px;
-    background-color: white;
+    background-color: var(--tile-color);
+    color:var(--text-color);
     cursor: pointer;
 }
 
 .item-name{
     font-size: 32px;
     margin-bottom: 1px;
+    color:var(--text-color);
 }
 
 .account-card:hover {
@@ -24,19 +26,21 @@
     opacity: 0;
 margin-top: 5%;
 transform: translateY(-2.0rem);
+color:var(--text-color);
 }
 
-.item-card:hover .drop-carrot {
+/* .item-card:hover .drop-carrot {
+    color:var(--text-color);
     transform: translateY(0rem);
     animation: fadeInUp .5s ease 0s forwards;
-}
+} */
 
 .left-container {
     display: flex;
     flex-direction: row;
     gap: 30px;
     align-items: center;
-
+    color:var(--text-color);
 }
 
 .item-logo>img {
@@ -50,20 +54,21 @@ transform: translateY(-2.0rem);
     font-weight: 600;
     margin-top: 10px;
     margin-right: 12px;
-    color: rgb(75, 75, 75);
+    color: var(--grey-color);
 }
 
 
 .dropDown {
     border-radius: 15px;
     margin-top: -4.5%;
-    background-color: white;
+    background-color: var(--tile-color);
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     opacity: 1;
     transform: translateY(-.8rem);
     animation: fadeInUp .5s ease 0s forwards;
+    color:var(--text-color);
 }
 
 

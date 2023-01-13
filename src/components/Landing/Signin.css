@@ -1,12 +1,13 @@
 .bodyy{
     background-color: white;
     font-family:'Inter';
+    color: var(--text-color);
 }
 
 .top-logo{
     font-size: 25px;
     font-weight: 900;
-    color: #635BFF;
+    color: var(--selected-color);
     margin-left: 4%;
     margin-top: 1%;
 }
@@ -17,13 +18,13 @@
     margin-right: 13px;
     margin-bottom: 13px;
     padding: 28px;
-    color: #635BFF;
+    color: var(--selected-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 3px solid #635BFF;
+    border: 3px solid var(--selected-color);
     font-family:'Inter';
 }
 
@@ -51,13 +52,13 @@
   
   .left {
     left: 0;
-    background-color: white;
+    background-color: var(--background-color);
     bottom: 0;
   }
   
   .right {
     right: 0;
-    background-color: #f3f5f9;
+    background-color: var(--tile-color);
   }
   
   .centered {
@@ -93,7 +94,7 @@ justify-content: center;
     font-size: 11px;
     font-weight: 300;
     margin-bottom: 5%;
-    color: gray;
+    color: var(--grey-color);
 }
 
 .small-email{
@@ -101,7 +102,7 @@ justify-content: center;
     font-weight: 600;
     margin-bottom: 2%;
     margin-top: 5%;
-    color: rgb(74, 74, 74);
+    color: var(--grey-color3);
 }
 
 .em{
@@ -110,7 +111,8 @@ justify-content: center;
     padding-left: 2px;
     margin-bottom: 1%;
     border-radius: 5px;
-    background-color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border: 1px solid lightgrey;
     font-weight: 400;
     font-size: 11px; 
@@ -119,7 +121,7 @@ justify-content: center;
 
 .em:focus{
     outline: none;
-    border: 1.5px solid #635BFF;
+    border: 2px solid var(--selected-color);
 }
 
 .pass{
@@ -128,7 +130,7 @@ justify-content: center;
     margin-bottom: 3%;
     padding-left: 2px;
     border-radius: 5px;
-    background-color: white;
+    background-color: var(--background-color);
     border: 1px solid lightgrey;
     font-weight: 400;
     font-size: 11px;
@@ -136,7 +138,7 @@ justify-content: center;
 
 .pass:focus{
     outline: none;
-    border: 1.5px solid #635BFF;
+    border: 1.5px solid var(--selected-color);
 }
 
 .forgot{
@@ -144,7 +146,7 @@ justify-content: center;
     justify-content: end;
     font-size: 9px;
     font-weight: 600;
-    color: #635BFF;
+    color: var(--selected-color);
     margin-bottom: 7%;
     margin-right: 3px;
 }
@@ -154,7 +156,7 @@ justify-content: center;
     margin-bottom: 5%;
     border-radius: 5px;
     background-color: white;
-    border: 1px solid lightgrey;
+    border: 0px solid lightgrey;
     font-weight: 400;
     font-size: 11px;
 }
@@ -163,14 +165,14 @@ justify-content: center;
     height: 35px;
     margin-bottom: 5%;
     border-radius: 5px;
-    background-color:#635BFF;
-    border: 1px solid lightgrey;
+    background-color:var(--selected-color);
+    border: 0px solid lightgrey;
     font-weight: 400;
     font-size: 11px;
     color: white;
 }
 .goog2-but{
-    height: 30px;
+    height: 35px;
     margin-bottom: 5%;
     border-radius: 5px;
     background-color: white;
@@ -208,14 +210,14 @@ justify-content: center;
 .new-acct{
     font-weight: 300;
     font-size: 9px;
-    color: gray;
+    color: var(--grey-color);
     display: flex;
     flex-direction: row;
 }
 
 .new-acct2{
 margin-left: 1.5%;
-color:#635BFF;
+color:var(--selected-color);
 font-weight: 600;
 }
 

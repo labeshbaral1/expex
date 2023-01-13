@@ -10,7 +10,7 @@
   margin: auto;
   border: 20px solid #EAF0F6;
   border-radius: 50%;
-  border-top: 20px solid #635BFF;
+  border-top: 20px solid var(--selected-color);
   width: 200px;
   height: 200px;
   animation: spinner 3s linear infinite;
@@ -19,7 +19,7 @@
 
 .text{
   text-align: center;
-  color: #635BFF;
+  color: var(--selected-color);
   font-size: 40px;
   font-weight: 900;
 }
