@@ -2,7 +2,8 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
     isLogged: false,
-    apiLoading: false
+    apiLoading: false,
+    firstTimeLogin: false    
 }
 
 
@@ -18,6 +19,9 @@ const stateSlice = createSlice({
             state.apiLoading = action.payload
         }
         ,
+        toggleFirstTimeLogin: (state, action) => {
+            state.firstTimeLogin = action.payload
+        }
 
  
 
@@ -28,5 +32,5 @@ const stateSlice = createSlice({
  
 export default stateSlice.reducer
  
-export const {toggleLoggedIn, toggleAPIloading} = stateSlice.actions
+export const {toggleLoggedIn, toggleAPIloading, toggleFirstTimeLogin} = stateSlice.actions
  

@@ -27,28 +27,26 @@
     width: 0.25em;
     /* set the width of the scrollbar */
     /* background-color: transparent;  */
+
 }
 
 .card {
-
-    background-color: #e5dbff;
-    padding: 50px 50px;
-    margin-top: 20vh;
+  background-color: #e5dbff;
+  padding: 50px 50px;
+  margin-top: 20vh;
 }
 
 .card2 {
-
-    background-color: #e5dbff;
-    padding: 50px 50px;
-    margin-top: 10vh;
+  background-color: #e5dbff;
+  padding: 50px 50px;
+  margin-top: 10vh;
 }
 
 .card3 {
-
-    background-color: #e5dbff;
-    padding: 50px 50px;
-    margin-top: 10vh;
-    margin-bottom: 20vh;
+  background-color: #e5dbff;
+  padding: 50px 50px;
+  margin-top: 10vh;
+  margin-bottom: 20vh;
 }
 
 .card p {
@@ -58,21 +56,21 @@
     font-size: 18px;
     font-weight: 100;
     margin-top: 15px;
+
 }
 
 .card2 p {
-    line-height: 150%;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 18px;
-    margin-top: 15px;
+  line-height: 150%;
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+  margin-top: 15px;
 }
 
 .card3 p {
-
-    line-height: 150%;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 18px;
-    margin-top: 15px;
+  line-height: 150%;
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+  margin-top: 15px;
 }
 
 .aboutus {
@@ -80,20 +78,28 @@
     font-size: 24px;
 
     white-space: nowrap;
+
 }
 
 .expand {
-    width: 40rem;
+  width: 40rem;
 }
 
 .hand {
-    position: relative;
-    bottom: 0px;
-    right: -200px;
-    max-width: 650px;
-
-
+  position: relative;
+  bottom: 0px;
+  right: -200px;
+  max-width: 650px;
 }
+
+.phone {
+  z-index: 20;
+  position: relative;
+  height: 300px;
+  width: 150px;
+  bottom: 300px;
+  right: 150px;
+
 
 .close {
     position: absolute;
@@ -113,6 +119,7 @@
     width: 150px;
     bottom: 300px;
     right: 150px;
+
 }
 
 .about-text{
@@ -120,41 +127,56 @@
     color: var(--text-color);
 }
 
-@media (max-height: 800px) {
+.continue {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    padding: 10px;
+    background-color: #635bff;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    
+  }
 
-    /* apply these styles when the viewport is 576px or narrower */
-    .hand {
-        max-width: 500px;
-    }
+  .continue:hover{
+    cursor: pointer;
+  }
+@media (max-height: 800px) {
+  /* apply these styles when the viewport is 576px or narrower */
+  .hand {
+    max-width: 500px;
+  }
 }
 
 .about-center {
     margin-top: 50px;
     margin-left: 90px;
     margin-right: 90px;
+
 }
 
 .about-center p {
-    margin-bottom: 15px;
-    font-size: 18px;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .about-title {
     font-size: 32px;
     margin-bottom: 20px;
-    
+
 }
 
 .about-title2 {
-    font-size: 32px;
-    margin-bottom: 70px;
-    margin-top: 60px;
+  font-size: 32px;
+  margin-bottom: 70px;
+  margin-top: 60px;
 }
 
 .about-title3 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    margin-top: 60px;
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-top: 60px;
 }
 
 .profile-pic-cont {
@@ -170,6 +192,7 @@
     display: flex;
     flex-direction: column;
     /* align-items: center;
+
     justify-content: center; */
 }
 
@@ -178,6 +201,7 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
+
 }
 
 /* .profile-pic-text-cont {
@@ -192,10 +216,10 @@
 } */
 
 .nuts {
-    width: 175px;
-    height: 225px;
-    overflow: hidden;
-    border-radius: 15px;
+  width: 175px;
+  height: 225px;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
 .full-timeline {
@@ -248,7 +272,10 @@
     font-size: 14px;
     font-weight: 600;
     color: var(--selected-color);
+
 }
+
+
 
 /* .phone{
     font-size: 30px;
