@@ -1,10 +1,11 @@
 .totvalTile{
-    background-color: white;
+    background-color: var(--tile-color);
     height: 300px;
     padding: 10px;
     border-radius: 15px;
     transition: box-shadow .4s;
     margin-left: 1.5%;
+    color: var(--text-color);
 }
 
 .totvalTile:hover{
@@ -13,7 +14,6 @@
 
 
 .tot-amount{
-
     margin-top: 3%;
     font-size: 42px;
     font-weight: 900;
@@ -38,8 +38,10 @@
     margin-left: 15px;
     margin-top: 9px;
     font-size: 14px;
-    /* color: #635BFF; */
-    background-color: #d8c7ff;
+    /* color: var(--selected-color); */
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    /* background-color: #52c8a0; */
     border-radius: 5px;
     padding: 8px;
     display: flex;

@@ -47,6 +47,7 @@ function About() {
 
                 <div className="about-center">
                     <div className='about-title'>About Us.</div>
+                    <div className='about-text'>
                     <p>
                         Expex is a revolutionary financial management platform that
                         merges all of your financial accounts, regardless of the
@@ -63,6 +64,7 @@ function About() {
                         investments, and more, granting a complete yet simple view of your
                         financial situation.
                     </p>
+                    </div>
 
 
                     <div className='about-title3'>Project Timeline.</div>
@@ -180,7 +182,7 @@ function About() {
             <div className="split right">
                 <Link to='/overview' onClick={() => handleTabClick("overview")}>
                     <div className='close-cont'>
-                        <CloseIcon className='close' fontSize='large' style={{color: "black"}}/>
+                        <CloseIcon className='close' fontSize='large' style={{color: "var(--text-color)"}}/>
                     </div>
                 </Link>
                 <img className="hand" src={bob} alt="" />{" "}

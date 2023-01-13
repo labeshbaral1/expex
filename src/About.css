@@ -1,9 +1,11 @@
+
+
 .about {
     display: flex;
     flex-direction: row;
     height: 100vh;
     width: 100vw;
-
+    color: var(--text-color);
 }
 
 .split-left {
@@ -48,10 +50,13 @@
 }
 
 .card p {
-  line-height: 150%;
-  font-family: "Roboto Mono", monospace;
-  font-size: 18px;
-  margin-top: 15px;
+
+    line-height: 150%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    font-weight: 100;
+    margin-top: 15px;
+
 }
 
 .card2 p {
@@ -69,9 +74,11 @@
 }
 
 .aboutus {
-  font-family: "Roboto Mono", monospace;
-  font-size: 24px;
-  white-space: nowrap;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 24px;
+
+    white-space: nowrap;
+
 }
 
 .expand {
@@ -96,7 +103,7 @@
 
 .close {
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 35px;
     z-index: 10000;
 }
@@ -115,6 +122,10 @@
 
 }
 
+.about-text{
+    font-weight: 300;
+    color: var(--text-color);
+}
 
 .continue {
     position: absolute;
@@ -139,9 +150,10 @@
 }
 
 .about-center {
-  margin-top: 90px;
-  margin-left: 90px;
-  margin-right: 90px;
+    margin-top: 50px;
+    margin-left: 90px;
+    margin-right: 90px;
+
 }
 
 .about-center p {
@@ -150,8 +162,9 @@
 }
 
 .about-title {
-  font-size: 32px;
-  margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 20px;
+
 }
 
 .about-title2 {
@@ -214,7 +227,7 @@
 }
 
 .developer-cont {
-    background-color: #f3f5f9;
+    background-color: var(--tile-color);
     border-radius: 15px;
     padding: 40px;
     display: flex;
@@ -223,7 +236,7 @@
 }
 
 .developer-cont2 {
-    background-color: #f3f5f9;
+    background-color: var(--tile-color);
     border-radius: 15px;
     padding-left: 60px;
     padding-right: 60px;
@@ -258,7 +271,7 @@
     margin-top: 15px;
     font-size: 14px;
     font-weight: 600;
-    color: #635BFF;
+    color: var(--selected-color);
 
 }
 

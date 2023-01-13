@@ -80,7 +80,7 @@ function TotValTile({ liabilities }) {
             <Line
               type="monotone"
               dataKey="pv"
-              stroke="#635BFF"
+              stroke="var(--selected-color)"
               strokeWidth={2}
             />
           </LineChart>

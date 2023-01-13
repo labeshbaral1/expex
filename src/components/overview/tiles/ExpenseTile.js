@@ -82,7 +82,7 @@ export default function ExpeseTile() {
           y={cy}
           dy={8}
           textAnchor="middle"
-          fill={fill}
+          fill="var(--text-color)"
         >
           {payload.name}
         </text>
@@ -117,7 +117,7 @@ export default function ExpeseTile() {
           dy={2}
           dx={-8}
           textAnchor={textAnchor}
-          fill="black"
+          fill="var(--text-color)"
         >
           {`${(percent * 100).toFixed(0)}%`}
         </text>
@@ -148,7 +148,7 @@ export default function ExpeseTile() {
               data={dataForPieChart}
               innerRadius="48%"
               outerRadius="70%"
-              fill="#635BFF"
+              fill={`var(--selected-color)`}
               dataKey="value"
               onMouseEnter={onPieEnter}
             />

@@ -2,7 +2,7 @@
 .top-logo2{
     font-size: 25px;
     font-weight: 900;
-    color: #635BFF;
+    color: var(--selected-color);
     margin-left: 2%;
     margin-top: 1.58%;
 }
@@ -68,7 +68,7 @@
     margin-top: 10%;
     margin-bottom: 5%;
     border-radius: 5px;
-    background-color:#635BFF;
+    background-color:var(--selected-color);
     border: 1px solid lightgrey;
     color: white;
     font-weight: 300;
