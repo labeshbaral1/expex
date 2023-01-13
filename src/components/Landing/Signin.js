@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./Signin.css";
 import { loginUser } from "../../actions/auth/signinAction";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 function Signin() {
   const navigate = useNavigate();
@@ -11,20 +11,18 @@ function Signin() {
   const [password, updatePassword] = useState("");
   const dispatch = useDispatch();
   const [error, toggleError] = useState(null);
-  const firstTimeLogin = useSelector(state => state.states.firstTimeLogin)
+  const firstTimeLogin = useSelector((state) => state.states.firstTimeLogin);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    loginUser(email, password, toggleError, firstTimeLogin, dispatch, navigate);
+    updateEmail("");
+    updatePassword("");
+  }
 
   return (
     <div className="signin">
-      <form
-        className="signin-form"
-        onSubmit={(event) => {
-          event.preventDefault();
-          loginUser(email, password, toggleError, firstTimeLogin, dispatch, navigate);
-          updateEmail("");
-          updatePassword("");
-        }}
-      >
+      <form className="signin-form">
         <div className="bodyy">
           <div className="split left">
             <div className="top-logo">Expex</div>
@@ -45,7 +43,7 @@ function Signin() {
                 />
                 <div className="small-email">Password</div>
                 <input
-                  type="password"
+                  type="text"
                   id="password"
                   className="pass"
                   placeholder=" Enter password"
@@ -53,9 +51,13 @@ function Signin() {
                   onChange={(e) => updatePassword(e.target.value)}
                 />
                 <div className="forgot">Forgot password</div>
-                {error && <div className="error">{error}</div> }
-                <button className="goog1-but">Sign in</button>
-                <button className="goog2-but">Sign in with Google</button>
+                {error && <div className="error">{error}</div>}
+                <button className="goog1-but" onClick={handleSubmit} disabled={!email || !password}>
+                  Sign in
+                </button>
+                <button className="goog2-but" onClick={handleSubmit} disabled={!email || !password}>
+                  Sign in with Google
+                </button>
                 <div className="new-acct">
                   <div className="new-acct1">Don't have an account?</div>
                   <div

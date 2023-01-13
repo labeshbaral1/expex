@@ -1,111 +1,66 @@
 import { db } from "../../firebase/firebase";
 import { setAccounts } from "../../redux/accountSlice";
 import axios from "axios";
-import { toggleAPIloading, toggleFirstTimeLogin } from "../../redux/stateSlice";
+import { toggleAPIloading } from "../../redux/stateSlice";
+
+export const main = async (accessTokensDoc, dispatch) => {
+  var start = new Date().getTime();
+  console.log(accessTokensDoc)
+
+  const accessTokens = accessTokensDoc.data().accessTokens;
+
+  if (accessTokens.length > 0) {
+    const res = [];
+
+    for (const accessToken of accessTokens) {
+      const apiResponse = await axios.post(
+        "http://localhost:8000/api/main",
+        { accessToken },
+        { headers: { "Content-Type": "application/json" } }
+      );
 
 
-export const main = async (email, dispatch) => {
-  
+      const item_id = await apiResponse.data.item.item_id;
 
-    var start = new Date().getTime();
+      const institution = await apiResponse.data.institution.name;
 
-  const accessTokensDoc = await db
-    .collection("users")
-    .doc(btoa(email))
-    .collection("accounts")
-    .doc("accessTokens")
-    .get();
+      const accounts = await apiResponse.data.accounts.accounts;
 
-  if (accessTokensDoc.exists) {
-    const accessTokens = accessTokensDoc.data().accessTokens;
+      let totalBalance = 0;
 
-    if (accessTokens.length > 0) {
-      const res = [];
-
-      for (const accessToken of accessTokens) {
-
-        const apiResponse = await axios.post(
-          "http://localhost:8000/api/main",
-          { accessToken },
-          { headers: { "Content-Type": "application/json" } }
-        );
-
-        const item_id = await apiResponse.data.item.item_id;
-
-        const institution = await apiResponse.data.institution.name;
-
-        const accounts = await apiResponse.data.accounts.accounts;
-
-
-
-        let totalBalance = 0;
-
-        
-        for (const account of accounts) {
-          
-          if (account.type == "depository"){
-          totalBalance += account.balances.current;}
-          else if (account.type == "credit"){
-            totalBalance -=account.balances.current; }
-          
+      for (const account of accounts) {
+        if (account.type == "depository") {
+          totalBalance += account.balances.current;
+        } else if (account.type == "credit") {
+          totalBalance -= account.balances.current;
         }
-                
-        const transactions = await apiResponse.data.transactions;
-
-        const liabilities = await apiResponse.data.liabilities.liabilities;
-
-        // Add the total balance to the balances array
-        res.push({
-          item_id: item_id,
-          name: institution,
-          balance: totalBalance,
-          accounts: accounts,
-          transactions: transactions,
-          access_token: accessToken,
-          liabilities: liabilities,
-        });
       }
 
-      dispatch(setAccounts(res));
-      dispatch(toggleAPIloading(false))
-      console.log('API request completed in ' + (new Date().getTime() - start) + ' milliseconds');    }
-      return true
+      const transactions = await apiResponse.data.transactions;
+
+      const liabilities = await apiResponse.data.liabilities.liabilities;
+
+      // Add the total balance to the balances array
+      res.push({
+        item_id: item_id,
+        name: institution,
+        balance: totalBalance,
+        accounts: accounts,
+        transactions: transactions,
+        access_token: accessToken,
+        liabilities: liabilities,
+      });
     }
-    else{
-      console.log("first time log is tr")
-      dispatch(toggleFirstTimeLogin(true))
-      return false
-    }
+
+    dispatch(setAccounts(res));
+    dispatch(toggleAPIloading(false));
+    console.log(
+      "API request completed in " +
+        (new Date().getTime() - start) +
+        " milliseconds"
+    );
+  }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { db } from "../../firebase/firebase";
 // import { setAccounts } from "../../redux/accountSlice";
@@ -155,7 +110,6 @@ export const main = async (email, dispatch) => {
 //           }
 //         );
 //         const transactions = await transactionResponse.data.transactions;
-
 
 //         const itemResponse = await axios.post(
 //           "http://localhost:8000/api/item",

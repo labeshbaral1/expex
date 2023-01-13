@@ -4,6 +4,7 @@ import { usePlaidLink } from "react-plaid-link";
 import { db } from "../firebase/firebase";
 import axios from "axios";
 import "./FirstTimeAddAccount.css";
+import { toggleFirstTimeLogin } from "../redux/stateSlice";
 
 export default function FirstTimeAddAccount() {
   const [token, setToken] = useState(null);
@@ -98,6 +99,8 @@ export default function FirstTimeAddAccount() {
     };
 
     setAccessToken();
+
+    dispatch(toggleFirstTimeLogin(false))
 
     // updateBalance(dispatch);
   }, []);

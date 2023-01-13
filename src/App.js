@@ -8,7 +8,6 @@ import Overview from "./components/overview/Overview";
 
 // import AddAccount from "./components/sidebarIcons/AddAccount";
 
-
 import FirstTimeAddAccount from "./components/FirstTimeAddAccount";
 import AddAccount from "./components/SidebarIcons/AddAccount";
 
@@ -30,17 +29,17 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import Balance from "./components/balances/Balance.js";
 import Loading from "./components/landing/Loading";
-import Settings from "./components/SidebarIcons/Settings"
+import Settings from "./components/SidebarIcons/Settings";
 import Help from "./components/SidebarIcons/Help";
 
 export default function App() {
   const loggedIn = useSelector((state) => state.states.isLogged);
   const apiLoading = useSelector((state) => state.states.apiLoading);
+  const firstTimeLogin = useSelector((state) => state.states.firstTimeLogin);
 
   return (
     <div className="App">
       <Router>
-        
         {loggedIn && <Header />}
 
         <Routes>
@@ -52,17 +51,17 @@ export default function App() {
 
           <Route exact path="signup" element={<Signup />} />
 
-          <Route exact path="about" element={ <About />}/>
+          <Route exact path="about" element={<About />} />
 
           <Route
             exact
             path="overview"
             element={
               apiLoading ? (
-                apiLoading ? (
-                  <Loading />
-                ) : (
+                firstTimeLogin ? (
                   <FirstTimeAddAccount />
+                ) : (
+                  <Loading />
                 )
               ) : (
                 <div className="content-container">
@@ -156,20 +155,24 @@ export default function App() {
             exact
             path="balances"
             element={
-              <div className="content-container">
-                <Sidebar
-                  icons={[
-                    <DashboardOutlinedIcon />,
-                    <PersonAddAltOutlinedIcon />,
-                    <HelpCenterOutlinedIcon />,
-                    <SettingsOutlinedIcon />,
-                  ]}
-                />
-                <div className="content">
-                  <Balance />
+              firstTimeLogin ? (
+                <FirstTimeAddAccount />
+              ) : (
+                <div className="content-container">
+                  <Sidebar
+                    icons={[
+                      <DashboardOutlinedIcon />,
+                      <PersonAddAltOutlinedIcon />,
+                      <HelpCenterOutlinedIcon />,
+                      <SettingsOutlinedIcon />,
+                    ]}
+                  />
+                  <div className="content">
+                    <Balance />
+                  </div>
+                  <SidebarRight />
                 </div>
-                <SidebarRight />
-              </div>
+              )
             }
           />
 
@@ -177,23 +180,31 @@ export default function App() {
             exact
             path="financial_planner"
             element={
-              <div className="content-container">
-                <Sidebar
-                  icons={[
-                    <DashboardOutlinedIcon />,
-                    <PersonAddAltOutlinedIcon />,
-                    <HelpCenterOutlinedIcon />,
-                    <SettingsOutlinedIcon />,
-                  ]}
-                />
-                <div className="content">
-                  <FinancialPlanner />
+              firstTimeLogin ? (
+                <FirstTimeAddAccount />
+              ) : (
+                <div className="content-container">
+                  <Sidebar
+                    icons={[
+                      <DashboardOutlinedIcon />,
+                      <PersonAddAltOutlinedIcon />,
+                      <HelpCenterOutlinedIcon />,
+                      <SettingsOutlinedIcon />,
+                    ]}
+                  />
+                  <div className="content">
+                    <FinancialPlanner />
+                  </div>
+                  <SidebarRight />
                 </div>
-                <SidebarRight />
-              </div>
+              )
             }
           />
-          <Route exact path="invest" element={<History />} />
+          <Route
+            exact
+            path="invest"
+            element={firstTimeLogin ? <FirstTimeAddAccount /> : <History />}
+          />
         </Routes>
       </Router>
     </div>
