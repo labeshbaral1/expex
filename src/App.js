@@ -183,25 +183,28 @@ export default function App() {
               firstTimeLogin ? (
                 <FirstTimeAddAccount />
               ) : (
-              <div className="content-container">
-                <Sidebar
-                  icons={[
-                    <DashboardOutlinedIcon />,
-                    <PersonAddAltOutlinedIcon />,
-                    <HelpCenterOutlinedIcon />,
-                    <SettingsOutlinedIcon />,
-                  ]}
-                />
-                <div className="content">
-                  <FinancialPlanner />
+                <div className="content-container">
+                  <Sidebar
+                    icons={[
+                      <DashboardOutlinedIcon />,
+                      <PersonAddAltOutlinedIcon />,
+                      <HelpCenterOutlinedIcon />,
+                      <SettingsOutlinedIcon />,
+                    ]}
+                  />
+                  <div className="content">
+                    <FinancialPlanner />
+                  </div>
+                  <SidebarRight />
                 </div>
-                <SidebarRight />
-              </div>)
+              )
             }
           />
-          <Route exact path="invest" element={ firstTimeLogin ? (
-                <FirstTimeAddAccount />
-              ) : <History />} />
+          <Route
+            exact
+            path="invest"
+            element={firstTimeLogin ? <FirstTimeAddAccount /> : <History />}
+          />
         </Routes>
       </Router>
     </div>
