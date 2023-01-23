@@ -5,7 +5,7 @@ import { signupUser } from "../../actions/auth/signupAction";
 
 function Signup() {
 
-
+  
   const [name, updateName] = useState(
     "user" + String(Math.floor(Math.random() * 1000 + 1))
   );
@@ -48,37 +48,17 @@ function Signup() {
           />
           <div className='small-pass2'>Password (6-25 characters)</div>
           <input
-            type="password"
+            type="text"
             id="password"
             placeholder="Enter password"
             value={password}
             onChange={(e) => updatePassword(e.target.value)}
             className='up'
           />
-          <div className='small-pass2'>Confirm Password</div>
-          <input
-            type="password"
-            id="confirm-password"
-            placeholder="Confirm password"
-            value={password}
-            // onChange={(e) => updatePassword(e.target.value)}
-            className='up'
-          />
-
-<div className='small-pass2'>Confirm Password</div>
-          <input
-            type="number"
-            id="phone"
-            placeholder="Enter Phone Number"
-            value={password}
-            // onChange={(e) => updatePassword(e.target.value)}
-            className='up'
-          />
-
           <button className="signup-but">Sign Up</button>
           <div className="divider-tot">
-            <div className="divider1">_______________</div>
-            <div className="divider2">_______________</div>
+          <div className="divider1">_______________</div>
+          <div className="divider2">_______________</div>
           </div>
           <div className="or">or</div>
           <button className='goog2-reg'>Sign up with Google</button>
