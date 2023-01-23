@@ -4,6 +4,12 @@ import { useDispatch } from "react-redux";
 import "./Signin.css";
 import { loginUser } from "../../actions/auth/signinAction";
 import { useSelector } from "react-redux";
+import firebase from 'firebase/compat/app';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+
+
+const provider = new GoogleAuthProvider();
 
 function Signin() {
   const navigate = useNavigate();
@@ -12,6 +18,7 @@ function Signin() {
   const dispatch = useDispatch();
   const [error, toggleError] = useState(null);
   const firstTimeLogin = useSelector((state) => state.states.firstTimeLogin);
+  const [googleEmail, updateGoogleEmail] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -19,6 +26,43 @@ function Signin() {
     updateEmail("");
     updatePassword("");
   }
+
+  // const { googleSignIn } = UserAuth();
+
+
+
+  // const handleGoogleSignin = async () => {
+  //   try {
+  //     await googleSignIn();
+  //   }
+  //   catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+  // const auth = getAuth();
+  // signInWithPopup(auth, provider)
+  //   .then((result) => {
+  //     // This gives you a Google Access Token. You can use it to access the Google API.
+  //     const credential = GoogleAuthProvider.credentialFromResult(result);
+  //     const token = credential.accessToken;
+  //     // The signed-in user info.
+  //     const user = result.user;
+  //     console.log(user.email);
+  //     updateEmail(user.email);
+  //     updatePassword("deeznuts");
+  //     handleSubmit();
+  //     // navigate("/overview")
+  //     // ...
+  //   }).catch((error) => {
+  //     // Handle Errors here.
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // The email of the user's account used.
+  //     const email = error.customData.email;
+  //     // The AuthCredential type that was used.
+  //     const credential = GoogleAuthProvider.credentialFromError(error);
+  //     // ...
+  //   });
 
   return (
     <div className="signin">
@@ -43,7 +87,7 @@ function Signin() {
                 />
                 <div className="small-email">Password</div>
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   className="pass"
                   placeholder=" Enter password"
@@ -55,9 +99,7 @@ function Signin() {
                 <button className="goog1-but" onClick={handleSubmit} disabled={!email || !password}>
                   Sign in
                 </button>
-                <button className="goog2-but" onClick={handleSubmit} disabled={!email || !password}>
-                  Sign in with Google
-                </button>
+                <button className="goog2-but">Sign in with Google</button>
                 <div className="new-acct">
                   <div className="new-acct1">Don't have an account?</div>
                   <div
