@@ -58,7 +58,7 @@
   
   .right {
     right: 0;
-    background-color: var(--inside-color);
+    background-color: var(--tile-color);
   }
   
   .centered {

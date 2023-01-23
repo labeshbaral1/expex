@@ -173,22 +173,22 @@ function About() {
       </div>
 
       <div className="split right">
-        <img className="hand" src={bob} alt="" />{" "}
-        {/* <img className="phone" src={"/assets/srikar.png"} /> */}
-      </div>
-
-      <div className="split right">
-      <Link to="/overview" onClick={() => handleTabClick("overview")}>
+        <Link to="/overview" onClick={() => handleTabClick("overview")}>
           <div className="close-cont">
             <CloseIcon
               className="close"
               fontSize="large"
-              style={{ color: "var(--text-color)" }}
+              style={{ color: "black" }}
             />
           </div>
         </Link>
         <img className="hand" src={bob} alt="" />{" "}
         {/* <img className="phone" src={"/assets/srikar.png"} /> */}
+      </div>
+
+      <div className="split right">
+        <img className="hand" src={bob} alt="" />{" "}
+        <img className="phone" src={"/assets/srikar.png"} />
         {firstTimeLogin && (
           <>
             <div className="continue" onClick={()=> navigate("/linkAccount")}>
@@ -196,7 +196,6 @@ function About() {
             </div>
           </>
         )}
-        <CloseIcon/>
       </div>
     </div>
   );
