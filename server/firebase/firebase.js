@@ -1,8 +1,11 @@
+import { useInRouterContext } from "react-router-dom";
 
 // Add the Firebase products that you want to use
 require("firebase/compat/auth");
 require("firebase/compat/firestore");
 var firebase = require("firebase/compat/app");
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useContext } from "react";
 
 
 
@@ -19,7 +22,7 @@ var firebase = require("firebase/compat/app");
  
   const app = firebase.initializeApp(firebaseConfig);
   const db = app.firestore()
-
+  export const auth = getAuth(app);
 
 module.exports = db
 
