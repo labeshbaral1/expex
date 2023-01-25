@@ -91,7 +91,7 @@ function SidebarRight() {
   
   return (
     <div className="sidebarRight">
-      <h1 className="sideBarRight-title">Transactions</h1>
+      <h1 className="sideBarRight-title">Recent Transactions</h1>
       {mappedDictionary}
     </div>
   );
