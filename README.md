@@ -36,9 +36,8 @@ To get started with Expex, visit our website and sign up for an account. Connect
 
 ## Contributors
 
-- John Doe
-- Jane Smith
-- Bob Johnson
+- Labesh Baral
+- Shubham Yadav
 
 ## License
 
