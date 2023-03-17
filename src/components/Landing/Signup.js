@@ -11,6 +11,7 @@ function Signup() {
   );
   const [email, updateEmail] = useState("@gmail.com");
   const [password, updatePassword] = useState("");
+  const [number, updateNumber] = useState("");
 
   const navigate = useNavigate();
 
@@ -55,23 +56,15 @@ function Signup() {
             onChange={(e) => updatePassword(e.target.value)}
             className='up'
           />
-          <div className='small-pass2'>Confirm Password</div>
-          <input
-            type="password"
-            id="confirm-password"
-            placeholder="Confirm password"
-            value={password}
-            // onChange={(e) => updatePassword(e.target.value)}
-            className='up'
-          />
+         
 
-<div className='small-pass2'>Confirm Password</div>
+<div className='small-pass2'>Enter Phone Number</div>
           <input
             type="number"
             id="phone"
             placeholder="Enter Phone Number"
-            value={password}
-            // onChange={(e) => updatePassword(e.target.value)}
+            value={number}
+            onChange={(e) => updateNumber(e.target.value)}
             className='up'
           />
 

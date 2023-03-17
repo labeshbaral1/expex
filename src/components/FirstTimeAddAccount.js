@@ -13,6 +13,10 @@ export default function FirstTimeAddAccount() {
   const dispatch = useDispatch()
 
   //API call to create_link_token
+
+  console.log("_________________________________")
+  console.log(uid)
+
   useEffect(() => {
     const createLinkToken = async () => {
       const linkTokenResponse = await fetch(
@@ -146,7 +150,7 @@ export default function FirstTimeAddAccount() {
 
 
         <h1>Take Control of Your Finances</h1>
-        <p>On the worlds #1 trusted bank</p>
+        <p>On the worlds #1 trusted platform</p>
         <div
           className="linkAccountButton"
           onClick={() => {
