@@ -6,7 +6,7 @@
 
 body{
 
-  background-color: var(--background-color);/* nutsack  */
+  background-color: var(--background-color);
   box-sizing: border-box;
 }
 
@@ -96,7 +96,7 @@ background-color: rgb(234, 234, 234);
 .content{
   border-radius: 15px;
   /* background-color: #eff3f8; */
-  background-color: red;
+  background-color: var(--inside-color);
   min-width: 1085px;
   /* overflow: auto; */
  
