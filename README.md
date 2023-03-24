@@ -47,7 +47,10 @@ Comming soon...
 - React.js
 - Node.js
 - Express.js
-- MongoDB
+- Firebase
+- Redux Toolkit
+- Plaid API
+- Open AI API
 
 ## Contributors
 
