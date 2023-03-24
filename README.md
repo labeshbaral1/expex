@@ -44,6 +44,13 @@ In the United States, a majority of individuals, approximately 64%, live paychec
 - Labesh Baral
 - Shubham Yadav
 
+
+
+## Run for yourself
+The app is still under production
+Please wait for updates for the future!
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
