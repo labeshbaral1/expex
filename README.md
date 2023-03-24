@@ -24,24 +24,22 @@ Why Expex?
 In the United States, a majority of individuals, approximately 64%, live paycheck to paycheck. Unfortunately, many young adults lack the necessary financial literacy skills, as this topic is not a prominent part of the educational system, leaving them to learn important lessons through trial and error. Expex empowers the next generation of young adults to develop important and sustainable financial habits.
 
 
-##Getting Started
+## Getting Started
 
-###Sign Up for Account and Log In (for ease you can use username: johnsmith@gmail.com password: password123)
-![Log in](expex/public/assets/readme/readMe-login.png)
+### Sign Up for an Account and Log In 
+(for ease you can use username: johnsmith@gmail.com password: password123)
+![Log in](public/assets/readme/readMe-login.png)
+
+### Add your Bank Accounts through Plaid (Don't worry this is safe)
+![Plaid](public/assets/readme/readMe-plaid.png)
+
+### Quickly Glance at all of your balances in one place
+![Dashboard](public/assets/readme/readMe-dashboard.png)
 
 
 
-Technologies used
-React.js
-Node.js
-Express.js
-MongoDB
-Contributors
-John Doe
-Jane Smith
-Bob Johnson
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+
 ## Technologies used
 
 - React.js
