@@ -23,20 +23,12 @@ Why Expex?
 
 In the United States, a majority of individuals, approximately 64%, live paycheck to paycheck. Unfortunately, many young adults lack the necessary financial literacy skills, as this topic is not a prominent part of the educational system, leaving them to learn important lessons through trial and error. Expex empowers the next generation of young adults to develop important and sustainable financial habits.
 
-Screenshots
-Login page
-Login page
-## Screenshots
 
-### Login page
-![Login page](/screenshots/login.png)
+##Getting Started
 
-### Dashboard
-![Dashboard](/screenshots/dashboard.png)
+###Sign Up for Account and Log In (for ease you can use username: johnsmith@gmail.com password: password123)
+![Log in](expex/public/assets/readme/readMe-login.png)
 
-Dashboard
-Dashboard
-## Getting started
 
 
 Technologies used
