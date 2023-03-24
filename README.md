@@ -28,6 +28,13 @@ In the United States, a majority of individuals, approximately 64%, live paychec
 ### Quickly Glance at all of your balances in one place
 ![Dashboard](public/assets/readme/readMe-dashboard.png)
 
+### Dig further into your Individual Accounts
+![Balances](public/assets/readme/readMe-balances.png)
+
+### See how you can save money in minutes
+Comming soon...
+
+
 
 
 
