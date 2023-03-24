@@ -84,6 +84,7 @@ function Signin() {
                   placeholder=" Enter your email"
                   value={email}
                   onChange={(e) => updateEmail(e.target.value)}
+                  autoComplete = "off"
                 />
                 <div className="small-email">Password</div>
                 <input

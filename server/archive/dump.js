@@ -334,7 +334,7 @@ app.get("/api/holdings", function (request, response, next) {
     .catch(next);
 });
 
-// Retrieve Liabilities for an Item
+// Retrieve  for an Item
 // https://plaid.com/docs/#liabilities
 app.get("/api/liabilities", function (request, response, next) {
   const { accessToken } = request.body;

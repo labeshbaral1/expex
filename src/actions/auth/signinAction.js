@@ -16,6 +16,9 @@ export const loginUser = (
   dispatch,
   navigate
 ) => {
+  
+
+
   auth
     .signInWithEmailAndPassword(email, password)
     .then(() => {
@@ -61,9 +64,7 @@ export const loginUser = (
 
       }
       dispatch(toggleLoggedIn(true));
-    })
-    .catch((error) => {
-      console.log("error Detected logging in");
-      toggleError(error);
-    });
+
+    }).catch(e => toggleError(e.message.slice(10))) 
+ 
 };
