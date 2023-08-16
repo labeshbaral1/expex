@@ -1,4 +1,4 @@
-Live Website: https://expex-b6bc6.web.app/
+Live Website: https://expex-b6bc6.firebaseapp.com/
 
 
 # Expex
